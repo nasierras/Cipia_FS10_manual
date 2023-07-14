@@ -95,10 +95,10 @@ Cipia-FS10 permite la captura de vídeo de las siguientes maneras:
    - **Comando del servidor (instantáneo):** active la duración predefinida, la captura de video inmediata del controlador una vez que se recibe un comando del backend.
    - **Comando del servidor (DVR):** recupere imágenes del búfer de grabación de video digital en curso en la tarjeta SD, de acuerdo con los marcos de tiempo definidos en el comando.
    - 
-- **Métodos de alerta e informes
+- **Métodos de alerta e informes**
 Cipia-FS10 informa sobre comportamientos y eventos detectados a:
-   - **Conductor : alertas auditivas (tanto señales como del habla), visuales y / o hápticas (por ejemplo, vibración del asiento o del cinturón de seguridad) al detectar un comportamiento no deseado.
-   - **Administrador de flota : alertas en tiempo real de eventos peligrosos con o sin imágenes de video capturadas alrededor del momento del evento detectado.
+   - **Conductor:** alertas auditivas (tanto señales como del habla), visuales y/o hápticas (por ejemplo, vibración del asiento o del cinturón de seguridad) al detectar un comportamiento no deseado.
+   - **Administrador de flota:** alertas en tiempo real de eventos peligrosos con o sin imágenes de video capturadas alrededor del momento del evento detectado.
 
 ## Cipia-FS10 - hardware e interfaces
 [Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
