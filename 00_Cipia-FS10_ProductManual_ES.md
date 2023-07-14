@@ -15,30 +15,8 @@ Los siguientes documentos deben usarse junto con este manual para proporcionar a
 - [Documento API de Middleware](06_Cipia-FS10_Middleware_document_ES.md)
 - [Manual de protocolo serial Cipia-FS10](07_Cipia-FS10_Serial_Protocol_manual_ES.md)
 
-## Introduction
-Provide a brief introduction to your project.
-
-## Installation
-Explain how to install and set up your project.
-
-## Usage
-Describe how users can use your project or provide examples.
-
-## Features
-Highlight the key features and functionalities of your project.
-
-## Contributing
-Explain how others can contribute to your project, including guidelines.
-
-
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Features](#features)
-- [Contributing](#contributing)
-- [License](#license)
-
+## Tabla de contenidos
+El siguiente manual está distribuido en la siguiente organización:
 
 ## License
-Specify the license under which your project is distributed.
-[Link to Serial_RS232.md](Serial_RS232.md)
+Todos los derechos están reservados por [Cipia Vision Ltd](https://www.cipia.com) 2023.
