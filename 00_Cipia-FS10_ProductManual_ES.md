@@ -128,7 +128,7 @@ En el diagrama anterior, el eje *x* apunta al controlador.
   <p align="center"><strong>Fig. 03</strong> - Cámara delantera para Cipia-FS10 Plus.</p>
 </div>
 
-- **Interfaces de usuario:** existen las siguientes interfaces mecánicas para las características de MMI.
+- **Interfaces de usuario:** existen las siguientes interfaces mecánicas para las características de usuario.
 
 <div align="center">
   <img src="images/FS10_parts.png" alt="FIG04" width="80%">
