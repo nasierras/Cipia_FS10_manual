@@ -18,5 +18,5 @@ Los siguientes documentos deben usarse junto con este manual para proporcionar a
 ## Tabla de contenidos
 El siguiente manual está distribuido en la siguiente organización:
 
-## License
-Todos los derechos están reservados por [Cipia Vision Ltd](https://www.cipia.com) 2023.
+## Licencia
+Todos los derechos están reservados por [Cipia Vision Ltd](https://www.cipia.com) formerly Eyesight - 2023.
