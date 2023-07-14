@@ -22,18 +22,15 @@ El siguiente manual está distribuido en la siguiente organización:
 3. [TestC](#TestC)
 
 ## TestA
-[inicio](#Cipia-FS10 (Manual de Producto))
-[tabla de contenidos](#Tabla de contenidos)
+[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
 asdasdasd
 
 ## TestB
-[inicio](#Cipia-FS10 (Manual de Producto))
-[tabla de contenidos](#tabla-de-contenidos)
+[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
 asdasdasd
 
 ## TestC
-[inicio](#Cipia-FS10 (Manual de Producto))
-[tabla de contenidos](#Tabla de contenidos)
+[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
 asdasdasd
 
 
