@@ -1,4 +1,4 @@
-# Cipia-FS10 manual (Manual de Producto)
+# Cipia-FS10 (Manual de Producto)
 ## Acerca de este manual
 ### Público objetivo
 Este manual del producto está destinado a los equipos de desarrollo de productos, soporte técnico y servicios profesionales dentro de los proveedores de servicios telemáticos (TSP) y los proveedores de plataformas de software, que planean utilizar las capacidades telemáticas de video Cipia-FS10 como parte de su oferta de productos.
@@ -13,7 +13,7 @@ Los siguientes documentos deben usarse junto con este manual para proporcionar a
 - Descripción de la API de la aplicación del instalador
 - Manual del instalador de la aplicación
 - Documento API de Middleware
-- Manual de protocolo serie Cipia-FS10
+- [Manual de protocolo serial Cipia-FS10](07_Cipia-FS10_Serial_Protocol_manual_ES.md)
 
 ## Introduction
 Provide a brief introduction to your project.
