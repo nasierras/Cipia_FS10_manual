@@ -21,8 +21,8 @@ El siguiente manual está distribuido en la siguiente organización:
 2. [Descripción general de Cipia-FS10](#Descripción-general-de-Cipia-FS10)
 3. [Cipia-FS10 Hardware e interfaces](#Cipia-FS10-hardware-e-interfaces)
 3.1. [Conceptos básicos del dispositivo Cipia-FS10](#Conceptos-básicos-del-dispositivo-Cipia-FS10)
-3.2. Bloques de construcción del sistema
-3.3. Especificación de hardware
+3.2. [Bloques de construcción del sistema](#Bloques-de-construcción-del-sistema)
+3.3. [Especificación de hardware](#Especificaciones-del-hardware)
 3.4. Cable de instalación y pines
 3.5. Cumplimiento ambiental
 3.6. Certificaciones y estándares de la industria
@@ -107,7 +107,7 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 <div align="center">
   <img src="images/FS10_device.png" alt="FIG01" width="80%">
-  <p align="center"><strong>Fig. 01</strong> - Imagen del dispositivo Cipia-FS10.</p>
+  <p align="center"><strong>Fig. 1</strong> - Imagen del dispositivo Cipia-FS10.</p>
 </div>
 
 - **Dimensiones** – Las dimensiones del producto son (excluyendo accesorios de montaje) 120mm (L) X 95mm (W) X 30mm. El dispositivo Cipia-FS10 no compromete el campo de visión del conductor de una manera incómoda o ilegal.
@@ -116,7 +116,7 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
 
 <div align="center">
   <img src="images/FS10_coordinate_systems.png" alt="FIG02" width="25%">
-  <p align="center"><strong>Fig. 02</strong> - Sistema coordenado del dispositivo Cipia-FS10.</p>
+  <p align="center"><strong>Fig. 2</strong> - Sistema coordenado del dispositivo Cipia-FS10.</p>
 </div>
 
 En el diagrama anterior, el eje *x* apunta al controlador.
@@ -126,14 +126,14 @@ En el diagrama anterior, el eje *x* apunta al controlador.
 
 <div align="center">
   <img src="images/FS10_dashcam.png" alt="FIG03" width="30%">
-  <p align="center"><strong>Fig. 03</strong> - Cámara delantera para Cipia-FS10 Plus.</p>
+  <p align="center"><strong>Fig. 3</strong> - Cámara delantera para Cipia-FS10 Plus.</p>
 </div>
 
 - **Interfaces de usuario:** existen las siguientes interfaces mecánicas para las características de usuario.
 
 <div align="center">
   <img src="images/FS10_parts.png" alt="FIG04" width="80%">
-  <p align="center"><strong>Fig. 04</strong> - Interfaz de dispositivo.</p>
+  <p align="center"><strong>Fig. 4</strong> - Interfaz de dispositivo.</p>
 </div>
 
 |Interfaz|Descripción|
@@ -154,7 +154,7 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 
 <div align="center">
   <img src="images/FS10_blocks.png" alt="FIG05" width="80%">
-  <p align="center"><strong>Fig. 05</strong> - Diagrama de bloques interno.</p>
+  <p align="center"><strong>Fig. 5</strong> - Diagrama de bloques interno.</p>
 </div>
 
 ### Especificación de hardware
