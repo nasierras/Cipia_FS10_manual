@@ -104,18 +104,13 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
 [Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
 
 ## Conceptos básicos del dispositivo Cipia-FS10
-
-| ![Device01](images/FS10_device.png) |
-|:--:|
-| *Imagen del dispositivo Cipia-FS10* |
+<img src="images/FS10_device.png" alt="Imagen del dispositivo Cipia-FS10" width="80%">
 
 - **Dimensiones** – Las dimensiones del producto son (excluyendo accesorios de montaje) 120mm (L) x 95mm (W) x 30mm (T). El dispositivo Cipia-FS10 no compromete el campo de visión del conductor de una manera incómoda o ilegal.
 - **Peso:** el dispositivo pesa ~ 390 g, incluido el arnés y el brazo de montaje.
 - **Ajuste de la orientación del dispositivo:** el dispositivo tiene un brazo de montaje que permite el movimiento 3D y proporciona la mayor flexibilidad de instalación mientras mantiene la cara del conductor dentro del marco interno de la cámara. El brazo de montaje se puede bloquear y se puede instalar en el salpicadero o en el parabrisas, utilizando adhesivo de doble cara y/o tornillos. Las cabezas de tornillo especiales son solo para uso profesional.
 
-| ![Device01](images/FS10_coordinate_systems.png) |
-|:--:|
-| *Sistema coordenado del dispositivo Cipia-FS10* |
+<img src="images/FS10_coordinate_systems.png" alt="Sistema coordenado del dispositivo Cipia-FS10" width="25%">
 
 En el diagrama anterior, el eje *x* apunta al controlador.
 	Cable  de instalación: el cable de instalación está conectado/soldado a la placa interna y sale de la superficie de la carcasa a través de un alivio de tensión de silicona que garantiza la elasticidad y la resistencia contra la tracción. Todos los cables están cubiertos por una sola chaqueta que sale de la carcasa del dispositivo.
