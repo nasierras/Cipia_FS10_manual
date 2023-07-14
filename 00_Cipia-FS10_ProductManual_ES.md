@@ -19,8 +19,8 @@ Los siguientes documentos deben usarse junto con este manual para proporcionar a
 El siguiente manual está distribuido en la siguiente organización:
 1. [Acerca de este manual](#Acerca-de-este-manual)
 2. [Descripción general de Cipia-FS10](#Descripción-general-de-Cipia-FS10)
-3. [Cipia-FS10 Hardware e interfaces](#Cipia-FS10---hardware-e-interfaces)
-3.1. Conceptos básicos del dispositivo Cipia-FS10
+3. [Cipia-FS10 Hardware e interfaces](#Cipia-FS10-hardware-e-interfaces)
+3.1. [Conceptos básicos del dispositivo Cipia-FS10](#Conceptos-básicos-del-dispositivo-Cipia-FS10)
 3.2. Bloques de construcción del sistema
 3.3. Especificación de hardware
 3.4. Cable de instalación y pines
@@ -61,7 +61,7 @@ El siguiente manual está distribuido en la siguiente organización:
 8.3.	RED
 
 ## Descripción general de Cipia-FS10
-[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
+[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#Tabla-de-contenidos)
 
 Cipia-FS10 es un dispositivo de videotelemática con capacidades integradas de visión artificial. Está diseñado para mejorar la seguridad del conductor y la flota a través de aplicaciones de videotelemática. El dispositivo Cipia-FS10 detecta la somnolencia del conductor, las distracciones y las acciones peligrosas, proporcionando alertas del conductor en tiempo real, así como alertas e información personalizadas del administrador de flotas a través de su servidor de gestión de flotas.
 
@@ -101,9 +101,10 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
    - **Administrador de flota:** alertas en tiempo real de eventos peligrosos con o sin imágenes de video capturadas alrededor del momento del evento detectado.
 
 ## Cipia-FS10 - hardware e interfaces
-[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
+[Ir al Inicio](#Cipia-FS10-Manual-de-Producto) | [Tabla de Contenidos](#Tabla-de-contenidos)
 
-## Conceptos básicos del dispositivo Cipia-FS10
+### Conceptos básicos del dispositivo Cipia-FS10
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 <div align="center">
   <img src="images/FS10_device.png" alt="FIG01" width="80%">
   <p align="center"><strong>Fig. 01</strong> - Imagen del dispositivo Cipia-FS10.</p>
@@ -139,13 +140,98 @@ En el diagrama anterior, el eje *x* apunta al controlador.
 |--------|-----------|
 |Puerta de SD|Tarjetas SIM/SD. Utilizado por técnicos e instaladores durante la instalación o servicio|
 |Botón funcional|Activación/ restablecimiento de HW ó activación de eventos|
+|LED de conductor|El LED rojo se utiliza para proporcionar retroalimentación visual al conductor|
+|Parlante|Para señales audible y alertas|
+|Micrófono|Para la grabación de voz de cabina (configurable)|
+|LED del Sistema|LED Tricolor para reportar los eventos del sistema|
+|Botón de Volumen|Control de volumen (configurable)|
+|Puerto USB (micro)|Puerto micro USB para el servicio de depuración y la carga de datos en caso de que los eventos y las secuencias de video no se puedan cargar de forma inalámbrica.|
+
+### Bloques de construcción del sistema
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
+
+El siguiente diagrama muestra los principales bloques de construcción, interconexiones e interfaces del dispositivo Cipia-FS10.
+
+|Componente|Descripción|
+|----------|-----------|
+|Núcleo de la plataforma||
+|Procesador principal (SOC)|Ambarella CV25|
+|RAM|1GB|
+|ROM|8GB|
+|Tarjeta de memoria|Ranura para tarjeta Micro SD – Hasta 1TB, exFAT, SDHC/SDXC|
+|Perro guardián|- Controlado por SW: para la recuperación de aplicaciones|
+| |-HW controlado – para la recuperación del sistema|
+|Sensor de movimiento|Acelerómetro 3D / (±16g, 12bit, 100Hz o mejor)|
+|Sistema operativo|Linux based|
+|Interfaz del controlador||
+|Botones físicos| - 1 x configurable, multipropósito|
+| | +/- Teclas de volumen|
+|LEDs| - 1 x Estado del sistema (3 colores)|
+| | - 3 x eventos del conductor|
+|Micrófono interno|Alta sensibilidad, omnidireccional|
+|Bocina interna|Max 85dB @ 1m / 2W, 600Hz ~ 20Khz|
+|Comunicación inalámbrica||
+|Celular| - LTE CAT4|
+| | - FDD 1/2/3/4/5/7/8/12/13/17/20/28 (Territorios/aplicaciones no compatibles: Japón, FirstNet)|
+| | - GSM 850/900/1800/1900|
+| | - WCDMA 1/2/4/5/8 (DC-HSPA+)|
+| | - 3FF, Micro SIM (interna)|
+|Módulo GNSS| - 50 canales, NMEA 0183, soporte AGPS|
+| | - Soporte de sistemas satelitales: GPS, GLONASS, Galileo
+|LAN inalámbrica| - Wi-Fi – 802.11 b / g / n / ac,|
+| | - Bandas de frecuencia - 2.4G (B1-13) / 5G (B36-165)|
+| | - Soporte de modo dual AP y / o Hotspot|
+|Bluetooth | BLE V4.2|
+|Cámaras integradas||
+|Hacia el conductor (DMS) | - Sensor de imagen monocromo de 1,2 MP (1280 x 960)|
+| |Enfoque fijo. Profundidad de visión 40-111cm min|
+| |VOAF: 510, VFOV: 390|
+| |Obturador global IR 940nm|
+| |30 fps|
+| | - F# 2.05|
+| | - LEDs IR x 2|
+
+
+3.3. Especificación de hardware
+3.4. Cable de instalación y pines
+3.5. Cumplimiento ambiental
+3.6. Certificaciones y estándares de la industria
+4. Uso de Cipia-FS10
+4.1. Arquitectura de la solución
+4.2. Estados y modos de operación
+4.3. Características y funciones del modo estándar
+4.4. Aprovisionamiento y mantenimiento de Cipia-FS10
+4.4.1. Cambios en el archivo de configuración
+4.4.2. Gestión de archivos de configuración por Cipia-FS10
+4.4.3. Entorno de depuración
+4.4.4. Proceso de instalación y calibración
+4.4.5. Inscripción de identificación de conductor
+4.4.6. Gestión de archivos de audio
+4.4.7. Restablecimiento del dispositivo
+4.4.8. Propiedades del dispositivo
+4.5. Integración con Mobileye 6/8
+4.6.	Eventos Cipia-FS10
+4.7.	Configuración
+4.8.	Interfaces de comunicación
+4.8.1.	Conexión RS232
+4.8.2.	USB
+4.8.3.	Bluetooth
+4.8.4.	Wi-Fi
+4.8.5.	LTE (en inglés)
+4.9.	Priorización de canales de comunicación
+4.10.	Seguridad de las comunicaciones
+4.10.1.	MQTT
+4.10.2.	SSH
+5.	Cipia-FS10 HMI
+6.	Kit de prueba y evaluación
+7.	Control de errores del sistema
+8.	Avisos de normas y reglamentos
+8.1.	FCC
+8.2.	IC
+8.3.	RED
 
 
 
-## TestC
-[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
-
-asdasdasd
 
 
 ## Licencia
