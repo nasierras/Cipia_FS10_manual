@@ -115,7 +115,7 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
 - **Ajuste de la orientación del dispositivo:** el dispositivo tiene un brazo de montaje que permite el movimiento 3D y proporciona la mayor flexibilidad de instalación mientras mantiene la cara del conductor dentro del punto de vista de la cámara. El brazo de montaje se puede bloquear y se puede instalar en la consola o en el parabrisas, utilizando adhesivo de doble cara y/o tornillos. Las cabezas de tornillo especiales son solo para uso profesional.
 
 <div align="center">
-  <img src="images/FS10_coordinate_systems.png" alt="FIG02" width="20%">
+  <img src="images/FS10_coordinate_systems.png" alt="FIG02" width="25%">
   <p align="center"><strong>Fig. 02</strong> - Sistema coordenado del dispositivo Cipia-FS10.</p>
 </div>
 
@@ -125,7 +125,7 @@ En el diagrama anterior, el eje *x* apunta al controlador.
 - **Cámara externa orientada hacia la carretera:**  Las versiones de Cipia-FS10 Plus admiten la conexión de una cámara orientada hacia adelante (carretera) para monitorear, grabar e informar eventos de la carretera y / o video continuo.
 
 <div align="center">
-  <img src="images/FS10_dashcam.png" alt="FIG03" width="20%">
+  <img src="images/FS10_dashcam.png" alt="FIG03" width="30%">
   <p align="center"><strong>Fig. 03</strong> - Cámara delantera para Cipia-FS10 Plus.</p>
 </div>
 
@@ -151,6 +151,14 @@ En el diagrama anterior, el eje *x* apunta al controlador.
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 
 El siguiente diagrama muestra los principales bloques de construcción, interconexiones e interfaces del dispositivo Cipia-FS10.
+
+<div align="center">
+  <img src="images/FS10_blocks.png" alt="FIG05" width="80%">
+  <p align="center"><strong>Fig. 05</strong> - Diagrama de bloques interno.</p>
+</div>
+
+### Especificación de hardware
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 
 |Componente|Descripción|
 |----------|-----------|
@@ -217,12 +225,21 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 |Corriente media @ activo| - FS10-LOC: <475mA @12V|
 | | - FS10-LTE @12V <540 mA|
 
+### Cable de instalación y pines
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 
 
-3.3. Especificación de hardware
-3.4. Cable de instalación y pines
-3.5. Cumplimiento ambiental
-3.6. Certificaciones y estándares de la industria
+
+### Cumplimiento ambiental
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
+
+
+
+### Certificaciones y estándares de la industria
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
+
+
+
 4. Uso de Cipia-FS10
 4.1. Arquitectura de la solución
 4.2. Estados y modos de operación
