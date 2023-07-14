@@ -103,9 +103,8 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
 ## Cipia-FS10 - hardware e interfaces
 [Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
 ## Conceptos básicos del dispositivo Cipia-FS10
-| ![Device01](images/FS10-device.png) |
-|:--:|
-| *Device01* |
+![Device01](images/FS10_device.png)
+*Device01*
 
 
 ## TestC
