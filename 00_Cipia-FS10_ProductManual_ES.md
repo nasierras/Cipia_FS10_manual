@@ -60,8 +60,37 @@ El siguiente manual está distribuido en la siguiente organización:
 8.2.	IC
 8.3.	RED
 
-# Descripción general de Cipia-FS10
+## Descripción general de Cipia-FS10
 [Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
+
+Cipia-FS10 es un dispositivo de videotelemática con capacidades integradas de visión artificial. Está diseñado para mejorar la seguridad del conductor y la flota a través de aplicaciones de videotelemática. El dispositivo Cipia-FS10 detecta la somnolencia del conductor, las distracciones y las acciones peligrosas, proporcionando alertas del conductor en tiempo real, así como alertas e información personalizadas del administrador de flotas a través de su servidor de gestión de flotas.
+El dispositivo Cipia-FS10 es un dispositivo en el automóvil que incorpora el motor de software de monitoreo del conductor de Cipia y está destinado a las ventas en el segmento de posventa de gestión de flotas. Los clientes objetivo incluyen proveedores de servicios telemáticos (TSP), distribuidores, revendedores e integradores, así como grandes flotas comerciales con su propia solución telemática.
+El sistema tiene recursos de hardware de visión artificial integrados y está destinado a proporcionar capacidades de monitoreo, alerta e informes en tiempo real cuando el conductor está somnoliento, dormido o no está atento a la carretera.
+El sistema puede conectarse opcionalmente a un sistema telemático a bordo, u otro dispositivo conectado  en el vehículo, para informar eventos de seguridad en tiempo real a la aplicación de back-end (en caso de que no esté equipado con sus propios recursos de conectividad celular).
+Las principales características y funciones del sistema Cipia-FS10 incluyen:
+- **Análisis del estado del controlador**
+Las capacidades de análisis del estado del controlador Cipia-FS10 incluyen la detección de:
+  •	**Distracción del conductor:** basada en la dirección de la mirada y el análisis de otros rasgos faciales, alerta cuando el conductor no está mirando al centro de la carretera. Las alertas se correlacionan con el estado del vehículo (velocidad, marcha, etc.)
+  •	**Somnolencia del conductor (fatiga):** informar y alertar cuando el conductor está somnoliento o dormido.
+  •	**Uso del teléfono móvil:** alerta cuando el conductor sostiene su teléfono móvil.
+  •	**Uso del cigarrillo:** alertar cuando se identifica al conductor como fumador.
+  •	**Uso del cinturón de seguridad:** alerta cuando el vehículo se está moviendo pero el conductor no usa el cinturón de seguridad.
+- **Detección de identidad del conductor**
+Después de un breve proceso de inscripción, que permite agregar un controlador específico a la base de datos del dispositivo, cuando se reconoce un controlador, el sistema informa su ID. Esta información se puede utilizar para las políticas de autenticación de conductores dentro de la flota.
+A prueba de manipulaciones
+El sistema puede informar cuando la cámara tiene diferentes fallas, como sobreexposición, cámara bloqueada, desconexión de cables, desplazamiento del dispositivo, etc.
+	Informes de eventos de ADAS
+El sistema puede conectarse opcionalmente también a un dispositivo Mobileye, desde el cual puede recibir y analizar varios eventos ADAS que luego pueden analizarse, filtrarse e informarse al servidor para proporcionar una solución completa de seguridad para el conductor y la flota.
+	Captura de vídeo
+Cipia-FS10 permite la captura de vídeo de las siguientes maneras:
+•	De forma autónoma : active la captura de video del conductor durante unos segundos antes y después de un evento de seguridad detectado por los algoritmos de visión artificial.
+•	Desde el dispositivo conectado  : active la captura de video del conductor durante unos segundos antes y después de un evento de seguridad detectado por un dispositivo conectado.
+•	Comando del servidor (instantáneo): active la duración predefinida, la captura de video inmediata del controlador una vez que se recibe un comando del backend.
+•	Comando del servidor (DVR): recupere imágenes del búfer de grabación de video digital en curso en la tarjeta SD, de acuerdo con los marcos de tiempo definidos en el comando.
+	Métodos de alerta e informes
+Cipia-FS10 informa sobre comportamientos y eventos detectados a:
+•	Conductor : alertas auditivas (tanto señales como del habla), visuales y / o hápticas (por ejemplo, vibración del asiento o del cinturón de seguridad) al detectar un comportamiento no deseado.
+•	Administrador de flota : alertas en tiempo real de eventos peligrosos con o sin imágenes de video capturadas alrededor del momento del evento detectado.
 
 
 
