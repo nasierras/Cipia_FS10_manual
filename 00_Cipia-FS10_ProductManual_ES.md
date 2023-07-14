@@ -70,13 +70,14 @@ El sistema puede conectarse opcionalmente a un sistema telemático a bordo, u ot
 Las principales características y funciones del sistema Cipia-FS10 incluyen:
 - **Análisis del estado del controlador**
 Las capacidades de análisis del estado del controlador Cipia-FS10 incluyen la detección de:
-  •	**Distracción del conductor:** basada en la dirección de la mirada y el análisis de otros rasgos faciales, alerta cuando el conductor no está mirando al centro de la carretera. Las alertas se correlacionan con el estado del vehículo (velocidad, marcha, etc.)
-  •	**Somnolencia del conductor (fatiga):** informar y alertar cuando el conductor está somnoliento o dormido.
-  •	**Uso del teléfono móvil:** alerta cuando el conductor sostiene su teléfono móvil.
-  •	**Uso del cigarrillo:** alertar cuando se identifica al conductor como fumador.
-  •	**Uso del cinturón de seguridad:** alerta cuando el vehículo se está moviendo pero el conductor no usa el cinturón de seguridad.
+  -	**Distracción del conductor:** basada en la dirección de la mirada y el análisis de otros rasgos faciales, alerta cuando el conductor no está mirando al centro de la carretera. Las alertas se correlacionan con el estado del vehículo (velocidad, marcha, etc.)
+  -	**Somnolencia del conductor (fatiga):** informar y alertar cuando el conductor está somnoliento o dormido.
+  -	**Uso del teléfono móvil:** alerta cuando el conductor sostiene su teléfono móvil.
+  -	**Uso del cigarrillo:** alertar cuando se identifica al conductor como fumador.
+  -	**Uso del cinturón de seguridad:** alerta cuando el vehículo se está moviendo pero el conductor no usa el cinturón de seguridad.
 - **Detección de identidad del conductor**
 Después de un breve proceso de inscripción, que permite agregar un controlador específico a la base de datos del dispositivo, cuando se reconoce un controlador, el sistema informa su ID. Esta información se puede utilizar para las políticas de autenticación de conductores dentro de la flota.
+
 A prueba de manipulaciones
 El sistema puede informar cuando la cámara tiene diferentes fallas, como sobreexposición, cámara bloqueada, desconexión de cables, desplazamiento del dispositivo, etc.
 	Informes de eventos de ADAS
