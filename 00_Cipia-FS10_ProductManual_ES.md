@@ -60,7 +60,7 @@ El siguiente manual está distribuido en la siguiente organización:
 8.2.	IC
 8.3.	RED
 
-## Descripción general del Cipia-FS10
+# Descripción general de Cipia-FS10
 [Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#tabla-de-contenidos)
 
 
