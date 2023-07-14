@@ -109,9 +109,9 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
   <p align="center"><strong>Fig. 01</strong> - Imagen del dispositivo Cipia-FS10.</p>
 </div>
 
-- **Dimensiones** – Las dimensiones del producto son (excluyendo accesorios de montaje) 120mm (L) x 95mm (W) x 30mm (T). El dispositivo Cipia-FS10 no compromete el campo de visión del conductor de una manera incómoda o ilegal.
-- **Peso:** el dispositivo pesa ~ 390 g, incluido el arnés y el brazo de montaje.
-- **Ajuste de la orientación del dispositivo:** el dispositivo tiene un brazo de montaje que permite el movimiento 3D y proporciona la mayor flexibilidad de instalación mientras mantiene la cara del conductor dentro del marco interno de la cámara. El brazo de montaje se puede bloquear y se puede instalar en el salpicadero o en el parabrisas, utilizando adhesivo de doble cara y/o tornillos. Las cabezas de tornillo especiales son solo para uso profesional.
+- **Dimensiones** – Las dimensiones del producto son (excluyendo accesorios de montaje) 120mm (L) X 95mm (W) X 30mm. El dispositivo Cipia-FS10 no compromete el campo de visión del conductor de una manera incómoda o ilegal.
+- **Peso:** el dispositivo pesa ~390 g, incluido el arnés y el brazo de montaje.
+- **Ajuste de la orientación del dispositivo:** el dispositivo tiene un brazo de montaje que permite el movimiento 3D y proporciona la mayor flexibilidad de instalación mientras mantiene la cara del conductor dentro del punto de vista de la cámara. El brazo de montaje se puede bloquear y se puede instalar en la consola o en el parabrisas, utilizando adhesivo de doble cara y/o tornillos. Las cabezas de tornillo especiales son solo para uso profesional.
 
 <div align="center">
   <img src="images/FS10_coordinate_systems.png" alt="FIG02" width="20%">
@@ -119,15 +119,21 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
 </div>
 
 En el diagrama anterior, el eje *x* apunta al controlador.
-	Cable  de instalación: el cable de instalación está conectado/soldado a la placa interna y sale de la superficie de la carcasa a través de un alivio de tensión de silicona que garantiza la elasticidad y la resistencia contra la tracción. Todos los cables están cubiertos por una sola chaqueta que sale de la carcasa del dispositivo.
-	Cámara y ventana de LED IR  : la carcasa incluye una cubierta transparente IR para la lente de la cámara y los LED IR. La iluminación IR no es visible para el conductor.
-	Cámara externa orientada hacia la carretera:  FS10 admite la conexión de una cámara orientada hacia adelante (carretera) para monitorear, grabar e informar eventos de la carretera y / o video continuo.
+- **Cable  de instalación:** el cable de instalación está conectado/soldado a la placa interna y sale de la superficie de la carcasa a través de un alivio de tensión de silicona que garantiza la elasticidad y la resistencia contra la tracción. Todos los cables están cubiertos por una sola chaqueta que sale de la carcasa del dispositivo.
+- **Cámara y ventana de LED IR:** la carcasa incluye una cubierta transparente IR para la lente de la cámara y los LED IR. La iluminación IR no es visible para el conductor.
+- **Cámara externa orientada hacia la carretera:**  Las versiones de Cipia-FS10 Plus admiten la conexión de una cámara orientada hacia adelante (carretera) para monitorear, grabar e informar eventos de la carretera y / o video continuo.
 
- 
-Figura 2 - Cámara frontal Cipia
+<div align="center">
+  <img src="images/FS10_dashcam.png" alt="FIG03" width="20%">
+  <p align="center"><strong>Fig. 03</strong> - Cámara delantera para Cipia-FS10 Plus.</p>
+</div>
 
-	Interfaces de usuario : existen las siguientes interfaces mecánicas para las características de MMI.
+- **Interfaces de usuario:** existen las siguientes interfaces mecánicas para las características de MMI.
 
+<div align="center">
+  <img src="images/FS10_parts.png" alt="FIG04" width="80%">
+  <p align="center"><strong>Fig. 04</strong> - Interfaz de dispositivo.</p>
+</div>
 
 
 
