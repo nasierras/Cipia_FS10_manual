@@ -106,7 +106,7 @@ Cipia-FS10 informa sobre comportamientos y eventos detectados a:
 ## Conceptos básicos del dispositivo Cipia-FS10
 <figure align="center">
   <img src="images/FS10_device.png" width="80%">
-  <figcaption>Imagen del dispositivo Cipia-FS10.</figcaption>
+  <figcaption align="center"><font size="4">Imagen del dispositivo Cipia-FS10.</font></figcaption>
 </figure>
 
 - **Dimensiones** – Las dimensiones del producto son (excluyendo accesorios de montaje) 120mm (L) x 95mm (W) x 30mm (T). El dispositivo Cipia-FS10 no compromete el campo de visión del conductor de una manera incómoda o ilegal.
