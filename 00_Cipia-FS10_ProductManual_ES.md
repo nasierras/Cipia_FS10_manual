@@ -135,6 +135,11 @@ En el diagrama anterior, el eje *x* apunta al controlador.
   <p align="center"><strong>Fig. 04</strong> - Interfaz de dispositivo.</p>
 </div>
 
+|Interfaz|Descripción|
+|--------|-----------|
+|Puerta de SD|Tarjetas SIM/SD. Utilizado por técnicos e instaladores durante la instalación o servicio|
+|Botón funcional|Activación/ restablecimiento de HW ó activación de eventos|
+
 
 
 ## TestC
