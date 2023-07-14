@@ -160,7 +160,8 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 |ROM|8GB|
 |Tarjeta de memoria|Ranura para tarjeta Micro SD – Hasta 1TB, exFAT, SDHC/SDXC|
 |Perro guardián|- Controlado por SW: para la recuperación de aplicaciones|
-| |-HW controlado – para la recuperación del sistema|
+| |-HW controlado 
+- para la recuperación del sistema|
 |Sensor de movimiento|Acelerómetro 3D / (±16g, 12bit, 100Hz o mejor)|
 |Sistema operativo|Linux based|
 |Interfaz del controlador||
