@@ -18,7 +18,7 @@ Los siguientes documentos deben usarse junto con este manual para proporcionar a
 ## Tabla de contenidos
 El siguiente manual está distribuido en la siguiente organización:
 1. [Acerca de este manual](#Acerca-de-este-manual)
-2. [Descripción general de Cipia-FS10](#Descripcion-general-de-Cipia-FS10)
+2. [Descripción general de Cipia-FS10](#Descripción-general-de-Cipia-FS10)
 3. Cipia-FS10 Hardware e interfaces
 3.1. Conceptos básicos del dispositivo Cipia-FS10
 3.2. Bloques de construcción del sistema
