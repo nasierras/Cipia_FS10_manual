@@ -162,7 +162,7 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 
 |Componente|Descripción|
 |----------|-----------|
-|'**Núcleo de la plataforma**'||
+|**'Núcleo de la plataforma'**||
 |Procesador principal (SOC)|Ambarella CV25|
 |RAM|1GB|
 |ROM|8GB|
