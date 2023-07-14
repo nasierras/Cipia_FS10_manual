@@ -61,7 +61,7 @@ El siguiente manual está distribuido en la siguiente organización:
 8.3.	RED
 
 ## Descripción general de Cipia-FS10
-[Ir al Inicio](#cipia-fs10-manual-de-producto) | [tabla de contenidos](#Tabla-de-contenidos)
+[Ir al Inicio](#cipia-fs10-manual-de-producto) | [Tabla de contenidos](#Tabla-de-contenidos)
 
 Cipia-FS10 es un dispositivo de videotelemática con capacidades integradas de visión artificial. Está diseñado para mejorar la seguridad del conductor y la flota a través de aplicaciones de videotelemática. El dispositivo Cipia-FS10 detecta la somnolencia del conductor, las distracciones y las acciones peligrosas, proporcionando alertas del conductor en tiempo real, así como alertas e información personalizadas del administrador de flotas a través de su servidor de gestión de flotas.
 
@@ -162,7 +162,7 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 
 |Componente|Descripción|
 |----------|-----------|
-|**Núcleo de la plataforma**||
+|´**Núcleo de la plataforma**´||
 |Procesador principal (SOC)|Ambarella CV25|
 |RAM|1GB|
 |ROM|8GB|
@@ -171,14 +171,14 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 | |-HW controlado – para la recuperación del sistema|
 |Sensor de movimiento|Acelerómetro 3D / (±16g, 12bit, 100Hz o mejor)|
 |Sistema operativo|Linux based|
-|**Interfaz del controlador**||
+|´**Interfaz del controlador**´||
 |Botones físicos| - 1 x configurable, multipropósito|
 | | +/- Teclas de volumen|
 |LEDs| - 1 x Estado del sistema (3 colores)|
 | | - 3 x eventos del conductor|
 |Micrófono interno|Alta sensibilidad, omnidireccional|
 |Bocina interna|Max 85dB @ 1m / 2W, 600Hz ~ 20Khz|
-|**Comunicación inalámbrica**||
+|´**Comunicación inalámbrica**´||
 |Celular| - LTE CAT4|
 | | - FDD 1/2/3/4/5/7/8/12/13/17/20/28 (Territorios/aplicaciones no compatibles: Japón, FirstNet)|
 | | - GSM 850/900/1800/1900|
@@ -190,7 +190,7 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 | | - Bandas de frecuencia - 2.4G (B1-13) / 5G (B36-165)|
 | | - Soporte de modo dual AP y / o Hotspot|
 |Bluetooth | BLE V4.2|
-|**Cámaras integradas**||
+|´**Cámaras integradas**´||
 |Hacia el conductor (DMS) | - Sensor de imagen monocromo de 1,2 MP (1280 x 960)|
 | |Enfoque fijo. Profundidad de visión 40-111cm min|
 | |VOAF: 510, VFOV: 390|
@@ -209,7 +209,7 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 | | - Tipo de interfaz FPD-LINK III|
 | | - Alimentación: 12 V, ±8 %, pico de 400 mA, AVG de <150 mA|
 | | - Carcasa: Aleación de aluminio|
-|**Interfaces de comunicación**||
+|´**Interfaces de comunicación**´||
 |RS-232| - 1 x RS-232 (Tx, Rx, GND)|
 |USB| - 1 x USB 2.0 Dispositivo/host (puerto Micro-USB)|
 |**Control de periféricos**||
@@ -217,7 +217,7 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 | | - 1 x entrada (0 – VCC). Digital o analógico.|
 | | - 1 x salida de colector abierto.|
 | | - 1 x E/S – Totalmente configurable por SW.|
-|**Potencia**||
+|´**Potencia**´||
 |Potencia de entrada| - Conexión directa de la batería del vehículo (9V-32V)|
 | | - Cumple con ISO 7637 y 16750|
 |Batería interna| Li-Ion 3.7V / 550mAh - Admite un minuto de funcionalidad completa y apagado ordenado en el corte de energía.|
