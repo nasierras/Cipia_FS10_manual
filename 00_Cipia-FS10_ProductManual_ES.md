@@ -228,51 +228,223 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 ### Cable de instalación y pines
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 
+El cable de instalación Cipia-FS10 consta de 2 partes:
+1. Cable estilo Pigtail de un metro de largo, conectado internamente a la placa principal del dispositivo y con conector automotriz de 10 pines en el extremo.
 
+*****IMAGEN*****
+
+2. Cable de extensión de un metro de largo equipado con un conector automotriz mate y cables abiertos en el extremo.
+
+*****IMAGEN*****
+
+Esta estructura garantiza que los instaladores tengan la máxima flexibilidad en caso de que sea necesario cambiar la configuración de la instalación o corregir el hardware.
+
+La siguiente tabla describe el pinout del dispositivo FS10:
+|Pin|Señal|Observación|
+|---|-----|-----------|
+|1|PWR_IN|Rojo|
+|2|PWR_GND|Negro|
+|3|PWR_IGN|Morado|
+|4|RS232_TxD|Amarillo/Naranja|
+|5|RS232_RxD|Gris/Naranja|
+|6|COM_GND|Blanco|
+|7|GP_IN|Verde|
+|8|GP_OUT|Azul|
+|9|GP_IO|Gris|
+|10|Repuesto|Rojo/Negro|
+
+Para grantizar el mínimo de conexiones para que el Cipia-FS10 funcione, los pines (1), (2) y (3) son requeridos.
 
 ### Cumplimiento ambiental
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 
+El dispositivo Cipia-FS10 cumple con los estándares ambientales detallados en la siguiente tabla:
 
+|Variable|Descripción|
+|--------|-----------|
+|**Rango de temperatura**| - Temperatura de funcionamiento (arranque/funcionamiento): -30 °C a +70 °C|
+| | - Continuo (rendimiento completo): -20 °C a +40 °C|
+| | - De la batería: -20°C a +60°C|
+| | - Almacenamiento: -30 °C a +80 °C|
+|**Humedad** | - 95% ±5% HR @ +40°C, sin condensación|
+|**IP** | - IP40|
+|**Empaquetado** | - ASTM/ ISTA|
+|**RoHS** | - RoHS II|
+|**REACH/COP** | - Cumple con REACH/POP (Unión Europea)|
+|**Minerales de conflicto** |  - Cumple con la ley de minerales de conflicto|
+|**Vibración** |  - ISO16750|
+|**Choque mecánico** |  - ISO16750|
+|**UV** | - Material plástico resistente a los rayos UV|
 
 ### Certificaciones y estándares de la industria
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 
+El dispositivo Cipia-FS10 cumple con los siguientes estándares de certificación:
+- FCC IDENTIFIER: XMR201903EG25GCE/RED
+- IC (Canada Industrial)
+- RCM
+- E-mark
+- RSSC (solo los modelos LTE)
+- PTCRB (solo los modelos LTE)
+- GCF (solo los modelos LTE)
+- IEC62471 (Protección Visual)
 
+## Uso de Cipia-FS10
+[Ir al Inicio](#Cipia-FS10-Manual-de-Producto) | [Tabla de Contenidos](#Tabla-de-contenidos)
+### Arquitectura de la solución
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+El siguiente diagrama muestra los diversos bloques de construcción e interfaces opcionales del Cipia-FS10 cuando se integra en un entorno de solución telemática
+   
+### Estados y modos de operación
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+La aplicación Cipia-FS10 tiene tres modos operativos:
+1. Modo de instalación y calibración: utilizado durante la instalación por un técnico profesional / certificado.
+2. Modo de mantenimiento: utilizado durante debug el mantenimiento por técnicos o ingenieros de aplicaciones de campo.
+3. Modo estándar: se utiliza durante el funcionamiento normal del sistema.
 
-4. Uso de Cipia-FS10
-4.1. Arquitectura de la solución
-4.2. Estados y modos de operación
-4.3. Características y funciones del modo estándar
-4.4. Aprovisionamiento y mantenimiento de Cipia-FS10
-4.4.1. Cambios en el archivo de configuración
-4.4.2. Gestión de archivos de configuración por Cipia-FS10
-4.4.3. Entorno de depuración
-4.4.4. Proceso de instalación y calibración
-4.4.5. Inscripción de identificación de conductor
-4.4.6. Gestión de archivos de audio
-4.4.7. Restablecimiento del dispositivo
-4.4.8. Propiedades del dispositivo
-4.5. Integración con Mobileye 6/8
-4.6.	Eventos Cipia-FS10
-4.7.	Configuración
-4.8.	Interfaces de comunicación
-4.8.1.	Conexión RS232
-4.8.2.	USB
-4.8.3.	Bluetooth
-4.8.4.	Wi-Fi
-4.8.5.	LTE (en inglés)
-4.9.	Priorización de canales de comunicación
-4.10.	Seguridad de las comunicaciones
-4.10.1.	MQTT
-4.10.2.	SSH
-5.	Cipia-FS10 HMI
-6.	Kit de prueba y evaluación
-7.	Control de errores del sistema
-8.	Avisos de normas y reglamentos
-8.1.	FCC
-8.2.	IC
-8.3.	RED
+En la tabla siguiente se definen los atributos principales de cada uno de estos modos operativos.
+El dispositivo Cipia-FS10 mantiene dos indicadores en su memoria no volátil para designar si el dispositivo se instaló profesionalmente y si se calibró. Estos indicadores se establecen/borran de acuerdo con los eventos de transición de modo descritos en el diagrama siguiente y pueden ser consultados por el lado del servidor como parte de la consulta de propiedades del dispositivo (consulte el Manual de integración de Cipia-FS10).
+
+*****IMAGEN*****
+
+Los diferentes modos de operación y atributos per cada uno se detallan en la tabla a continuación.
+
+|Número|Modo|Actividades y atributos|
+|------|----|-----------------------|
+|1| - Instalación y calibración | - El motor lógico de monitoreo de vehículos y conductores está inactivo.|
+| | | - Todos los módulos de comunicación están habilitados independientemente de la configuración de configuración.|
+| | | - Adquisición y almacenamiento de ángulos de instalación física para su posterior detección de manipulaciones.|
+| | | - Gestión de archivos de configuración por instalador/técnico.|
+| | | - Proceso de calibración de la cámara.|
+| | | - Inscripción en Face ID.|
+|2| - Mantenimiento | - El estado del vehículo y la lógica de supervisión del conductor están activos.|
+| | | - Todos los canales de comunicación están habilitados independientemente de la configuración de configuración.|
+| | | - Acceso completo a NVM, RAM, SD tarjeta por usuarios autorizados.|
+| | | - Acceso completo a los recursos de depuración por parte de usuarios autorizados.|
+| | | - Gestión de archivos de configuración local.|
+| | | - Inscripción en Face ID.|
+| | | - Inyección de vídeo pregrabado.|
+| | | - Actualizaciones de la biblioteca, OS/App/DMS.|
+|3 | Estándar | - El estado del vehículo y la lógica de supervisión del conductor están activos.|
+| | | - El sistema funciona de acuerdo con la configuración del archivo de configuración.|
+| | | - Gestión de archivos de configuración desde el servidor a través de protocolos definidos.|
+
+### Características y funciones del modo estándar
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+En la tabla siguiente se enumeran todas las características y funciones compatibles con el
+dispositivo Cipia-FS10 en modo de funcionamiento estándar.
+
+|Número|Función|Descripción|
+|------|-------|-----------|
+|1| Lógica de monitoreo de vehículos y conductores| - El dispositivo Cipia-FS10 supervisa todos los parámetros y condiciones enumerados en la sección Eventos del archivo de configuración y activa eventos cuando se cumplen las condiciones.|
+|2| Gestión de eventos en memoria | - Cada evento generado por la aplicación Cipia-FS10 está asociado con un
+identificador numérico único y se registra en NVM hasta que se recibe un ACK del GW de comunicación del servidor que indica que el mensaje se recibió correctamente.|
+| | - El número máximo de eventos registrados antes de que el sistema comience a anularse se establece en el archivo de configuración.|
+|3| ID de viaje Tras la detección de un evento de encendido (Logic Rise de la línea IGN),
+o tras la detección de un cambio de conductor sin apagar el motor, el
+dispositivo Cipia-FS10 establece un nuevo ID de viaje como el número
+del viaje anterior + 1.
+Cada evento generado por el dispositivo Cipia-FS10 se envía al backend
+FMS con el ID de viaje como parte de la estructura del mensaje.
+El ID de viaje es un entero de 3 bytes y se restablece a 0 al alcanzar
+D16,777,215.
+4 Gestión de datos
+del vehículo
+La biblioteca DMS utiliza datos del vehículo para activar, desactivar o
+adaptar correctamente inattentiveness desatentos.
+Si la información del vehículo está disponible, la aplicación principal
+informa de los siguientes parámetros a la biblioteca DMS:
+• Velocidad del vehículo (desde GPS): cuando los datos GPS no están
+disponibles o no están actualizados, o son inexactos (puntuación de
+baja calidad), la aplicación principal transfiere un valor acordado que
+designa la "velocidad no disponible" a la biblioteca. La aplicación
+principal aplica el algoritmo de "detección de movimiento" mientras los
+datos GPS no están disponibles y si el vehículo no se mueve,
+'velocidad = 0' se informa a la biblioteca para evitar que la biblioteca
+informe eventos innecesarios.
+• Dirección del vehículo (estado de marcha adelante / marcha atrás):
+si el indicador del interruptor de marcha atrás está conectado a una de
+las entradas del dispositivo y la entrada está configurada
+correctamente como señal de "marcha atrás", cada vez que se detecta
+una marcha atrás, los eventos DMS se desactivan.
+• Estado del indicador de giro (intermitentes): si el indicador de giro
+está conectado a una de las entradas del dispositivo.
+• Velocidad de guiñada del vehículo : designa el cambio en el ángulo
+de rumbo del vehículo en comparación con el ángulo de rumbo
+anterior recibido del receptor GPS, siempre que los datos GPS estén
+disponibles y sean precisos.
+
+### Aprovisionamiento y mantenimiento de Cipia-FS10
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+#### Cambios en el archivo de configuración
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+#### Gestión de archivos de configuración por Cipia-FS10
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+#### Entorno de depuración
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+#### Proceso de instalación y calibración
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+#### Inscripción de identificación de conductor
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+#### Gestión de archivos de audio
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+#### Restablecimiento del dispositivo
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+#### Propiedades del dispositivo
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+### Integración con Mobileye 6/8
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+### Eventos Cipia-FS10
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+### Configuración
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+### Interfaces de comunicación
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+#### Conexión RS232
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
+
+#### USB
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
+
+#### Bluetooth
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
+
+#### Wi-Fi
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
+
+#### LTE (US)
+[Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
+
+### Priorización de canales de comunicación
+
+### Seguridad de las comunicaciones
+#### MQTT
+#### SSH
+
+## Cipia-FS10 HMI
+
+## Kit de prueba y evaluación
+
+## Control de errores del sistema
+
+## Avisos de normas y reglamentos
+### FCC
+### IC
+### RED
 
 
 
