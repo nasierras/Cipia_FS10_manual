@@ -20,12 +20,12 @@ El siguiente manual está distribuido en la siguiente organización:
 1. [Acerca de este manual](#Acerca-de-este-manual)
 2. [Descripción general de Cipia-FS10](#Descripción-general-de-Cipia-FS10)
 3. [Cipia-FS10 Hardware and Interfaces](#Cipia-FS10-hardware-and-interfaces)
-  - [Conceptos básicos del dispositivo Cipia-FS10](#Conceptos-básicos-del-dispositivo-Cipia-FS10)
-  - [Bloques de construcción del sistema](#Bloques-de-construcción-del-sistema)
-  - [Especificación de hardware](#Especificaciones-del-hardware)
-  - Cable de instalación y pines
-  - Cumplimiento ambiental
-  - Certificaciones y estándares de la industria
+   - [Conceptos básicos del dispositivo Cipia-FS10](#Conceptos-básicos-del-dispositivo-Cipia-FS10)
+   - [Bloques de construcción del sistema](#Bloques-de-construcción-del-sistema)
+   - [Especificación de hardware](#Especificaciones-del-hardware)
+   - Cable de instalación y pines
+   - Cumplimiento ambiental
+   - Certificaciones y estándares de la industria
 4. Uso de Cipia-FS10
    - Arquitectura de la solución
    - Estados y modos de operación
