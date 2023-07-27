@@ -171,7 +171,7 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 | |-HW controlado – para la recuperación del sistema|
 |Sensor de movimiento|Acelerómetro 3D / (±16g, 12bit, 100Hz o mejor)|
 |Sistema operativo|Linux based|
-|´**Interfaz del controlador**´||
+|**Interfaz del controlador**||
 |Botones físicos| - 1 x configurable, multipropósito|
 | | +/- Teclas de volumen|
 |LEDs| - 1 x Estado del sistema (3 colores)|
