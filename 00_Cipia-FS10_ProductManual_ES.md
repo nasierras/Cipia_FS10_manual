@@ -311,13 +311,13 @@ Los diferentes modos de operación y atributos per cada uno se detallan en la ta
 
 |Número|Modo|Actividades y atributos|
 |------|----|-----------------------|
-|1| - Instalación y calibración | - El motor lógico de monitoreo de vehículos y conductores está inactivo.|
+|1| Instalación y calibración | - El motor lógico de monitoreo de vehículos y conductores está inactivo.|
 | | | - Todos los módulos de comunicación están habilitados independientemente de la configuración de configuración.|
 | | | - Adquisición y almacenamiento de ángulos de instalación física para su posterior detección de manipulaciones.|
 | | | - Gestión de archivos de configuración por instalador/técnico.|
 | | | - Proceso de calibración de la cámara.|
 | | | - Inscripción en Face ID.|
-|2| - Mantenimiento | - El estado del vehículo y la lógica de supervisión del conductor están activos.|
+|2| Mantenimiento | - El estado del vehículo y la lógica de supervisión del conductor están activos.|
 | | | - Todos los canales de comunicación están habilitados independientemente de la configuración de configuración.|
 | | | - Acceso completo a NVM, RAM, SD tarjeta por usuarios autorizados.|
 | | | - Acceso completo a los recursos de depuración por parte de usuarios autorizados.|
