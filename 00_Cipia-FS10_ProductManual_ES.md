@@ -345,8 +345,7 @@ dispositivo Cipia-FS10 en modo de funcionamiento estándar.
 | | | - El ID de viaje es un entero de 3 bytes y se restablece a 0 al alcanzar D16,777,215.|
 |4| Gestión de datos del vehículo| - La biblioteca DMS utiliza datos del vehículo para activar, desactivar o adaptar correctamente inattentiveness desatentos.|
 | | |- Si la información del vehículo está disponible, la aplicación principal informa de los siguientes parámetros a la biblioteca DMS:|
-| | |  - **Velocidad del vehículo (desde GPS):** cuando los datos GPS no están disponibles o no están actualizados, o son inexactos (puntuación de
-baja calidad), la aplicación principal transfiere un valor acordado que designa la "velocidad no disponible" a la biblioteca. La aplicación principal aplica el algoritmo de "detección de movimiento" mientras los datos GPS no están disponibles y si el vehículo no se mueve, 'velocidad = 0' se informa a la biblioteca para evitar que la biblioteca informe eventos innecesarios.|
+| | |  - **Velocidad del vehículo (desde GPS):** cuando los datos GPS no están disponibles o no están actualizados, o son inexactos (puntuación de baja calidad), la aplicación principal transfiere un valor acordado que designa la "velocidad no disponible" a la biblioteca. La aplicación principal aplica el algoritmo de "detección de movimiento" mientras los datos GPS no están disponibles y si el vehículo no se mueve, 'velocidad = 0' se informa a la biblioteca para evitar que la biblioteca informe eventos innecesarios.|
 | | |  - **Dirección del vehículo (estado de marcha adelante / marcha atrás):** si el indicador del interruptor de marcha atrás está conectado a una de
 las entradas del dispositivo y la entrada está configurada correctamente como señal de "marcha atrás", cada vez que se detecta una marcha atrás, los eventos DMS se desactivan.|
 | | |  - **Estado del indicador de giro (intermitentes):** si el indicador de giro está conectado a una de las entradas del dispositivo.|
