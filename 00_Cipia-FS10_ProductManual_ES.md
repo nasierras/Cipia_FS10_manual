@@ -402,23 +402,137 @@ dispositivo Cipia-FS10 en modo de funcionamiento estándar.
 ### Aprovisionamiento y mantenimiento de Cipia-FS10
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
 
+Las características y capacidades del dispositivo Cipia-FS10, que normalmente se utilizan durante las fases de aprovisionamiento y mantenimiento del ciclo de vida del dispositivo, se describen en este capítulo: 
+
 #### Cambios en el archivo de configuración
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+Es posible modificar los parámetros del archivo de configuración, antes o después de la  instalación, utilizando uno de los siguientes modos de conexión: 
+
+- Aplicación backend a través de redes celulares/Wi-Fi (solo archivo completo). 
+- Aplicación móvil a través de conectividad BT/Wi-Fi (ya sea parámetros específicos compatibles con las pantallas de la aplicación o como una selección de archivos). 
+- PC a través de SSH (ya sea parámetro discreto o como un archivo completo) *solo usuarios autorizados. 
+- Aplicación backend a través de un dispositivo telemático conectado a través de RS232 (solo archivo completo, depende del soporte del dispositivo telemático). 
+
+Al cargar un nuevo archivo de configuración, el dispositivo aplica los cambios inmediatamente. Algunos cambios de parámetros requieren un reinicio del dispositivo para que el cambio surta efecto. 
+
+Consulte el manual de integración para obtener más información sobre la administración de archivos de configuración. 
 
 #### Gestión de archivos de configuración por Cipia-FS10
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
 
+La aplicación principal de Cipia-FS10 aplica el formato JSON y el proceso de validación de contenido cuando: 
+
+- El archivo de configuración JSON se recibe desde el lado de la aplicación móvil o del servidor. 
+- Al arrancar el sistema: se debe validar la copia del archivo de configuración de la carpeta de datos.
+  
+Si el formato de archivo JSON está dañado o no es válido al arrancar, se utilizará la versión del archivo JSON "Última válida conocida" y se generará el mensaje correspondiente "Error del sistema" con el motivo "InvalidConfigRejected". 
+
+Si el formato de un archivo JSON recibido del servidor / móvil está dañado, la operación de carga JSON será rechazada. 
+
+La primera copia de seguridad del archivo config.json se creará una vez que Cipia-FS10 reciba un archivo de configuración de usuario válido de Middleware o de la aplicación móvil.
+
+Al finalizar el proceso de instalación en el que la comunicación con el servidor se estableció con éxito (o en cada apretón de manos de comunicación exitoso con el servidor, incluso sin completar el proceso de instalación completo), el sistema operativo Cipia-FS10 almacena el archivo de configuración utilizado en una ubicación segura que no se puede eliminar durante el proceso de actualización OTA. Esta copia del archivo de configuración se considera "Última validez conocida". 
+
+Además de la obtención automática de esta copia, al detectar un archivo de configuración dañado, se puede usar un patrón de activación secreto de HW, que representa el desencadenador "Recovery Reset" para activar un "restablecimiento de recuperación de archivos de configuración". 
+
+Una vez que el dispositivo identifica dicho disparador, el sistema se inicia con el archivo de configuración JSON almacenado en la ubicación segura y se genera el mensaje "System OK" con el motivo "ConfigFileRecovery". 
+
+De forma predeterminada, si el sistema nunca pasó el proceso de instalación correcto, esta ubicación contendría una copia del archivo de configuración predeterminado utilizado en la línea de producción.
+
+
 #### Entorno de depuración
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+Un escritorio conectado a un dispositivo a través de una conexión segura USB / Wi-Fi (SSH) permite al usuario o técnico depurar completamente el dispositivo y observar sus propiedades (ID, MAC, configuración), estados y modos de operación, eventos generados, estado de E/S, estado de conexión, mensajes de error, etc.
+Tras la detección del inicio de sesión SSH mientras el dispositivo está encendido, el dispositivo Cipia-FS10 entra inmediatamente en modo de mantenimiento y está listo para la comunicación con la CLI del PC para los siguientes propósitos: 
+
+- Descarga/eliminación de búferes de vídeo. 
+- Revisión/cambio de archivos de configuración. 
+- Depurar (registros de error/actividad). 
+- Actualización de versiones: tanto el sistema operativo como la aplicación CipiaFS10. 
+- Transmisión de video a PC para fines de evaluación y depuración. 
+
+El acceso al sistema de archivos Cipia-FS10 y las capacidades de depuración están restringidos solo a usuarios autorizados. Solicite al equipo de soporte de Cipia para obtener más información sobre el uso de las funciones de depuración y evaluación. 
 
 #### Proceso de instalación y calibración
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
 
+Hay dos procesos principales que deben completarse durante la instalación y la calibración: 
+- *Calibración de la cámara de cabina:* permite que el Cipia-FS10 establezca su posición relativa en el compartimiento del pasajero en comparación con la posición del conductor y, a través de eso, proporcione cálculos precisos de la postura de la cabeza y la mirada.
+- *Calibración de la cámara de carretera:* permite al instalador del Cipia-FS10 ajustar la ubicación, la elevación y la inclinación de la cámara de carretera para lograr el mejor rendimiento de supervisión de carreteras.
+- *Captura de ángulos de instalación:* permite que el dispositivo Cipia-FS10 "recuerde" su orientación de instalación 3D y detecte manipulaciones físicas. 
+Una vez que el proceso de instalación y calibración se ha completado correctamente, el instalador sale del modo de calibración (utilizando la aplicación móvil) y entra en el modo de operación estándar. Los ajustes de calibración se guardan en el NVM del dispositivo y la aplicación los pasa al motor Driver Sense al inicio. Si el proceso de calibración falla, el instalador recibe una alerta en la aplicación de instalación.
+
+Mientras está en modo estándar, es posible recalibrar el dispositivo enviando un comando desde el backend o desde una aplicación móvil. Los comandos anteriores también son compatibles con la API y los protocolos del middleware del servidor. 
+
+Consulte el Manual de instalación para obtener una descripción detallada del proceso de instalación y calibración del Cipia-FS10.
+
 #### Inscripción de identificación de conductor
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
 
+Hay algunas opciones para agregar información de la cara del controlador a la base de datos del dispositivo Cipia-FS10: 
+
+- Enviando un comando desde la aplicación móvil para capturar los atributos faciales que actualmente miran la cámara. 
+- Enviando un comando desde la aplicación backend para capturar los atributos faciales que actualmente mira la cámara. 
+- Mediante el envío de datos de usuario inscrito (vector de características) al dispositivo Cipia-FS10, de atributos faciales previamente capturados y guardados 
+en otra ubicación (utilizando la misma cámara que se utiliza en el vehículo).
+
+Cada entrada en la base de datos de controladores del dispositivo, administrada por la aplicación principal Cipia-FS10, contiene los siguientes atributos: 
+
+- *ID de conductor global:* un identificador único, asignado por el TSP o por la aplicación móvil del instalador (este no es el ID privado asignado por la biblioteca DMS al inscribirse correctamente en el conductor) y notificado como ID de controlador para cualquier evento generado por Cipia-FS10.
+- *Identificación privada:* la identificación del conductor asignada por la biblioteca DMS al inscribirse correctamente. Este es el ID que informa la biblioteca DMS, tras la identificación exitosa del conductor a la aplicación principal.
+- *Face-ID 'archivo vectorial de características'*: Generado por la biblioteca DMS tras la inscripción exitosa. Este archivo también se informa al lado del servidor, tras el procedimiento de inscripción exitoso, para la posterior inscripción remota del conductor en otros dispositivos Cipia-FS10 instalados dentro de la operación de la flota.
+- Estado de permiso: el estado del permiso: 
+  - 0 – Lista negra (no autorizada) 
+  - 1 – Lista blanca (autorizada) 
+  - 2 – Reconocido – permiso predeterminado en caso de que no esté predefinido
+  
+Un bucle de inscripción cerrado significa que tanto el dispositivo Cipia-FS10 como la base de datos de administración de flotas contienen el ID de controlador global, el estado de  permiso y el archivo vectorial per cada controlador inscrito. 
+
+Cuando se inscribe un conductor desde la aplicación móvil, se admite el siguiente flujo:
+- El instalador inserta el número de licencia de conducir (Global Driver ID). 
+- El instalador realiza el proceso de inscripción en la aplicación móvil. 
+- La aplicación de instalación carga el número de licencia de conducir (ID de controlador global), la foto y el archivo vectorial de características, al final del proceso de instalación/inscripción, como parte de la estructura de datos del informe de instalación.
+  
+Cuando un conductor está inscrito mientras está sentado en el vehículo, a través de un comando backend, se admite el siguiente flujo (esto también se aplica cuando se inscriben conductores en la oficina): 
+1. El servidor envía comandos al dispositivo con el ID global asignado y el estado de permiso (este proceso solo se realiza cuando el motor del vehículo está en marcha y hay una sincronización entre el conductor y el operador) para inscribir a un nuevo conductor. 
+2. Una vez que el comando se recibe y ejecuta con éxito, Cipia-FS10 envía la imagen del controlador (foto) y el archivo vectorial de características al servidor. 
+3. La aplicación FMS recupera los archivos vectoriales y de imagen para cerrar el bucle.
+    
+Cuando la aplicación FMS inscribe a un conductor ya inscrito, en otros vehículos: 
+1. Por vehículo (dispositivo Cipia-FS10), se llama a la API de middleware con el número de ID global, el archivo vectorial y el estado del permiso. Este proceso no se realiza necesariamente cuando el motor del vehículo está en marcha y, por lo tanto, el dispositivo puede no estar disponible durante un período.
+2. Cuando el dispositivo está disponible, el servidor envía el comando al dispositivo Cipia-FS10 para inscribir un nuevo controlador junto con el archivo vectorial de características, el estado de permiso y el ID de controlador global.
+
+El proceso descrito anteriormente es también el proceso utilizado cuando el administrador de la flota desea actualizar el estado de permiso de un conductor en un vehículo específico: simplemente anula el registro existente con un nuevo conjunto de datos para el mismo ID de conductor global. La aplicación principal Cipia-FS10 comprueba si el ID de controlador global ya existe en la base de datos del controlador y, de ser así, lo anula con el nuevo conjunto de datos.
+
 #### Gestión de archivos de audio
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+Cipia-FS10 activa efectos de sonido y mensajes de voz. 
+
+Hay una asignación fija de espacio de memoria no volátil para una carpeta de efectos de sonido, independiente del idioma de los mensajes de voz definido por el usuario.
+
+- Hay una asignación fija de espacio NVM para 128 carpetas diferentes de mensajes de voz, que varían según idioma, dialecto, género de voz o tono e 
+indexadas entre 0 (predeterminado) y 127.
+- Es posible modificar/añadir una carpeta de mensajes de voz sin necesidad de actualizar el sistema operativo o la aplicación principal del dispositivo 
+Cipia-FS10. 
+- Es posible actualizar o agregar carpetas de voz a través del protocolo OTA o una conexión USB a un PC. 
+- La aplicación Cipia-FS10 activa el archivo adecuado de acuerdo con el tipo de evento y los parámetros del archivo de configuración (lenguaje activo). 
+- El conjunto predeterminado de carpetas de efectos de sonido y mensajes de voz (inglés) se carga en la línea de producción.
+- Cada paquete de mensajes de voz va acompañado de archivo JSON que describe sus atributos. Por ejemplo:
+  
+```bash
+"set": 0, 
+"language": "English-US", 
+"descripción": "Hombre", 
+"versión": "1.1" 
+```
+
+- Los paquetes de voz disponibles / instalados en un dispositivo instalado se pueden recuperar a través del mensaje de propiedades del dispositivo (ver a 
+continuación).
+
+
 
 #### Restablecimiento del dispositivo
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
