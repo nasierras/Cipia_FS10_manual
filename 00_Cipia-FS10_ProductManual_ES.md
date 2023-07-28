@@ -23,42 +23,42 @@ El siguiente manual está distribuido en la siguiente organización:
    - [Conceptos básicos del dispositivo Cipia-FS10](#Conceptos-básicos-del-dispositivo-Cipia-FS10)
    - [Bloques de construcción del sistema](#Bloques-de-construcción-del-sistema)
    - [Especificación de hardware](#Especificaciones-del-hardware)
-   - Cable de instalación y pines
-   - Cumplimiento ambiental
-   - Certificaciones y estándares de la industria
-4. Uso de Cipia-FS10
-   - Arquitectura de la solución
-   - Estados y modos de operación
-   - Características y funciones del modo estándar
-   - Aprovisionamiento y mantenimiento de Cipia-FS10
-        - Cambios en el archivo de configuración
-        - Gestión de archivos de configuración por Cipia-FS10
-        - Entorno de depuración
-        - Proceso de instalación y calibración
-        - Inscripción de identificación de conductor
-        - Gestión de archivos de audio
-        - Restablecimiento del dispositivo
-        - Propiedades del dispositivo
-   - Integración con Mobileye 6/8
-   - Eventos Cipia-FS10
-   - Configuración
-   - Interfaces de comunicación
-        - Conexión RS232
-        - USB
-        - Bluetooth
-        - Wi-Fi
-        - LTE (en inglés)
-   - Priorización de canales de comunicación
-   - Seguridad de las comunicaciones
-        - MQTT
-        - SSH
-5.	Cipia-FS10 HMI
-6.	Kit de prueba y evaluación
-7.	Control de errores del sistema
-8.	Avisos de normas y reglamentos
-    - FCC
-    - IC
-    - RED
+   - [Cable de instalación y pines](#Cable-de-instalación-y-pines)
+   - [Cumplimiento ambiental](#Cumplimiento-ambiental)
+   - [Certificaciones y estándares de la industrial](#Certificaciones-y-estándares-de-la-industrial)
+4. [Uso de Cipia-FS10](#Uso-de-Cipia-FS10)
+   - [Arquitectura de la solución](#Arquitectura-de-la-solución)
+   - [Estados y modos de operación](#Estados-y-modos-de-operación)
+   - [Características y funciones del modo estándar](#Características-y-funciones-del-modo-estándar)
+   - [Aprovisionamiento y mantenimiento de Cipia-FS10](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+        - [Cambios en el archivo de configuración](#Cambios-en-el-archivo-de-configuración)
+        - [Gestión de archivos de configuración por Cipia-FS10](#Gestión-de-archivos-de-configuración-por-Cipia-FS10)
+        - [Entorno de depuración](#Entorno-de-depuración)
+        - [Proceso de instalación y calibración](#Proceso-de-instalación-y-calibración)
+        - [Inscripción de identificación de conductor](#Inscripción-de-identificación-de-conductor)
+        - [Gestión de archivos de audio](#Gestión-de-archivos-de-audio)
+        - [Restablecimiento del dispositivo](#Restablecimiento-del-dispositivo)
+        - [Propiedades del dispositivo](#Propiedades-del-dispositivo)
+   - [Integración con Mobileye 6 u 8](#Integración-con-Mobileye-6-u-8)
+   - [Eventos Cipia-FS10](#Eventos-Cipia-FS10)
+   - [Configuración](#Configuración)
+   - [Interfaces de comunicación](#Interfaces-de-comunicación)
+        - [Conexión RS232](#Conexión-RS232)
+        - [USB](#USB)
+        - [Bluetooth](#Bluetooth)
+        - [Wi-Fi](#Wi-Fi)
+        - [LTE](#LTE)
+   - [Priorización de canales de comunicación](#Priorización-de-canales-de-comunicación)
+   - [Seguridad de las comunicaciones](#Seguridad-de-las-comunicaciones)
+        - [MQTT](#MQTT)
+        - [SSH](#SSH)
+5.	[Cipia-FS10 HMI](#Cipia-FS10-HMI)
+6.	[Kit de prueba y evaluación](#Kit-de-prueba-y-evaluación)
+7.	[Control de errores del sistema](#Control-de-errores-del-sistema)
+8.	[Avisos de normas y reglamentos](#Avisos-de-normas-y-reglamentos)
+    - [FCC](#FCC)
+    - [IC](#IC)
+    - [RED](#RED)
 
 ## Descripción general de Cipia-FS10
 [Ir al Inicio](#cipia-fs10-manual-de-producto) | [Tabla de contenidos](#Tabla-de-contenidos)
