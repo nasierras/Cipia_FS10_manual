@@ -532,19 +532,131 @@ Cipia-FS10.
 - Los paquetes de voz disponibles / instalados en un dispositivo instalado se pueden recuperar a través del mensaje de propiedades del dispositivo (ver a 
 continuación).
 
-
-
 #### Restablecimiento del dispositivo
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
+
+Los dispositivos Cipia-FS10 admiten diferentes opciones de restablecimiento del sistema, incluyendo: 
+- Restablecimiento de HW iniciado presionando el botón principal. 
+- Autorrestablecimiento activado por los mecanismos de vigilancia del dispositivo. 
+- Comando OTA reset que se define como parte del protocolo OTA bidireccional del dispositivo (seguro y autenticado). 
+A cada evento de restablecimiento se le asigna un identificador de motivo diferente, notificado por el dispositivo al backend al arrancar. 
 
 #### Propiedades del dispositivo
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Aprovisionamiento-y-mantenimiento-de-Cipia-FS10)
 
+Es posible enviar una consulta de propiedades del dispositivo al dispositivo Cipia-FS10 a través de OTA (tanto del lado del servidor como de la aplicación instaladora) o mediante la conexión USB. Después de recibir el informe de consulta, y después de cada arranque del sistema, el dispositivo Cipia-FS10 informa de sus propiedades con los siguientes campos en formato JSON estándar:
+
+|Número|Campo|Descripción|
+|------|-----|-----------|
+|1.| ID de unidad| Cadena de 10 caracteres asignada en la línea de producción.|
+|2.| Versión HW| Un identificador que designa de forma exclusiva la versión de la PCB principal del dispositivo. Esto debe incluir la especificación para el modelo de MCU, los tamaños de memoria y las revisiones.|
+|3.| Versión del sistema operativo|Incluido el arranque cargado, si está separado.|
+|4.| Versión principal de la aplicación| Por ejemplo: "1.0.1.31"|
+|5.| Versión de la biblioteca DMS| Por ejemplo: "7.10.4"|
+|6.| Versión del módem| Revisiones de hardware y software.|
+|7.| Versión GPS| Revisiones de hardware y software.|
+|8.| Fecha de producción| Fecha de prueba exitosa de la línea de producción.|
+|9.| ID del banco de pruebas| |
+|10.| Versión del archivo de configuración| Nota: Si se cambiaron parámetros específicos en lugar de todo el archivo a través de la aplicación de instalación, el nombre del archivo de configuración original se revisa con la fecha y hora de la actualización.|
+|11.| Paquete de audio| Atributos de cada conjunto disponible en el esquema JSON, incluidos: "id", "language", "description" y "version".|
+|12.| Número de tarjeta SIM| ICCID.|
+|13.| IMSI| Identificador de tarjeta SIM.|
+|14.| IMEI| Identificador de módem celular.|
+|15.| Versión del módulo Wi-Fi/BT| Revisiones de hardware y software.|
+|16.| Dirección MAC de BT| |
+|17.| Dirección MAC de Wi-Fi| |
+|18.| Tarjeta SD| Tamaño y tipo, si están disponibles.|
+|19.| Dispositivo instalado| Hora y fecha de la última instalación o NULL.|
+|20.| Calibración de la cámara de cabina| Hora y fecha de la última calibración o NULL.|
+|21.| Calibración de la cámara delantera| Hora y fecha de la última calibración o NULL.|
+|22.| Tipo de dispositivo| Con o sin soporte de cámara ADAS|
+|23.| Nivel de API admitido| Designa la última versión del protocolo compatible con la versión instalada|
+|24.| Volante a la izquierda| Indica si el dispositivo está configurado para el controlador del lado izquierdo o derecho|
+|25.| Datos de calibración DMS| Valores de la matriz de calibración Cipia-FS10|
+
 ### Integración con Mobileye 6/8
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
 
+El dispositivo Cipia-FS10 también admite la integración opcional con el dispositivo de posventa Mobileye. Esta integración equipa al Cipia-FS10 con capacidades ADAS para ofrecer una solución telemática de video completa para los clientes que ya instalaron dispositivos Mobileye fuera de línea en sus flotas.
+
+La integración física se logra utilizando el convertidor CANàRS232 que convierte los mensajes CANBUS enviados periódicamente por el dispositivo ME (resolución de 10 mseg), que representan diferentes alertas e indicaciones de estado, en el protocolo serie RS232 que puede ser analizado por el Cipia-FS10 para detectar e informar eventos de la cámara orientados hacia adelante. A continuación se muestra una ilustración de las interconexiones del dispositivo ME en el vehículo con la conexión opcional al dispositivo Cipia-FS10. 
+A través de la integración con los dispositivos Mobileye, el Cipia-FS10 debe ser capaz de detectar eventos aplicables a Mobileye y proporcionar retroalimentación al conductor y/ o transmitir eventos, imágenes y videos en consecuencia. El Cipia-FS10 admite los siguientes tipos de eventos:
+
+1. PCW – Advertencia de colisión de peatones 
+2. UFCW – Advertencia de colisión frontal urbana 
+3 . FCW – Advertencia de colisión frontal 
+4. HW – Advertencia de avance (Tailgating)
+5. LDW – Advertencia de salida de carril
+
+Siempre que la cámara orientada hacia adelante esté conectada al dispositivo Cipia-FS10, es posible cargar imágenes y filmaciones, al recibir el evento ADAS, no solo desde la cámara en cabina sino también desde la cámara orientada hacia adelante para obtener un contexto visual completo de los eventos generados por el dispositivo Mobileye. 
+
 ### Eventos Cipia-FS10
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+La siguiente tabla describe los diversos tipos de eventos que pueden ser detectados e informados a la aplicación backend por el dispositivo Cipia-FS10 en función del estado del vehículo (interruptor de encendido / velocidad / cambio de ángulo de rumbo), disparadores externos, comportamiento del conductor o cambios de estado del sistema. 
+
+Cada evento generado por la máquina de estado del dispositivo Cipia-FS10 se envía a la aplicación de servidor (si está habilitada en el archivo de configuración) con los siguientes atributos de evento: 
+
+- ID del dispositivo : una cadena única de diez caracteres en todos los dispositivos Cipia-FS10 fabricados. 
+- Tipo de evento: cadena que designa el tipo de evento que se muestra en la tabla siguiente. 
+- ID del mensaje : una marca de tiempo Unix de 13 dígitos, resolución de milisegundos. 
+- Self-IP: dirección IP si está conectado a través de un módem celular o punto de acceso (debe ser 0.0.0.0 si está conectado a través de BT/RS232). 
+- ID de viaje: un numerador que permite al lado del servidor agrupar eventos dentro de un solo viaje realizado por un determinado conductor. 
+• ID del conductor: el número de identificación del conductor si está identificado. Si el controlador no está identificado por el dispositivo Cipia-FS10, este campo contiene ceros. El ID de conductor se envía junto con el estado de permiso del conductor específico (si está inscrito). 
+• Fecha y hora del evento: tras la detección del evento por parte del algoritmo DMS, la aplicación Cipia-FS10 obtiene la hora exacta del sistema y la asocia con el evento generado. 
+• Última ubicación conocida : tras la detección de eventos por el algoritmo DMS, la aplicación Cipia-FS10 obtiene la ubicación del sistema (LAT/LONG, representación de ángulo decimal) y la asocia con el evento generado. 
+• Hora de ubicación: tras la detección de eventos por parte del algoritmo DMS, la aplicación Cipia-FS10 obtiene la "última hora de ubicación" y la asocia con el evento generado. Si la hora de ubicación es diferente de la hora del evento, significa que la ubicación / velocidad / rumbo del evento no son necesariamente precisos
+- Calidad de ubicación : tras la detección de eventos por parte del algoritmo DMS, la aplicación Cipia-FS10 obtiene la calidad FIX (HDOP) y la associate con el evento generado. Si la calidad FIX es mayor o cercana al umbral (HDOP<3), significa que puede haber una desviación significativa en la "Última ubicación conocida" de la ubicación real del dispositivo en el momento de la generación del evento. 
+• Velocidad (m/seg): tras la detección de eventos por parte del algoritmo DMS, la aplicación Cipia-FS10 obtiene el registro de velocidad y lo asocia con el evento generado. 
+• Ángulo de rumbo : tras la detección de eventos por parte del algoritmo DMS, la aplicación Cipia-FS10 obtiene el registro del ángulo de rumbo y lo asocia con el evento generado. 
+• Potencia ext (mV): voltaje de entrada externo en el momento de la detección del evento. 
+• Batería interna Potencia (mV): voltaje interno de la batería de respaldo en el momento de la detección del evento. 
+• Estado de la matriz de E/S: objeto que representa el estado de todas las entradas y salidas discretas/analógicas del dispositivo Cipia-FS10, incluyendo: 
+o PortID (IGN/GPI/GPIO/GPO),
+o Tipo (entrada / salida), 
+o Estado lógico actual (Activo / Inactivo) 
+o Nivel de voltaje del puerto (entero) 
+• Evento Attr1 : información adicional relacionada con el tipo de evento proporcionado, como el tipo de error de arranque del sistema, el tipo de restablecimiento, el motivo del evento de seguridad, el motivo de activación externa, etc. Si el evento generado no tiene información adicional, este campo se 
+pone a cero. 
+• Existe instantánea: un campo que designa si se capturó la imagen para este evento, cuál es la fuente de la cámara y el número de instantáneas para cada 
+cámara. 
+• Existe material de archivo: un campo que designa si se capturó material de archivo para este evento y desde qué cámara.
+
+El protocolo Cipia-FS10 admite la autenticación de dispositivos y tiene un mecanismo de detección de errores para verificar la validez y autenticidad del mensaje. 
+
+Cada tipo de evento se controla mediante parámetros de configuración que definen: 
+
+• Si el evento está habilitado o deshabilitado. Controlado por el parámetro booleano del archivo de configuración "Activation".
+- Los conjuntos de datos y medios (imagen / video) que deben enviarse al servidor al generar el evento. Controlado por el parámetro booleano del archivo de 
+configuración: "ReportEvent".
+- Los medios (imagen / video) establecen que deben enviarse al servidor al generar el evento. Controlado por los parámetros del archivo de configuración 
+"ReportImage", "ReportFootage" que puede aceptar los siguientes valores:
+   - Imagen del informe: 
+      - SingleDMS (imagen única de la cámara DMS) 
+      - SingleADAS (imagen única de la cámara ADAS)
+      - BothSingle (imagen única de cámaras DMS y ADAS)
+      - TimelapseDMS (5 imágenes de la cámara DMS)
+      - TimelapseADAS (5 imágenes de la cámara ADAS)
+      - BothTimelaps (10 imágenes de cámaras DMS y ADAS)
+      - Ninguno
+   - Imágenes del informe:
+      - DMS (imágenes de la cámara DMS)
+      - ADAS (imágenes de la cámara ADAS)
+      - Ambos (imágenes de cámaras DMS y ADAS)
+      - Ninguno 
+- Los patrones de comentarios del usuario se activaron en la detección de eventos. Controlado por los parámetros booleanos del archivo de configuración: 
+   - "FeedbackVisual": proporciona retroalimentación visual (LED) sobre event al conductor.
+   - "FeedbackAudio": proporciona retroalimentación de audio (pitido) sobre event al conductor.
+   - "FeedbackSpeech": dar speak retroalimentación al conductor sobre el evento.
+   - "FeedbackOutput": activa la salida de propósito general al detectar eventos. 
+
+Cuando el audio y la voz están habilitados, el sonido de alerta es seguido por el mensaje de voz. 
+
+Los valores predeterminados de los archivos de configuración mencionados anteriormente se pueden revisar en el archivo de configuración predeterminado 
+acompañado de cada versión de SO lanzada del Cipia-FS10. 
+
+Cada evento generado se reenvía a través del enlace preferido/activo como se establece en el archivo de configuración. Consulte el capítulo de comunicación priorizada para obtener más información sobre el enlace de comunicación seleccionado.
+Cuando se define la activación de salida, se utiliza GP_OUT.
 
 ### Configuración
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
