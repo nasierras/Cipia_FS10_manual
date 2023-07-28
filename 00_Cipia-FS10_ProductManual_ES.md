@@ -350,8 +350,7 @@ dispositivo Cipia-FS10 en modo de funcionamiento estándar.
 | | |  - **Estado del indicador de giro (intermitentes):** si el indicador de giro está conectado a una de las entradas del dispositivo.|
 | | |  - **Velocidad de guiñada del vehículo:** designa el cambio en el ángulo de rumbo del vehículo en comparación con el ángulo de rumbo anterior recibido del receptor GPS, siempre que los datos GPS estén disponibles y sean precisos.|
 |5| Gestión del tiempo| - El sistema operativo Cipia-FS10 mantiene una "hora del sistema" precisa en GMT basada en fuentes de reloj disponibles como la red celular y / o GPS.|
-| | | - Si ninguno de los dos existe o está "actualizado", el dispositivo CipiaFS10 gestiona la hora exacta (utilizando el reloj interno en tiempo real)
-con una desviación máxima de 86 segundos por 24 horas (0,1%).|
+| | | - Si ninguno de los dos existe o está "actualizado", el dispositivo CipiaFS10 gestiona la hora exacta (utilizando el reloj interno en tiempo real) con una desviación máxima de 86 segundos por 24 horas (0,1%).|
 |6| Gestión de ubicaciones| - La aplicación principal Cipia-FS10 actualiza el registro de ubicación preciso (RAM) al menos cada 1 segundo durante todo el viaje.|
 | | |- La primera ubicación en un nuevo viaje se registra solo después de que el sistema GNSS adquiere un FIX preciso.|
 | | |- El registro de ubicación no se actualiza si el parámetro de calidad FIX no supera un umbral predefinido.|
