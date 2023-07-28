@@ -338,42 +338,149 @@ dispositivo Cipia-FS10 en modo de funcionamiento estándar.
 |Número|Función|Descripción|
 |------|-------|-----------|
 |1| Lógica de monitoreo de vehículos y conductores| - El dispositivo Cipia-FS10 supervisa todos los parámetros y condiciones enumerados en la sección Eventos del archivo de configuración y activa eventos cuando se cumplen las condiciones.|
-|2| Gestión de eventos en memoria | - Cada evento generado por la aplicación Cipia-FS10 está asociado con un
-identificador numérico único y se registra en NVM hasta que se recibe un ACK del GW de comunicación del servidor que indica que el mensaje se recibió correctamente.|
+|2| Gestión de eventos en memoria | - Cada evento generado por la aplicación Cipia-FS10 está asociado con un identificador numérico único y se registra en NVM hasta que se recibe un ACK del GW de comunicación del servidor que indica que el mensaje se recibió correctamente.|
 | | - El número máximo de eventos registrados antes de que el sistema comience a anularse se establece en el archivo de configuración.|
-|3| ID de viaje Tras la detección de un evento de encendido (Logic Rise de la línea IGN),
-o tras la detección de un cambio de conductor sin apagar el motor, el
-dispositivo Cipia-FS10 establece un nuevo ID de viaje como el número
-del viaje anterior + 1.
-Cada evento generado por el dispositivo Cipia-FS10 se envía al backend
-FMS con el ID de viaje como parte de la estructura del mensaje.
-El ID de viaje es un entero de 3 bytes y se restablece a 0 al alcanzar
-D16,777,215.
-4 Gestión de datos
-del vehículo
-La biblioteca DMS utiliza datos del vehículo para activar, desactivar o
-adaptar correctamente inattentiveness desatentos.
-Si la información del vehículo está disponible, la aplicación principal
-informa de los siguientes parámetros a la biblioteca DMS:
-• Velocidad del vehículo (desde GPS): cuando los datos GPS no están
-disponibles o no están actualizados, o son inexactos (puntuación de
-baja calidad), la aplicación principal transfiere un valor acordado que
-designa la "velocidad no disponible" a la biblioteca. La aplicación
-principal aplica el algoritmo de "detección de movimiento" mientras los
-datos GPS no están disponibles y si el vehículo no se mueve,
-'velocidad = 0' se informa a la biblioteca para evitar que la biblioteca
-informe eventos innecesarios.
-• Dirección del vehículo (estado de marcha adelante / marcha atrás):
-si el indicador del interruptor de marcha atrás está conectado a una de
-las entradas del dispositivo y la entrada está configurada
-correctamente como señal de "marcha atrás", cada vez que se detecta
-una marcha atrás, los eventos DMS se desactivan.
-• Estado del indicador de giro (intermitentes): si el indicador de giro
-está conectado a una de las entradas del dispositivo.
-• Velocidad de guiñada del vehículo : designa el cambio en el ángulo
-de rumbo del vehículo en comparación con el ángulo de rumbo
-anterior recibido del receptor GPS, siempre que los datos GPS estén
-disponibles y sean precisos.
+|3| ID de viaje Tras la detección de un evento de encendido (Logic Rise de la línea IGN), o tras la detección de un cambio de conductor sin apagar el motor, el
+dispositivo Cipia-FS10 establece un nuevo ID de viaje como el número del viaje anterior + 1.|
+| | - Cada evento generado por el dispositivo Cipia-FS10 se envía al backend FMS con el ID de viaje como parte de la estructura del mensaje.|
+| | - El ID de viaje es un entero de 3 bytes y se restablece a 0 al alcanzar D16,777,215.|
+|4| Gestión de datos del vehículo| - La biblioteca DMS utiliza datos del vehículo para activar, desactivar o adaptar correctamente inattentiveness desatentos.|
+| | - Si la información del vehículo está disponible, la aplicación principal informa de los siguientes parámetros a la biblioteca DMS:|
+| |     - **Velocidad del vehículo (desde GPS):** cuando los datos GPS no están disponibles o no están actualizados, o son inexactos (puntuación de
+baja calidad), la aplicación principal transfiere un valor acordado que designa la "velocidad no disponible" a la biblioteca. La aplicación principal aplica el algoritmo de "detección de movimiento" mientras los datos GPS no están disponibles y si el vehículo no se mueve, 'velocidad = 0' se informa a la biblioteca para evitar que la biblioteca informe eventos innecesarios.|
+| |     - **Dirección del vehículo (estado de marcha adelante / marcha atrás):** si el indicador del interruptor de marcha atrás está conectado a una de
+las entradas del dispositivo y la entrada está configurada correctamente como señal de "marcha atrás", cada vez que se detecta una marcha atrás, los eventos DMS se desactivan.|
+| |     - **Estado del indicador de giro (intermitentes):** si el indicador de giro está conectado a una de las entradas del dispositivo.|
+| |     - **Velocidad de guiñada del vehículo:** designa el cambio en el ángulo de rumbo del vehículo en comparación con el ángulo de rumbo anterior recibido del receptor GPS, siempre que los datos GPS estén disponibles y sean precisos.|
+|5| Gestión del tiempo| - El sistema operativo Cipia-FS10 mantiene una "hora del sistema" precisa en GMT basada en fuentes de reloj disponibles como la red celular y / o GPS.|
+| | - Si ninguno de los dos existe o está "actualizado", el dispositivo CipiaFS10 gestiona la hora exacta (utilizando el reloj interno en tiempo real)
+con una desviación máxima de 86 segundos por 24 horas (0,1%).|
+|6| Gestión de ubicaciones| - La aplicación principal Cipia-FS10 actualiza el registro de ubicación preciso (RAM) al menos cada 1 segundo durante todo el viaje.|
+| | - La primera ubicación en un nuevo viaje se registra solo después de que el sistema GNSS adquiere un FIX preciso.|
+| | - El registro de ubicación no se actualiza si el parámetro de calidad FIX no supera un umbral predefinido.|
+| | - Cada nuevo registro de ubicación se registra junto con su <parámetro de calidad de reparación>, <tiempo de adquisición de ubicación>, velocidad
+< (m / seg)> y ángulo < rumbo>| 
+| | - Siempre que el registro de ubicación no se actualiza durante más tiempo que el parámetro de configuración TH, el dispositivo Cipia-FS10 genera un evento de "pérdida de GPS".|
+|7| Captura de vídeo y subida | - La aplicación Cipia-FS10 gestiona dos búferes cíclicos de vídeo, para cada cámara conectada (DMS y ADAS-opcional):|
+| |   - Búfer de vídeo de eventos en RAM, destinado a guardar unos segundos de vídeo antes y después de la ocurrencia de un evento de seguridad.|
+| |   - Búfer cíclico global en la tarjeta SD, destinado a permitir la recuperación de secuencias de vídeo a petición de la aplicación móvil o el servidor (si está habilitado en la configuración (consulte el parámetro 'ContRecording'').|
+| | - El video en el búfer cíclico global se comprime utilizando el códec H.264 que puede ser utilizado también por el FMS para reproducir el video.|
+| | - El búfer de vídeo de eventos de la RAM se captura y se guarda en NVM cuando se produce el evento y de acuerdo con los ajustes del archivo de
+configuración.|
+| | - Es posible indicar al dispositivo Cipia-FS10 que "comience a grabar ahora" un metraje con una longitud máxima de EventVideoLen al recibir dicho comando del servidor. El video capturado incluye el "pre-buffer" que estaba en la RAM en el momento en que se recibió el comando.|
+| | - El dispositivo Cipia-FS10 admite la carga de secuencias de vídeo desde el búfer cíclico global, de acuerdo con el marco de tiempo definido en un comando, si el marco de tiempo todavía está disponible en la memoria del dispositivo y si el período de tiempo solicitado no es superior a 10 minutos|
+| | - El protocolo bidireccional OTA admite los comandos de captura de vídeo descritos:|
+| |   - Comando 'Comience a grabar ahora'.|
+| |   - Comando 'Recuperar material de archivo de la memoria'.|
+|8| Gestión de energía | - La aplicación Cipia-FS10 distingue entre 3 modos de potencia: (1) ON, (2) OFF, (3) Standby/sleep.|
+| | | - La línea de encendido es el desencadenante habitual para las
+transiciones entre los modos ON y SLEEP.
+El modo OFF es el estado de energía del dispositivo durante el envío o
+después de la pérdida de energía externa y el agotamiento de la batería
+de respaldo interna.
+En funcionamiento normal, después de que el dispositivo esté conectado
+a una fuente de 9- alimentación de 32 V, nunca se apagará, a menos que
+se desconecte la fuente de alimentación principal.
+Si el parámetro 'MainButtonSettings' 'DeviceTurnOnEnable' está
+configurado en 'enabled', presionando el botón principal durante
+cualquier momento entre 5 y 10 segundos, mientras el dispositivo CipiaFS10 está encendido, activa el dispositivo para entrar en modo de
+suspensión.
+Si el parámetro 'MainButton settings' 'DeviceTurnOnEnable' se establece
+en 'disabled', el usuario nunca podrá poner el dispositivo en modo
+SLEEP.
+Independientemente de la configuración de los parámetros
+MainButtonSettings, si el dispositivo está encendido, supervisa la línea de
+encendido y se mueve entre los modos SLEEP y ON en consecuencia.
+Las transiciones entre modos de energía is notifican al servidor si los
+eventos correspondientes están habilitados.
+Tras la detección de una caída de energía por debajo de 7V, en la línea
+de entrada de alimentación, durante más de 2 segundos, el dispositivo
+Cipia-FS10 genera un evento de error con la razón apropiada (y el búfer
+de video cíclico) y comienza un procedimiento de apagado que se
+completa en menos de 20 segundos. El dispositivo Cipia-FS10 se
+despierta de nuevo una vez reconectado a una fuente de alimentación
+estable de 9-32V.
+Si no hay conexión con el servidor en el momento de la pérdida de
+energía, el evento se almacena en NVM y se carga en el siguiente
+encendido exitoso.
+9 Detección de
+manipulación
+La aplicación Cipia-FS10 monitorea continuamente los ángulos de
+instalación del dispositivo utilizando su acelerómetro 3D integrado, y si
+se identifica una desviación de la instalación original (como se adquirió
+durante la calibración), se genera un evento "TamperingDetection".
+Además, si se pierde la imagen (la cámara está bloqueada) o no se
+detecta actividad, durante el estado DRIVE durante más de 30 segundos,
+se genera un evento de error con el motivo apropiado (bloqueo de la
+cámara / borroso / otro).
+10 Gestión de la carga
+de la batería
+La carga interna de la batería de iones de litio es administrada por la
+aplicación principal Cipia-FS10, o un servicio paralelo administrado por el
+sistema operativo de acuerdo con las mejores prácticas de carga
+conocidas para baterías de iones de litio (temperatura, envejecimiento,
+perfil de uso) para lograr la vida útil efectiva más larga posible sin
+comprometer la capacidad de la batería para alimentar el dispositivo
+durante al menos un minuto después de la pérdida de energía.
+Dado que la batería interna se usa solo como respaldo para incidentes
+de pérdida de energía y, en escenarios de casos de uso normales, la
+batería no pasará por ciclos de carga / descarga, la aplicación principal
+administra el voltaje de la batería en el rango de 3.9V a 4.05V siempre.
+11 Gestión de la
+temperatura interna
+del núcleo
+La aplicación Cipia-FS10 monitorea la temperatura en los componentes
+críticos del dispositivo (CPU, MCU, sensor de imagen) y realiza acciones
+como módulos HW o apagado de comunicación para evitar daños
+permanentes si se identifica un sobrecalentamiento.
+En el caso de un incidente de sobrecalentamiento, el sistema genera y
+envía el evento de error por adelantado antes de un posible apagado en
+la comunicación.
+12 FOTA La aplicación principal o un agente de servicio en segundo plano
+administra las capacidades de actualización de firmware por aire (FOTA)
+mediante el servicio de actualización FW de un tercero.
+El agente FOTA mantiene una conexión periódica con el servidor OTA
+para comprobar si hay actualizaciones disponibles y puede
+actualizar/degradar, si se le indica, tres capas diferentes del SW: OS,
+aplicación principal y bibliotecas DMS .
+Para dispositivos conectados mediante BLE o RS232, la actualización de
+FOTA debe realizarse utilizando un punto de acceso Wi-Fi, ya sea
+localmente en el vehículo o en algún hub al que llegue el vehículo.
+13 Señalización
+telemática GPI
+Es posible definir en el archivo de configuración una entrada digital del
+Cipia-FS10 que se activará cada vez que se detecte un evento de
+comportamiento del controlador por una caja telemática conectada.
+Tras la activación de esta entrada, el dispositivo Cipia-FS10 activa un
+evento y captura una imagen o secuencias de vídeo tal como se define
+en el archivo de configuración (con pre y post-buffers).
+El dispositivo Cipia-FS10 envía los datos del evento seguidos del archivo
+de imagen/vídeo. El nombre de archivo de imagen/vídeo incluye un ID
+que también se incluye en los datos del evento para facilitar la asociación
+en el lado del servidor.
+14 Activación de salida La aplicación principal FS10 puede activar salidas de propósito general
+en uno de los siguientes casos:
+1. Cuando la biblioteca DMS requiere dicha activación como medida
+para advertir al conductor o llamar su atención (por ejemplo, cuando
+la salida está conectada al timbre del asiento)
+2. Cuando se recibe un comando desde el servidor (MQTT) o desde el
+puerto serie (T-Box) o desde el enlace BT (T-Box) o desde la CLI.
+Algunas notas de la aplicación de activación de salida:
+• El comando Server tiene mayor prioridad sobre la activación de DMS si
+existe un conflicto entre dos activaciones.
+• El puerto GPIO solo puede activarlo el servidor, mientras que el puerto
+GPO puede activarse mediante lógica interna o el servidor.
+• Destado de salida d efault es "Normalmente abierto" (desconectado).
+Una vez activado, la salida se conecta a GND.
+15 Actualización de la
+base de datos de
+controladores
+Tras la adquisición de un archivo de imagen/vector mejorado de una cara
+de controlador que ya existe en la base de datos Cipia-FS10, Cipia-FS10
+genera un evento apropiado y lo envía al backend junto con el archivo de
+datos mejorado.
+
+
 
 ### Aprovisionamiento y mantenimiento de Cipia-FS10
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
