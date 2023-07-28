@@ -293,10 +293,12 @@ El dispositivo Cipia-FS10 cumple con los siguientes estándares de certificació
 [Ir al Inicio](#Cipia-FS10-Manual-de-Producto) | [Tabla de Contenidos](#Tabla-de-contenidos)
 ### Arquitectura de la solución
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
 El siguiente diagrama muestra los diversos bloques de construcción e interfaces opcionales del Cipia-FS10 cuando se integra en un entorno de solución telemática
    
 ### Estados y modos de operación
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
 La aplicación Cipia-FS10 tiene tres modos operativos:
 1. Modo de instalación y calibración: utilizado durante la instalación por un técnico profesional / certificado.
 2. Modo de mantenimiento: utilizado durante debug el mantenimiento por técnicos o ingenieros de aplicaciones de campo.
