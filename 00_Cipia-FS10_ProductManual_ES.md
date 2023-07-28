@@ -523,10 +523,10 @@ Cipia-FS10.
 - Cada paquete de mensajes de voz va acompañado de archivo JSON que describe sus atributos. Por ejemplo:
   
 ```bash
-"set": 0, 
-"language": "English-US", 
-"descripción": "Hombre", 
-"versión": "1.1" 
+"set": 5, 
+"language": "Spanish-US", 
+"description": "Female", 
+"version": "1.1" 
 ```
 
 - Los paquetes de voz disponibles / instalados en un dispositivo instalado se pueden recuperar a través del mensaje de propiedades del dispositivo (ver a 
