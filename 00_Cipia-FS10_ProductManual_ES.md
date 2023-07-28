@@ -354,8 +354,7 @@ dispositivo Cipia-FS10 en modo de funcionamiento estándar.
 |6| Gestión de ubicaciones| - La aplicación principal Cipia-FS10 actualiza el registro de ubicación preciso (RAM) al menos cada 1 segundo durante todo el viaje.|
 | | |- La primera ubicación en un nuevo viaje se registra solo después de que el sistema GNSS adquiere un FIX preciso.|
 | | |- El registro de ubicación no se actualiza si el parámetro de calidad FIX no supera un umbral predefinido.|
-| | |- Cada nuevo registro de ubicación se registra junto con su <parámetro de calidad de reparación>, <tiempo de adquisición de ubicación>, velocidad
-< (m / seg)> y ángulo < rumbo>| 
+| | |- Cada nuevo registro de ubicación se registra junto con su <parámetro de calidad de reparación>, <tiempo de adquisición de ubicación>, velocidad (m/s) y ángulo <rumbo>|
 | | |- Siempre que el registro de ubicación no se actualiza durante más tiempo que el parámetro de configuración TH, el dispositivo Cipia-FS10 genera un evento de "pérdida de GPS".|
 |7| Captura de vídeo y subida | - La aplicación Cipia-FS10 gestiona dos búferes cíclicos de vídeo, para cada cámara conectada (DMS y ADAS-opcional):|
 | | | - Búfer de vídeo de eventos en RAM, destinado a guardar unos segundos de vídeo antes y después de la ocurrencia de un evento de seguridad.|
