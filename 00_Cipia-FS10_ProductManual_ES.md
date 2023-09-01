@@ -137,16 +137,48 @@ En el diagrama anterior, el eje *x* apunta al controlador.
   <p align="center"><strong>Fig. 4</strong> - Interfaz de dispositivo.</p>
 </div>
 
-|Interfaz|Descripción|
-|--------|-----------|
-|Puerta de SD|Tarjetas SIM/SD. Utilizado por técnicos e instaladores durante la instalación o servicio|
-|Botón funcional|Activación/ restablecimiento de HW ó activación de eventos|
-|LED de conductor|El LED rojo se utiliza para proporcionar retroalimentación visual al conductor|
-|Parlante|Para señales audible y alertas|
-|Micrófono|Para la grabación de voz de cabina (configurable)|
-|LED del Sistema|LED Tricolor para reportar los eventos del sistema|
-|Botón de Volumen|Control de volumen (configurable)|
-|Puerto USB (micro)|Puerto micro USB para el servicio de depuración y la carga de datos en caso de que los eventos y las secuencias de video no se puedan cargar de forma inalámbrica.|
+<table>
+  <tr>
+    <th>Interfaz</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+    <td>Puerto de tarjetas</td>
+    <td>Tarjetas SIM/SD. Usado por técnicos e instaladores durante la instalación o servicio.</td>
+  </tr>
+  <tr>
+    <td>Botón funcional</td>
+    <td>Activation/HW reset/Event triggering.</td>
+  </tr>
+  <tr>
+    <td>Indicador al conductor</td>
+    <td>Activation/HW reset/Event triggering.</td>
+  </tr>
+  <tr>
+    <td>Bocina</td>
+    <td>Activation/HW reset/Event triggering.</td>
+  </tr>
+  <tr>
+    <td>Functional Button</td>
+    <td>Activation/HW reset/Event triggering.</td>
+  </tr>
+  <tr>
+    <td>Micrófono</td>
+    <td>Para la grabación de voz de cabina (configurable).</td>
+  </tr>
+  <tr>
+    <td>LED del Sistema</td>
+    <td>LED Tricolor para reportar los eventos del sistema.</td>
+  </tr>
+  <tr>
+    <td>Botón de Volumen</td>
+    <td>Control de volumen (configurable).</td>
+  </tr>
+  <tr>
+    <td>Puerto USB (micro)</td>
+    <td>Puerto micro USB para el servicio de depuración y la carga de datos en caso de que los eventos y las secuencias de video no se puedan cargar de forma inalámbrica.</td>
+  </tr>
+</table>
 
 ### Bloques de construcción del sistema
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
@@ -161,70 +193,222 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 ### Especificación de hardware
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
 
-|Componente|Descripción|
-|----------|-----------|
-|**Núcleo de la plataforma**||
-|Procesador principal (SOC)|Ambarella CV25|
-|RAM|1GB|
-|ROM|8GB|
-|Tarjeta de memoria|Ranura para tarjeta Micro SD – Hasta 1TB, exFAT, SDHC/SDXC|
-|Perro guardián|- Controlado por SW: para la recuperación de aplicaciones|
-| |-HW controlado – para la recuperación del sistema|
-|Sensor de movimiento|Acelerómetro 3D / (±16g, 12bit, 100Hz o mejor)|
-|Sistema operativo|Linux based|
-|**Interfaz del controlador**||
-|Botones físicos| - 1 x configurable, multipropósito|
-| | +/- Teclas de volumen|
-|LEDs| - 1 x Estado del sistema (3 colores)|
-| | - 3 x eventos del conductor|
-|Micrófono interno|Alta sensibilidad, omnidireccional|
-|Bocina interna|Max 85dB @ 1m / 2W, 600Hz ~ 20Khz|
-|**Comunicación inalámbrica**||
-|Celular| - LTE CAT4|
-| | - FDD 1/2/3/4/5/7/8/12/13/17/20/28 (Territorios/aplicaciones no compatibles: Japón, FirstNet)|
-| | - GSM 850/900/1800/1900|
-| | - WCDMA 1/2/4/5/8 (DC-HSPA+)|
-| | - 3FF, Micro SIM (interna)|
-|Módulo GNSS| - 50 canales, NMEA 0183, soporte AGPS|
-| | - Soporte de sistemas satelitales: GPS, GLONASS, Galileo
-|LAN inalámbrica| - Wi-Fi – 802.11 b / g / n / ac,|
-| | - Bandas de frecuencia - 2.4G (B1-13) / 5G (B36-165)|
-| | - Soporte de modo dual AP y / o Hotspot|
-|Bluetooth | BLE V4.2|
-|**Cámaras integradas**||
-|Hacia el conductor (DMS) | - Sensor de imagen monocromo de 1,2 MP (1280 x 960)|
-| |Enfoque fijo. Profundidad de visión 40-111cm min|
-| |VOAF: 510, VFOV: 390|
-| |Obturador global IR 940nm|
-| |30 fps|
-| | - F# 2.05|
-| | - LEDs IR x 2|
-|Orientación a la carretera||
-|(Modelos FS10-XXX-ADS)| - 2MP (1920x1280), sensor de imagen de 2.8μ|
-| | - Amplio rango dinámico – 120dB|
-| | - Excepcional sensibilidad a la luz baja: 0.01Lux|
-| | - 30 fps|
-| | - F# 2.9|
-| | - VOAF: 620, VFOV: 340|
-| | - Interfaz física – Conector FAKRA|
-| | - Tipo de interfaz FPD-LINK III|
-| | - Alimentación: 12 V, ±8 %, pico de 400 mA, AVG de <150 mA|
-| | - Carcasa: Aleación de aluminio|
-|**Interfaces de comunicación**||
-|RS-232| - 1 x RS-232 (Tx, Rx, GND)|
-|USB| - 1 x USB 2.0 Dispositivo/host (puerto Micro-USB)|
-|**Control de periféricos**||
-|GPIO| - 1 x sentido de encendido.|
-| | - 1 x entrada (0 – VCC). Digital o analógico.|
-| | - 1 x salida de colector abierto.|
-| | - 1 x E/S – Totalmente configurable por SW.|
-|**Potencia**||
-|Potencia de entrada| - Conexión directa de la batería del vehículo (9V-32V)|
-| | - Cumple con ISO 7637 y 16750|
-|Batería interna| Li-Ion 3.7V / 550mAh - Admite un minuto de funcionalidad completa y apagado ordenado en el corte de energía.|
-|Corriente promedio @ inactivo|<3mA @ 12V|
-|Corriente media @ activo| - FS10-LOC: <475mA @12V|
-| | - FS10-LTE @12V <540 mA|
+<table>
+  <tr>
+    <th>Componente</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+    <td style = "font-weight: bold;" colspan="2">Núcleo de la plataforma</td>
+  </tr>
+  <tr>
+      <td>Procesador principal (SOC)</td>
+      <td>Ambarella CV25</td>
+  </tr>
+  <tr>
+    <td>RAM</td>
+    <td>1GB</td>
+  </tr>
+  <tr>
+    <td>ROM</td>
+    <td>8GB</td>
+  </tr>
+  <tr>
+    <td>Tarjeta de memoria</td>
+    <td>Ranura para tarjeta Micro SD – Hasta 1TB, exFAT, SDHC/SDXC</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Perro guardián</td>
+    <td>-Controlado por SW: para la recuperación de aplicaciones</td>
+  </tr>
+  <tr>
+    <td>-HW controlado – para la recuperación del sistema</td>
+  </tr>
+  <tr>
+    <td>Sensor de movimiento</td>
+    <td>Acelerómetro 3D / (±16g, 12bit, 100Hz o mejor)</td>
+  </tr>
+  <tr>
+    <td>Sistema operativo</td>
+    <td>Linux based</td>
+  </tr>
+  <tr>
+    <td style = "font-weight: bold;" colspan="2">Interfaz del controlador</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Botones físicos</td>
+    <td>- 1 x configurable, multipropósito</td>
+  </tr>
+  <tr>
+    <td>+/- Teclas de volumen</td>
+  </tr>
+  <tr>
+    <td rowspan="2">LEDs</td>
+    <td>- 1 x Estado del sistema (3 colores)</td>
+  </tr>
+  <tr>
+    <td>- 3 x eventos del conductor</td>
+  </tr>
+  <tr>
+    <td>Micrófono interno</td>
+    <td>Alta sensibilidad, omnidireccional</td>
+  </tr>
+  <tr>
+    <td>Bocina interna</td>
+    <td>Max 85dB @ 1m / 2W, 600Hz ~ 20Khz</td>
+  </tr>
+  <tr>
+    <td style = "font-weight: bold;" colspan="2">Comunicación inalámbrica</td>
+  </tr>
+  <tr>
+    <td rowspan="5">Celular</td>
+    <td>- LTE CAT4</td>
+  </tr>
+  <tr>
+    <td>- FDD 1/2/3/4/5/7/8/12/13/17/20/28 (Territorios/aplicaciones no compatibles: Japón, FirstNet)</td>
+  </tr>
+  <tr>
+    <td>- GSM 850/900/1800/1900</td>
+  </tr>
+  <tr>
+    <td>- WCDMA 1/2/4/5/8 (DC-HSPA+)</td>
+  </tr>
+  <tr>
+    <td>- 3FF, Micro SIM (interna)</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Módulo GNSS</td>
+    <td>- 50 canales, NMEA 0183, soporte AGPS</td>
+  </tr>
+  <tr>
+    <td>- Soporte de sistemas satelitales: GPS, GLONASS, Galileo</td>
+  </tr>
+  <tr>
+    <td rowspan="3">LAN inalámbrica</td>
+    <td>- Wi-Fi – 802.11 b/g/n/ac,</td>
+  </tr>
+  <tr>
+    <td>- Bandas de frecuencia - 2.4G (B1-13) / 5G (B36-165)</td>
+  </tr>
+  <tr>
+    <td>- Soporte de modo dual AP y/o Hotspot</td>
+  </tr>
+  <tr>
+    <td>Bluetooth</td>
+    <td>BLE V4.2</td>
+  </tr>
+  <tr>
+    <td style = "font-weight: bold;" colspan="2">Cámaras integradas</td>
+  </tr>
+  <tr>
+    <td  rowspan="7">En cabina (DMS)</td>
+    <td>- Sensor de imagen monocromo de 1,2 MP (1280 x 960)</td>
+  </tr>
+  <tr>
+    <td>- Enfoque fijo. Profundidad de visión 40-111cm</td>
+  </tr>
+  <tr>
+    <td>- VOAF: 51º/ VFOV: 39º</td>
+  </tr>
+  <tr>
+    <td>- Obturador global IR 940nm</td>
+  </tr>
+  <tr>
+    <td>- 30 fps</td>
+  </tr>
+  <tr>
+    <td>- F# 2.05</td>
+  </tr>
+  <tr>
+    <td>- LEDs IR x 2</td>
+  </tr>
+  <tr>
+    <td rowspan="11">Al camino (Dashcam)</td>
+    <td>(Modelos FS10-Plus y FS10-XXX-ADAS)</td>
+  </tr>
+  <tr>
+    <td>- 2MP (1920x1280), sensor de imagen de 2.8μ</td>
+  </tr>
+  <tr>
+    <td>- Amplio rango dinámico – 120dB</td>
+  </tr>
+  <tr>
+    <td>- Excepcional sensibilidad a la luz baja: 0.01Lux</td>
+  </tr>
+  <tr>
+    <td>- 30 fps</td>
+  </tr>
+  <tr>
+    <td>- F# 2.9</td>
+  </tr>
+  <tr>
+    <td>- VOAF: 62º, VFOV: 34º</td>
+  </tr>
+  <tr>
+    <td>- Interfaz física – Conector FAKRA</td>
+  </tr>
+  <tr>
+    <td>- Tipo de interfaz FPD-LINK III</td>
+  </tr>
+  <tr>
+    <td>- Alimentación: 12 V, ±8 %, pico de 400 mA, AVG de <150 mA</td>
+  </tr>
+  <tr>
+    <td>- Carcasa: Aleación de aluminio</td>
+  </tr>
+  <tr>
+    <td  style = "font-weight: bold;" colspan="2">Interfaces de comunicación</td>
+  </tr>
+  <tr>
+    <td>RS-232</td>
+    <td>- 1 x RS-232 (Tx, Rx, GND)</td>
+  </tr>
+  <tr>
+    <td>USB</td>
+    <td>- 1 x USB 2.0 Dispositivo/host (puerto Micro-USB)</td>
+  </tr>
+  <tr>
+    <td style = "font-weight: bold;" colspan="2">Control de periféricos</td>
+  </tr>
+  <tr>
+    <td rowspan="4">GPIO</td>
+    <td>- 1 x sentido de encendido.</td>
+  </tr>
+  <tr>
+    <td>- 1 x entrada (0 – VCC). Digital o analógico.</td>
+  </tr>
+  <tr>
+    <td>- 1 x salida de colector abierto.</td>
+  </tr>
+  <tr>
+    <td>- 1 x E/S – Totalmente configurable por SW.</td>
+  </tr>
+  <tr>
+    <td style = "font-weight: bold;" colspan="2">Potencia</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Potencia de entrada</td>
+    <td>- Conexión directa de la batería del vehículo (9V-32V)</td>
+  </tr>
+  <tr>
+    <td>- Cumple con ISO 7637 y 16750</td>
+  </tr>
+  <tr>
+    <td>Batería interna</td>
+    <td>Li-Ion 3.7V / 550mAh - Admite un minuto de funcionalidad completa y apagado ordenado en el corte de energía.</td>
+  </tr>
+  <tr>
+    <td>Corriente promedio @ inactivo</td>
+    <td><3mA @ 12V</td>
+  </tr>
+  <tr>
+    <td rowspan="2">Corriente media @ activo</td>
+    <td>- FS10-LOC: <475mA @12V</td>
+  </tr>
+  <tr>
+    <td>- FS10-LTE @12V <540 mA</td>
+  </tr>
+</table>
 
 ### Cable de instalación y pines
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
@@ -232,27 +416,79 @@ El siguiente diagrama muestra los principales bloques de construcción, intercon
 El cable de instalación Cipia-FS10 consta de 2 partes:
 1. Cable estilo Pigtail de un metro de largo, conectado internamente a la placa principal del dispositivo y con conector automotriz de 10 pines en el extremo.
 
-*****IMAGEN*****
+<div align="center">
+  <img src="images/FS10_-_pigtail_1.png" alt="FIG06" width="40%">
+  <p align="center"><strong>Fig. 6</strong> - Dispositivo Cipia-FS10.</p>
+</div>
 
 2. Cable de extensión de un metro de largo equipado con un conector automotriz mate y cables abiertos en el extremo.
 
-*****IMAGEN*****
+<div align="center">
+  <img src="images/FS10_-_pigtail_2.png" alt="FIG07" width="40%">
+  <p align="center"><strong>Fig. 7</strong> - Cableado Cipia-FS10.</p>
+</div>
 
 Esta estructura garantiza que los instaladores tengan la máxima flexibilidad en caso de que sea necesario cambiar la configuración de la instalación o corregir el hardware.
 
 La siguiente tabla describe el pinout del dispositivo FS10:
-|Pin|Señal|Observación|
-|---|-----|-----------|
-|1|PWR_IN|Rojo|
-|2|PWR_GND|Negro|
-|3|PWR_IGN|Morado|
-|4|RS232_TxD|Amarillo/Naranja|
-|5|RS232_RxD|Gris/Naranja|
-|6|COM_GND|Blanco|
-|7|GP_IN|Verde|
-|8|GP_OUT|Azul|
-|9|GP_IO|Gris|
-|10|Repuesto|Rojo/Negro|
+
+<table>
+  <tr>
+    <th>Pin</th>
+    <th>Señal</th>
+    <th>Observación</th>
+  </tr>
+  <tr>
+      <td>1</td>
+      <td>PWR_IN</td>
+      <td>Rojo - Voltaje de Entrada</td>      
+  </tr>
+  <tr>
+      <td>2</td>
+      <td>PWR_GND</td>
+      <td>NMegro - Referencia de 0V</td>      
+  </tr>
+  <tr>
+      <td>3</td>
+      <td>PWR_IGN</td>
+      <td>Morado - Señal de la Ignición</td>      
+  </tr>
+  <tr>
+      <td>4</td>
+      <td>RS232_TxD</td>
+      <td>Amarillo/ Naranja - Transmisión de comunicación serial</td>      
+  </tr>
+  <tr>
+      <td>5</td>
+      <td>RS232_RxD</td>
+      <td>Gris/ Naranja - Recepción de comunicación serial</td>  
+  </tr>
+  <tr>
+      <td>6</td>
+      <td>COM_GND</td>
+      <td>Blanco - Referencia de tierra para comunicación</td>      
+  </tr>
+  <tr>
+      <td>7</td>
+      <td>GP_IN</td>
+      <td>Verde - Entrada de voltaje por parámetros</td>      
+  </tr>
+  <tr>
+      <td>8</td>
+      <td>GP_OUT</td>
+      <td>Azul - Señal a 0V para cierre de salida</td>      
+  </tr>
+  <tr>
+      <td>9</td>
+      <td>GP_IO</td>
+      <td>Gris - Multiproposito entrada /salida</td>      
+  </tr>
+  <tr>
+      <td>10</td>
+      <td>SPARE</td>
+      <td>Rojo/ Negro - Uso futuro</td>      
+  </tr>
+</table>
 
 Para grantizar el mínimo de conexiones para que el Cipia-FS10 funcione, los pines (1), (2) y (3) son requeridos.
 
@@ -261,21 +497,61 @@ Para grantizar el mínimo de conexiones para que el Cipia-FS10 funcione, los pin
 
 El dispositivo Cipia-FS10 cumple con los estándares ambientales detallados en la siguiente tabla:
 
-|Variable|Descripción|
-|--------|-----------|
-|**Rango de temperatura**| - Temperatura de funcionamiento (arranque/funcionamiento): -30 °C a +70 °C|
-| | - Continuo (rendimiento completo): -20 °C a +40 °C|
-| | - De la batería: -20°C a +60°C|
-| | - Almacenamiento: -30 °C a +80 °C|
-|**Humedad** | - 95% ±5% HR @ +40°C, sin condensación|
-|**IP** | - IP40|
-|**Empaquetado** | - ASTM/ ISTA|
-|**RoHS** | - RoHS II|
-|**REACH/COP** | - Cumple con REACH/POP (Unión Europea)|
-|**Minerales de conflicto** |  - Cumple con la ley de minerales de conflicto|
-|**Vibración** |  - ISO16750|
-|**Choque mecánico** |  - ISO16750|
-|**UV** | - Material plástico resistente a los rayos UV|
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+      <td rowspan="4">Rango de temperatura</td>
+      <td>Temperatura de funcionamiento (arranque/funcionamiento): -30 °C a +70 °C</td>
+   </tr>
+   <tr>
+      <td>Continuo (rendimiento completo): -20 °C a +40 °C</td>
+   </tr>
+   <tr>
+	  <td>- De la batería: -20°C a +60°C</td>
+   </tr>
+   <tr>
+      <td>- Almacenamiento: -30°C a +80°C</td>
+   </tr>
+   <tr>
+	  <td>Humedad
+      <td>- 95% ±5% HR @ +40°C, sin condensación</td>
+   </tr>
+   <tr>
+	   <td>IP</td>
+       <td>- IP40</td>
+   </tr>
+   <tr>
+	   <td>Empaquetado</td>
+       <td>- ASTM/ ISTA</td>
+   </tr>
+   <tr>
+       <td>RoHS</td>
+       <td>- RoHS II</td>
+   </tr>
+   <tr>
+       <td>REACH/COP</td>
+       <td>- Cumple con REACH/POP (Unión Europea)</td>
+   </tr>
+   <tr>
+       <td>Minerales de conflicto</td>
+       <td>- Cumple con la ley de minerales de conflicto</td>
+   </tr>
+   <tr>
+	   <td>Vibración</td>
+       <td>- ISO16750</td>
+   </tr>
+   <tr>
+	   <td>Choque mecánico</td>
+       <td>- ISO16750</td>
+   </tr>
+   <tr>
+	   <td>UV</td>
+       <td>Material plástico resistente a los rayos UV</td>
+   </tr>  
+</table>
 
 ### Certificaciones y estándares de la industria
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Cipia-FS10---hardware-e-interfaces)
@@ -312,25 +588,70 @@ El dispositivo Cipia-FS10 mantiene dos indicadores en su memoria no volátil par
 
 Los diferentes modos de operación y atributos per cada uno se detallan en la tabla a continuación.
 
-|Número|Modo|Actividades y atributos|
-|------|----|-----------------------|
-|1| Instalación y calibración | - El motor lógico de monitoreo de vehículos y conductores está inactivo.|
-| | | - Todos los módulos de comunicación están habilitados independientemente de la configuración de configuración.|
-| | | - Adquisición y almacenamiento de ángulos de instalación física para su posterior detección de manipulaciones.|
-| | | - Gestión de archivos de configuración por instalador/técnico.|
-| | | - Proceso de calibración de la cámara.|
-| | | - Inscripción en Face ID.|
-|2| Mantenimiento | - El estado del vehículo y la lógica de supervisión del conductor están activos.|
-| | | - Todos los canales de comunicación están habilitados independientemente de la configuración de configuración.|
-| | | - Acceso completo a NVM, RAM, SD tarjeta por usuarios autorizados.|
-| | | - Acceso completo a los recursos de depuración por parte de usuarios autorizados.|
-| | | - Gestión de archivos de configuración local.|
-| | | - Inscripción en Face ID.|
-| | | - Inyección de vídeo pregrabado.|
-| | | - Actualizaciones de la biblioteca, OS/App/DMS.|
-|3 | Estándar | - El estado del vehículo y la lógica de supervisión del conductor están activos.|
-| | | - El sistema funciona de acuerdo con la configuración del archivo de configuración.|
-| | | - Gestión de archivos de configuración desde el servidor a través de protocolos definidos.|
+<table>
+  <tr>
+    <th>Número</th>
+    <th>Modo</th>
+    <th>Actividades y atributos</th>
+  </tr>
+  <tr>
+      <td rowspan="6">1</td>
+      <td rowspan="6">Instalación y calibración</td>
+      <td>-El motor lógico de monitoreo de vehículos y conductores está inactivo</td>
+   </tr>
+   <tr>
+      <td>-Todos los módulos de comunicación están habilitados independientemente de la configuración de configuración.</td>
+   </tr>
+   <tr>
+      <td>- Adquisición y almacenamiento de ángulos de instalación física para su posterior detección de manipulaciones.</td>
+   </tr>
+   <tr>
+      <td>- Gestión de archivos de configuración por instalador/técnico.</td>
+   </tr>
+   <tr>
+      <td>- Proceso de calibración de la cámara.</td>
+   </tr>
+   <tr>
+      <td>- Inscripción en Face ID.</td>
+   </tr>
+   <tr>
+   	  <td  rowspan="8">2</td>
+      <td  rowspan="8">Mantenimiento</td>
+      <td>- El estado del vehículo y la lógica de supervisión del conductor están activos.</td>
+   </tr>
+   <tr>
+      <td>- Todos los canales de comunicación están habilitados independientemente de la configuración de configuración.</td>
+   </tr>
+   <tr>
+      <td>- Acceso completo a NVM, RAM, SD tarjeta por usuarios autorizados.</td>
+   </tr>
+   <tr>
+      <td>- Acceso completo a los recursos de depuración por parte de usuarios autorizados.</td>
+   </tr>
+   <tr>
+      <td>- Gestión de archivos de configuración local.</td>
+   </tr>
+   <tr>
+      <td>- Inscripción en Face ID.</td>
+   </tr>
+   <tr>
+      <td>- Inyección de vídeo pregrabado.</td>
+   </tr>
+   <tr>
+      <td>- Actualizaciones de la biblioteca, OS/App/DMS.</td>
+   </tr>
+   <tr>
+   	<td  rowspan="3">3</td>
+      <td  rowspan="3">Estandar</td>
+      <td>- El estado del vehículo y la lógica de supervisión del conductor están activos.</td>
+   </tr>
+   <tr>
+	  <td>- El sistema funciona de acuerdo con la configuración del archivo de configuración.</td>
+   </tr>
+   <tr>
+      <td>- Gestión de archivos de configuración desde el servidor a través de protocolos definidos.</td>
+   </tr>
+</table>
 
 ### Características y funciones del modo estándar
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
@@ -338,67 +659,215 @@ Los diferentes modos de operación y atributos per cada uno se detallan en la ta
 En la tabla siguiente se enumeran todas las características y funciones compatibles con el
 dispositivo Cipia-FS10 en modo de funcionamiento estándar.
 
-|Número|Función|Descripción|
-|------|-------|-----------|
-|1| Lógica de monitoreo de vehículos y conductores| - El dispositivo Cipia-FS10 supervisa todos los parámetros y condiciones enumerados en la sección Eventos del archivo de configuración y activa eventos cuando se cumplen las condiciones.|
-|2| Gestión de eventos en memoria | - Cada evento generado por la aplicación Cipia-FS10 está asociado con un identificador numérico único y se registra en NVM hasta que se recibe un ACK del GW de comunicación del servidor que indica que el mensaje se recibió correctamente.|
-| | | - El número máximo de eventos registrados antes de que el sistema comience a anularse se establece en el archivo de configuración.|
-|3| ID de viaje| - Tras la detección de un evento de encendido (Logic Rise de la línea IGN), o tras la detección de un cambio de conductor sin apagar el motor, el dispositivo Cipia-FS10 establece un nuevo ID de viaje como el número del viaje anterior + 1.|
-| | | - Cada evento generado por el dispositivo Cipia-FS10 se envía al backend FMS con el ID de viaje como parte de la estructura del mensaje.|
-| | | - El ID de viaje es un entero de 3 bytes y se restablece a 0 al alcanzar D16,777,215.|
-|4| Gestión de datos del vehículo| - La biblioteca DMS utiliza datos del vehículo para activar, desactivar o adaptar correctamente inattentiveness desatentos.|
-| | |- Si la información del vehículo está disponible, la aplicación principal informa de los siguientes parámetros a la biblioteca DMS:|
-| | |  - **Velocidad del vehículo (desde GPS):** cuando los datos GPS no están disponibles o no están actualizados, o son inexactos (puntuación de baja calidad), la aplicación principal transfiere un valor acordado que designa la "velocidad no disponible" a la biblioteca. La aplicación principal aplica el algoritmo de "detección de movimiento" mientras los datos GPS no están disponibles y si el vehículo no se mueve, 'velocidad = 0' se informa a la biblioteca para evitar que la biblioteca informe eventos innecesarios.|
-| | |  - **Dirección del vehículo (estado de marcha adelante / marcha atrás):** si el indicador del interruptor de marcha atrás está conectado a una de las entradas del dispositivo y la entrada está configurada correctamente como señal de "marcha atrás", cada vez que se detecta una marcha atrás, los eventos DMS se desactivan.|
-| | |  - **Estado del indicador de giro (intermitentes):** si el indicador de giro está conectado a una de las entradas del dispositivo.|
-| | |  - **Velocidad de guiñada del vehículo:** designa el cambio en el ángulo de rumbo del vehículo en comparación con el ángulo de rumbo anterior recibido del receptor GPS, siempre que los datos GPS estén disponibles y sean precisos.|
-|5| Gestión del tiempo| - El sistema operativo Cipia-FS10 mantiene una "hora del sistema" precisa en GMT basada en fuentes de reloj disponibles como la red celular y / o GPS.|
-| | | - Si ninguno de los dos existe o está "actualizado", el dispositivo CipiaFS10 gestiona la hora exacta (utilizando el reloj interno en tiempo real) con una desviación máxima de 86 segundos por 24 horas (0,1%).|
-|6| Gestión de ubicaciones| - La aplicación principal Cipia-FS10 actualiza el registro de ubicación preciso (RAM) al menos cada 1 segundo durante todo el viaje.|
-| | |- La primera ubicación en un nuevo viaje se registra solo después de que el sistema GNSS adquiere un FIX preciso.|
-| | |- El registro de ubicación no se actualiza si el parámetro de calidad FIX no supera un umbral predefinido.|
-| | |- Cada nuevo registro de ubicación se registra junto con su <parámetro de calidad de reparación>, <tiempo de adquisición de ubicación>, velocidad (m/s) y ángulo <rumbo>|
-| | |- Siempre que el registro de ubicación no se actualiza durante más tiempo que el parámetro de configuración TH, el dispositivo Cipia-FS10 genera un evento de "pérdida de GPS".|
-|7| Captura de vídeo y subida | - La aplicación Cipia-FS10 gestiona dos búferes cíclicos de vídeo, para cada cámara conectada (DMS y ADAS-opcional):|
-| | | - Búfer de vídeo de eventos en RAM, destinado a guardar unos segundos de vídeo antes y después de la ocurrencia de un evento de seguridad.|
-| | | - Búfer cíclico global en la tarjeta SD, destinado a permitir la recuperación de secuencias de vídeo a petición de la aplicación móvil o el servidor (si está habilitado en la configuración (consulte el parámetro 'ContRecording'').|
-| | |- El video en el búfer cíclico global se comprime utilizando el códec H.264 que puede ser utilizado también por el FMS para reproducir el video.|
-| | |- El búfer de vídeo de eventos de la RAM se captura y se guarda en NVM cuando se produce el evento y de acuerdo con los ajustes del archivo de configuración.|
-| | | - Es posible indicar al dispositivo Cipia-FS10 que "comience a grabar ahora" un metraje con una longitud máxima de EventVideoLen al recibir dicho comando del servidor. El video capturado incluye el "pre-buffer" que estaba en la RAM en el momento en que se recibió el comando.|
-| | |- El dispositivo Cipia-FS10 admite la carga de secuencias de vídeo desde el búfer cíclico global, de acuerdo con el marco de tiempo definido en un comando, si el marco de tiempo todavía está disponible en la memoria del dispositivo y si el período de tiempo solicitado no es superior a 10 minutos|
-| | |- El protocolo bidireccional OTA admite los comandos de captura de vídeo descritos:|
-| | |  - Comando 'Comience a grabar ahora'.|
-| | |  - Comando 'Recuperar material de archivo de la memoria'.|
-|8| Gestión de energía | - La aplicación Cipia-FS10 distingue entre 3 modos de potencia: (1) ON, (2) OFF, (3) Standby/sleep.|
-| | | - La línea de encendido es el desencadenante habitual para las transiciones entre los modos ON y SLEEP.|
-| | | - El modo OFF es el estado de energía del dispositivo durante el envío o después de la pérdida de energía externa y el agotamiento de la batería de respaldo interna.|
-| | | - En funcionamiento normal, después de que el dispositivo esté conectado a una fuente de 9- alimentación de 32 V, nunca se apagará, a menos que se desconecte la fuente de alimentación principal.|
-| | | - Si el parámetro 'MainButtonSettings' 'DeviceTurnOnEnable' está configurado en 'enabled', presionando el botón principal durante cualquier momento entre 5 y 10 segundos, mientras el dispositivo CipiaFS10 está encendido, activa el dispositivo para entrar en modo de suspensión.|
-| | | - Si el parámetro 'MainButton settings' 'DeviceTurnOnEnable' se establece en 'disabled', el usuario nunca podrá poner el dispositivo en modo SLEEP.|
-| | | - Independientemente de la configuración de los parámetros MainButtonSettings, si el dispositivo está encendido, supervisa la línea de encendido y se mueve entre los modos SLEEP y ON en consecuencia.|
-| | | - Las transiciones entre modos de energía is notifican al servidor si los eventos correspondientes están habilitados.|
-| | | - Tras la detección de una caída de energía por debajo de 7V, en la línea de entrada de alimentación, durante más de 2 segundos, el dispositivo Cipia-FS10 genera un evento de error con la razón apropiada (y el búfer de video cíclico) y comienza un procedimiento de apagado que se completa en menos de 20 segundos.|
-| | | - El dispositivo Cipia-FS10 se despierta de nuevo una vez reconectado a una fuente de alimentación estable de 9-32V.|
-| | | - Si no hay conexión con el servidor en el momento de la pérdida de energía, el evento se almacena en NVM y se carga en el siguiente encendido exitoso.|
-|9| Detección de manipulación| - La aplicación Cipia-FS10 monitorea continuamente los ángulos de instalación del dispositivo utilizando su acelerómetro 3D integrado, y si se identifica una desviación de la instalación original (como se adquirió durante la calibración), se genera un evento "TamperingDetection". Además, si se pierde la imagen (la cámara está bloqueada) o no se detecta actividad, durante el estado DRIVE durante más de 30 segundos, se genera un evento de error con el motivo apropiado (bloqueo de la cámara / borroso / otro).|
-|10| Gestión de la carga de la batería | - La carga interna de la batería de iones de litio es administrada por la aplicación principal Cipia-FS10, o un servicio paralelo administrado por el sistema operativo de acuerdo con las mejores prácticas de carga conocidas para baterías de iones de litio (temperatura, envejecimiento, perfil de uso) para lograr la vida útil efectiva más larga posible sin comprometer la capacidad de la batería para alimentar el dispositivo durante al menos un minuto después de la pérdida de energía.|
-| | | - Dado que la batería interna se usa solo como respaldo para incidentes de pérdida de energía y, en escenarios de casos de uso normales, la batería no pasará por ciclos de carga / descarga, la aplicación principal administra el voltaje de la batería en el rango de 3.9V a 4.05V siempre.|
-|11| Gestión de la temperatura interna del núcleo| - La aplicación Cipia-FS10 monitorea la temperatura en los componentes críticos del dispositivo (CPU, MCU, sensor de imagen) y realiza acciones como módulos de HW o apagado de comunicación para evitar daños permanentes si se identifica un sobrecalentamiento.|
-| | | - En el caso de un incidente de sobrecalentamiento, el sistema genera y envía el evento de error por adelantado antes de un posible apagado en la comunicación.|
-|12| FOTA| - La aplicación principal o un agente de servicio en segundo plano administra las capacidades de actualización de firmware por aire (FOTA) mediante el servicio de actualización FW de un tercero.|
-| | | - El agente FOTA mantiene una conexión periódica con el servidor OTA para comprobar si hay actualizaciones disponibles y puede actualizar/degradar, si se le indica, tres capas diferentes del SW: OS, aplicación principal y bibliotecas DMS.|
-| | | - Para dispositivos conectados mediante BLE o RS232, la actualización de FOTA debe realizarse utilizando un punto de acceso Wi-Fi, ya sea localmente en el vehículo o en algún hub al que llegue el vehículo.|
-|13| Señalización telemática GPI| - Es posible definir en el archivo de configuración una entrada digital del Cipia-FS10 que se activará cada vez que se detecte un evento de comportamiento del controlador por una caja telemática conectada.|
-| | | - Tras la activación de esta entrada, el dispositivo Cipia-FS10 activa un evento y captura una imagen o secuencias de vídeo tal como se define en el archivo de configuración (con pre y post-buffers).|
-| | | - El dispositivo Cipia-FS10 envía los datos del evento seguidos del archivo de imagen/vídeo. El nombre de archivo de imagen/vídeo incluye un ID que también se incluye en los datos del evento para facilitar la asociación en el lado del servidor.|
-|14| Activación de salida | - La aplicación principal FS10 puede activar salidas de propósito general en uno de los siguientes casos:|
-| | |    1. Cuando la biblioteca DMS requiere dicha activación como medida para advertir al conductor o llamar su atención (por ejemplo, cuando la salida está conectada al timbre del asiento)|
-| | |    2. Cuando se recibe un comando desde el servidor (MQTT) o desde el puerto serie (T-Box) o desde el enlace BT (T-Box) o desde la CLI.|
-| | | - Algunas notas de la aplicación de activación de salida:|
-| | |   - El comando Server tiene mayor prioridad sobre la activación de DMS si existe un conflicto entre dos activaciones.|
-| | |   - El puerto GPIO solo puede activarlo el servidor, mientras que el puerto GPO puede activarse mediante lógica interna o el servidor.|
-| | |   - Destado de salida default es "Normalmente abierto" (desconectado). Una vez activado, la salida se conecta a GND.|
-|15| Actualización de la base de datos de controladores| - Tras la adquisición de un archivo de imagen/vector mejorado de una cara de controlador que ya existe en la base de datos Cipia-FS10, Cipia-FS10 genera un evento apropiado y lo envía al backend junto con el archivo de datos mejorado.|
+<table>
+  <tr>
+    <th>Número</th>
+    <th>Función</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+      <td>1</td>
+      <td>Lógica de monitoreo de vehículos y conductores</td>
+      <td>El dispositivo Cipia-FS10 supervisa todos los parámetros y condiciones enumerados en la sección Eventos del archivo de configuración y activa eventos cuando se cumplen las condiciones.</td>
+   </tr>
+   <tr>
+      <td rowspan="2">2</td>
+      <td rowspan="2">Gestión de eventos en memoria</td>
+      <td>Cada evento generado por la aplicación Cipia-FS10 está asociado con un identificador numérico único y se registra en NVM hasta que se recibe un ACK del GW de comunicación del servidor que indica que el mensaje se recibió correctamente.</td>
+   </tr>
+   <tr>
+      <td>El número máximo de eventos registrados antes de que el sistema comience a anularse se establece en el archivo de configuración.</td>
+   </tr>
+   <tr>
+      <td rowspan="3">3</td>
+      <td rowspan="3">ID de viaje</td>
+      <td>Tras la detección de un evento de encendido (Logic Rise de la línea IGN), o tras la detección de un cambio de conductor sin apagar el motor, el dispositivo Cipia-FS10 establece un nuevo ID de viaje como el número del viaje anterior + 1.</td>
+   </tr>
+   <tr>
+      <td>Cada evento generado por el dispositivo Cipia-FS10 se envía al backend FMS con el ID de viaje como parte de la estructura del mensaje.</td>
+   </tr>
+   <tr>
+      <td>El ID de viaje es un entero de 3 bytes y se restablece a 0 al alcanzar D16,777,215.</td>
+   </tr>
+   <tr>
+      <td rowspan="6">4</td>
+      <td rowspan="6">Gestión de datos del vehículo</td>
+      <td>La biblioteca DMS utiliza datos del vehículo para activar, desactivar o
+adaptar correctamente eventos de desatención.</td>
+   </tr>
+   <tr>
+      <td>Si la información del vehículo está disponible, la aplicación principal
+informa de los siguientes parámetros a la biblioteca DMS:</td>
+   </tr>
+   <tr>
+      <td><strong>Velocidad del vehículo (desde GPS):</strong> cuando los datos GPS no están disponibles o no están actualizados, o son inexactos (puntuación de baja calidad), la aplicación principal transfiere un valor acordado que designa la "velocidad no disponible" a la biblioteca. La aplicación principal aplica el algoritmo de "detección de movimiento" mientras los datos GPS no están disponibles y si el vehículo no se mueve, 'velocidad = 0' se informa a la biblioteca para evitar que la biblioteca informe eventos innecesarios.</td>
+   </tr>
+   <tr>
+      <td><strong>Dirección del vehículo (estado de marcha adelante/ marcha atrás):</strong> si el indicador del interruptor de marcha atrás está conectado a una de las entradas del dispositivo y la entrada está configurada correctamente como señal de "marcha atrás", cada vez que se detecta una marcha atrás, los eventos DMS se desactivan.</td>
+   </tr>
+   <tr>
+      <td><strong>Estado del indicador de giro (intermitentes):</strong> si el indicador de giro está conectado a una de las entradas del dispositivo.</td>
+   </tr>
+   <tr>
+      <td><strong>Velocidad de guiñada del vehículo:</strong> designa el cambio en el ángulo
+de rumbo del vehículo en comparación con el ángulo de rumbo anterior recibido del receptor GPS, siempre que los datos GPS estén disponibles y sean precisos.</td>
+   </tr>
+   <tr>
+      <td rowspan="2">5</td>
+      <td rowspan="2">Gestión del tiempo</td>
+      <td>El sistema operativo Cipia-FS10 mantiene una "hora del sistema" precisa en GMT basada en fuentes de reloj disponibles como la red celular y/o GPS.</td>
+   </tr>
+   <tr>
+      <td>Si ninguno de los dos existe o está "actualizado", el dispositivo CipiaFS10 gestiona la hora exacta (utilizando el reloj interno en tiempo real) con una desviación máxima de 86 segundos por 24 horas (0,1%).</td>
+   </tr>
+   <tr>
+      <td rowspan="4">6</td>
+      <td rowspan="4">Gestión de ubicaciones</td>
+      <td>La aplicación principal Cipia-FS10 actualiza el registro de ubicación preciso (RAM) al menos cada 1 segundo durante todo el viaje.</td>
+   </tr>
+   <tr>
+      <td>La primera ubicación en un nuevo viaje se registra solo después de que el sistema GNSS adquiere un FIX preciso.</td>
+   </tr>
+   <tr>
+      <td>El registro de ubicación no se actualiza si el parámetro de calidad FIX no supera un umbral predefinido.</td>
+   </tr>
+   <tr>
+      <td>Siempre que el registro de ubicación no se actualiza durante más tiempo que el parámetro de configuración TH, el dispositivo Cipia-FS10 genera un evento de "pérdida de GPS".</td>
+   </tr>
+   <tr>
+      <td rowspan="6">7</td>
+      <td rowspan="6">Captura de vídeo y subir</td>
+      <td>La aplicación principal Cipia-FS10 actualiza el registro de ubicación preciso (RAM) al menos cada 1 segundo durante todo el viaje.</td>
+   </tr>
+   <tr>
+      <td>La aplicación Cipia-FS10 gestiona dos búferes cíclicos de vídeo, para cada cámara conectada (DMS y ADAS-opcional):
+      	<ul>
+  			<li>Búfer de vídeo de eventos en RAM, destinado a guardar unos segundos de vídeo antes y después de la ocurrencia de un evento de seguridad.</li>
+            <li>Búfer cíclico global en la tarjeta SD, destinado a permitir la recuperación de secuencias de vídeo a petición de la aplicación móvil o el servidor (si está habilitado en la configuración (consulte el parámetro 'ContRecording'').</li>
+		</ul>
+      </td>
+   </tr>
+   <tr>
+      <td>El video en el búfer cíclico global se comprime utilizando el códec H.264 que puede ser utilizado también por el FMS para reproducir el video. El búfer de vídeo de eventos de la RAM se captura y se guarda en NVM cuando se produce el evento y de acuerdo con los ajustes del archivo de configuración.</td>
+   </tr>
+   <tr>
+      <td>Es posible indicar al dispositivo Cipia-FS10 que "comience a grabar ahora" un metraje con una longitud máxima de EventVideoLen al recibir dicho comando del servidor. El video capturado incluye el "pre-buffer" que estaba en la RAM en el momento en que se recibió el comando.</td>
+   </tr>
+   <tr>
+      <td>El dispositivo Cipia-FS10 admite la carga de secuencias de vídeo desde el búfer cíclico global, de acuerdo con el marco de tiempo definido en un comando, si el marco de tiempo todavía está disponible en la memoria del dispositivo y si el período de tiempo solicitado no es superior a 10 minutos.</td>
+   </tr>
+   <tr>
+      <td>El protocolo bidireccional OTA admite los comandos de captura de vídeo
+descritos:
+      	<ul>
+  			<li>Comando 'Start recording now' (Iniciar grabación).</li>
+            <li>Comando 'Retrieve footage from Memory' (Recuperar material de archivo de la memoria).</li>
+		</ul>
+      </td>
+   </tr>
+   <tr>
+      <td rowspan="9">8</td>
+      <td rowspan="9">Gestión de energía</td>
+      <td>La aplicación Cipia-FS10 distingue entre 3 modos de potencia: (1) ON, (2) OFF, (3) Standby/sleep.</td>
+   </tr>
+   <tr>
+      <td>La línea de encendido es el desencadenante habitual para las transiciones entre los modos ON y SLEEP.</td>
+   </tr>
+   <tr>
+      <td>El modo OFF es el estado de energía del dispositivo durante el envío o después de la pérdida de energía externa y el agotamiento de la batería de respaldo interna.</td>
+   </tr>
+   <tr>
+      <td>En funcionamiento normal, después de que el dispositivo esté conectado a una fuente de 9- alimentación de 32 V, nunca se apagará, a menos que se desconecte la fuente de alimentación principal.</td>
+   </tr>
+   <tr>
+      <td>Si el parámetro 'MainButtonSettings' 'DeviceTurnOnEnable' está configurado en 'enabled', presionando el botón principal durante cualquier momento entre 5 y 10 segundos, mientras el dispositivo CipiaFS10 está encendido, activa el dispositivo para entrar en modo de suspensión</td>
+   </tr>
+   <tr>
+      <td>Si el parámetro 'MainButton settings' 'DeviceTurnOnEnable' se establece en 'disabled', el usuario nunca podrá poner el dispositivo en modo SLEEP.</td>
+   </tr>
+   <tr>
+      <td>Independientemente de la configuración de los parámetros MainButtonSettings, si el dispositivo está encendido, supervisa la línea de encendido y se mueve entre los modos SLEEP y ON en consecuencia.</td>
+   </tr>
+   <tr>
+      <td>Tras la detección de una caída de energía por debajo de 7V, en la línea de entrada de alimentación, durante más de 2 segundos, el dispositivo Cipia-FS10 genera un evento de error con la razón apropiada (y el búfer de video cíclico) y comienza un procedimiento de apagado que se completa en menos de 20 segundos. El dispositivo Cipia-FS10 se despierta de nuevo una vez reconectado a una fuente de alimentación estable de 9-32V.</td>
+   </tr>
+   <tr>
+      <td>Si no hay conexión con el servidor en el momento de la pérdida de energía, el evento se almacena en NVM y se carga en el siguiente encendido exitoso.</td>
+   </tr> 
+   <tr>
+      <td rowspan="2">9</td>
+      <td rowspan="2">Detección de manipulación</td>
+      <td>La aplicación Cipia-FS10 monitorea continuamente los ángulos de instalación del dispositivo utilizando su acelerómetro 3D integrado, y si se identifica una desviación de la instalación original (como se adquirió durante la calibración), se genera un evento "TamperingDetection".</td>
+   </tr>
+   <tr>
+      <td>Además, si se pierde la imagen (la cámara está bloqueada) o no se detecta actividad, durante el estado DRIVE durante más de 30 segundos, se genera un evento de error con el motivo apropiado (bloqueo de la cámara/ borroso/ otro).</td>
+   </tr> 
+   <tr>
+      <td rowspan="2">10</td>
+      <td rowspan="2">Gestión de la carga de la batería</td>
+      <td>La carga interna de la batería de iones de litio es administrada por la aplicación principal Cipia-FS10, o un servicio paralelo administrado por el sistema operativo de acuerdo con las mejores prácticas de carga conocidas para baterías de iones de litio (temperatura, envejecimiento, perfil de uso) para lograr la vida útil efectiva más larga posible sin comprometer la capacidad de la batería para alimentar el dispositivo durante al menos un minuto después de la pérdida de energía.</td>
+   </tr>
+   <tr>
+      <td>Dado que la batería interna se usa solo como respaldo para incidentes de pérdida de energía y, en escenarios de casos de uso normales, la batería no pasará por ciclos de carga / descarga, la aplicación principal administra el voltaje de la batería en el rango de 3.9V a 4.05V siempre.</td>
+   </tr>
+   
+   <tr>
+      <td rowspan="2">11</td>
+      <td rowspan="2">Gestión de la temperatura del núcleo</td>
+      <td>La aplicación Cipia-FS10 monitorea la temperatura en los componentes
+críticos del dispositivo (CPU, MCU, sensor de imagen) y realiza acciones como módulos HW o apagado de comunicación para evitar daños permanentes si se identifica un sobrecalentamiento.       </td>
+   </tr>
+   <tr>
+      <td>En el caso de un incidente de sobrecalentamiento, el sistema genera y envía el evento de error por adelantado antes de un posible apagado en la comunicación.</td>
+   </tr>
+   <tr>
+      <td rowspan="3">12</td>
+      <td rowspan="3">FOTA</td>
+      <td>La aplicación principal o un agente de servicio en segundo plano administra las capacidades de actualización de firmware por aire (FOTA) mediante el servicio de actualización FW de un tercero.</td>
+   </tr>
+   <tr>
+      <td>El agente FOTA mantiene una conexión periódica con el servidor OTA para comprobar si hay actualizaciones disponibles y puede actualizar/degradar, si se le indica, tres capas diferentes del SW: OS, aplicación principal y bibliotecas DMS.</td>
+   </tr>
+   <tr>
+      <td>Para dispositivos conectados mediante BLE o RS232, la actualización de FOTA debe realizarse utilizando un punto de acceso Wi-Fi, ya sea localmente en el vehículo o en algún hub al que llegue el vehículo.</td>
+   </tr>   
+   <tr>
+      <td rowspan="3">13</td>
+      <td rowspan="3">Señalización telemática GPI</td>
+      <td>Es posible definir en el archivo de configuración una entrada digital del Cipia-FS10 que se activará cada vez que se detecte un evento de comportamiento del controlador por una caja telemática conectada.</td>
+   </tr>
+   <tr>
+      <td>Tras la activación de esta entrada, el dispositivo Cipia-FS10 activa un evento y captura una imagen o secuencias de vídeo tal como se define en el archivo de configuración (con pre y post-buffers).</td>
+   </tr>
+   <tr>
+      <td>El dispositivo Cipia-FS10 envía los datos del evento seguidos del archivo de imagen/vídeo. El nombre de archivo de imagen/vídeo incluye un ID que también se incluye en los datos del evento para facilitar la asociación en el lado del servidor.</td>
+   </tr>   
+   <tr>
+      <td rowspan="2">14</td>
+      <td rowspan="2">Activación de salida</td>
+      <td>La aplicación principal FS10 puede activar salidas de propósito general en uno de los siguientes casos:
+	  	<ul>
+  			<li>Cuando la biblioteca DMS requiere dicha activación como medida para advertir al conductor o llamar su atención (por ejemplo, cuando la salida está conectada al timbre del asiento)</li>
+            <li>Cuando se recibe un comando desde el servidor (MQTT) o desde el puerto serie (T-Box) o desde el enlace BT (T-Box) o desde la CLI.</li>
+		</ul>
+      </td>
+   </tr>
+   <tr>
+      <td>Algunas notas de la aplicación de activación de salida:
+      	<ul>
+  			<li>El comando Server tiene mayor prioridad sobre la activación de DMS si existe un conflicto entre dos activaciones.</li>
+            <li>El puerto GPIO solo puede activarlo el servidor, mientras que el puerto GPO puede activarse mediante lógica interna o el servidor.</li>
+			<li>Desencadenado desde la salida default es "Normalmente abierto" (desconectado). Una vez activado, la salida se conecta a GND.</li>
+		</ul>  
+      </td>
+   </tr>
+   
+   <tr>
+      <td>15</td>
+      <td>Actualización de la base de datos de controladores</td>
+      <td>Tras la adquisición de un archivo de imagen/vector mejorado de una cara de controlador que ya existe en la base de datos Cipia-FS10, Cipia-FS10 genera un evento apropiado y lo envía al backend junto con el archivo de datos mejorado.</td>
+   </tr>   
+</table>
 
 ### Aprovisionamiento y mantenimiento de Cipia-FS10
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
@@ -547,33 +1016,141 @@ A cada evento de restablecimiento se le asigna un identificador de motivo difere
 
 Es posible enviar una consulta de propiedades del dispositivo al dispositivo Cipia-FS10 a través de OTA (tanto del lado del servidor como de la aplicación instaladora) o mediante la conexión USB. Después de recibir el informe de consulta, y después de cada arranque del sistema, el dispositivo Cipia-FS10 informa de sus propiedades con los siguientes campos en formato JSON estándar:
 
-|Número|Campo|Descripción|
-|------|-----|-----------|
-|1.| ID de unidad| Cadena de 10 caracteres asignada en la línea de producción.|
-|2.| Versión HW| Un identificador que designa de forma exclusiva la versión de la PCB principal del dispositivo. Esto debe incluir la especificación para el modelo de MCU, los tamaños de memoria y las revisiones.|
-|3.| Versión del sistema operativo|Incluido el arranque cargado, si está separado.|
-|4.| Versión principal de la aplicación| Por ejemplo: "1.0.1.31"|
-|5.| Versión de la biblioteca DMS| Por ejemplo: "7.10.4"|
-|6.| Versión del módem| Revisiones de hardware y software.|
-|7.| Versión GPS| Revisiones de hardware y software.|
-|8.| Fecha de producción| Fecha de prueba exitosa de la línea de producción.|
-|9.| ID del banco de pruebas| |
-|10.| Versión del archivo de configuración| Nota: Si se cambiaron parámetros específicos en lugar de todo el archivo a través de la aplicación de instalación, el nombre del archivo de configuración original se revisa con la fecha y hora de la actualización.|
-|11.| Paquete de audio| Atributos de cada conjunto disponible en el esquema JSON, incluidos: "id", "language", "description" y "version".|
-|12.| Número de tarjeta SIM| ICCID.|
-|13.| IMSI| Identificador de tarjeta SIM.|
-|14.| IMEI| Identificador de módem celular.|
-|15.| Versión del módulo Wi-Fi/BT| Revisiones de hardware y software.|
-|16.| Dirección MAC de BT| |
-|17.| Dirección MAC de Wi-Fi| |
-|18.| Tarjeta SD| Tamaño y tipo, si están disponibles.|
-|19.| Dispositivo instalado| Hora y fecha de la última instalación o NULL.|
-|20.| Calibración de la cámara de cabina| Hora y fecha de la última calibración o NULL.|
-|21.| Calibración de la cámara delantera| Hora y fecha de la última calibración o NULL.|
-|22.| Tipo de dispositivo| Con o sin soporte de cámara ADAS|
-|23.| Nivel de API admitido| Designa la última versión del protocolo compatible con la versión instalada|
-|24.| Volante a la izquierda| Indica si el dispositivo está configurado para el controlador del lado izquierdo o derecho|
-|25.| Datos de calibración DMS| Valores de la matriz de calibración Cipia-FS10|
+<table>
+  <tr>
+    <th>Número</th>
+    <th>Campo</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+      <td>1</td>
+      <td>ID de unidad</td>
+      <td>Cadena de 10 caracteres asignada en la línea de producción.</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>Versión HW</td>
+      <td>Un identificador que designa de forma exclusiva la versión de la PCB principal del dispositivo. Esto debe incluir la especificación para el modelo de MCU, los tamaños de memoria y las revisiones.</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>Versión del sistema operativo</td>
+      <td>Incluido el arranque cargado, si está separado.</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>Versión principal de la aplicación</td>
+      <td>Por ejemplo: "1.0.1.31"</td>
+   </tr>
+   <tr>
+      <td>5</td>
+      <td>Versión de la biblioteca DMS</td>
+      <td>Por ejemplo: "7.10.4"</td>
+   </tr>
+   <tr>
+      <td>6</td>
+      <td>Versión del módem</td>
+      <td>Revisiones de hardware y software.</td>
+   </tr>
+   <tr>
+      <td>7</td>
+      <td>Versión GPS</td>
+      <td>Revisiones de hardware y software.</td>
+   </tr>
+   <tr>
+      <td>8</td>
+      <td>Fecha de producción</td>
+      <td>Fecha de prueba exitosa de la línea de producción.</td>
+   </tr>
+   <tr>
+      <td>9</td>
+      <td>ID del banco de pruebas</td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td>10</td>
+      <td>Versión del archivo de configuración</td>
+      <td><strong>Nota:</strong> Si se cambiaron parámetros específicos en lugar de todo el archivo a través de la aplicación de instalación, el nombre del archivo de configuración original se revisa con la fecha y hora de la actualización.</td>
+   </tr>
+   <tr>
+      <td>11</td>
+      <td>Paquete de audio</td>
+      <td>Atributos de cada conjunto disponible en el esquema JSON, incluidos: "id", "language", "description" y "version".</td>
+   </tr>
+   <tr>
+      <td>12</td>
+      <td>Número de tarjeta SIM</td>
+      <td>ICCID.</td>
+   </tr>
+   <tr>
+      <td>13</td>
+      <td>IMSI</td>
+      <td>Identificador de tarjeta SIM.</td>
+   </tr>
+   <tr>
+      <td>14</td>
+      <td>IMEI</td>
+      <td>Identificador de módem celular.</td>
+   </tr>
+   <tr>
+      <td>15</td>
+      <td>Versión del módulo WiFi/BT</td>
+      <td>Revisiones de hardware y software.</td>
+   </tr>
+   <tr>
+      <td>16</td>
+      <td>Dirección MAC de BT</td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td>17</td>
+      <td>Dirección MAC de Wi-Fi<sup>1</sup></td>
+      <td>&nbsp;</td>
+   </tr>
+   <tr>
+      <td>18</td>
+      <td>Tarjeta SD</td>
+      <td>Tamaño y tipo, si están disponibles.</td>
+   </tr>
+   <tr>
+      <td>19</td>
+      <td>Dispositivo instalado</td>
+      <td>Hora y fecha de la última calibración o NULL.</td>
+   </tr>
+   <tr>
+      <td>20</td>
+      <td>Calibración de la cámara de cabina</td>
+      <td>Hora y fecha de la última calibración o NULL.</td>
+   </tr>
+   <tr>
+      <td>21</td>
+      <td>Calibración de la cámara delantera</td>
+      <td>Hora y fecha de la última calibración o NULL.</td>
+   </tr>
+   <tr>
+      <td>22</td>
+      <td>Tipo de dispositivo</td>
+      <td>Con o sin soporte de cámara ADAS.</td>
+   </tr>
+   <tr>
+      <td>23</td>
+      <td>Nivel de API admitido</td>
+      <td>Designa la última versión del protocolo compatible con la versión instalada.</td>
+   </tr>
+   <tr>
+      <td>24</td>
+      <td>Volante a la izquierda</td>
+      <td>Indica si el dispositivo está configurado para el controlador del lado izquierdo o derecho.</td>
+   </tr>
+   <tr>
+      <td>25</td>
+      <td>Datos de calibración DMS</td>
+      <td>Valores de la matriz de calibración Cipia-FS10.</td>
+   </tr>
+   <tr>
+      <td style="font-size:10pt" colspan="3">1. Esta es la dirección MAC utilizada en la etiqueta del dispositivo.</td>
+   </tr>
+</table>
 
 ### Integración con Mobileye 6/8
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
@@ -588,6 +1165,11 @@ A través de la integración con los dispositivos Mobileye, el Cipia-FS10 debe s
 3 . FCW – Advertencia de colisión frontal 
 4. HW – Advertencia de avance (Tailgating)
 5. LDW – Advertencia de salida de carril
+
+<div align="center">
+  <img src="images/FS10_-_Mobileye.png" alt="FIG02" width="75%">
+  <p align="center"><strong>Fig. X</strong> - Integración Cipia-FS10 + Mobileye.</p>
+</div>
 
 Siempre que la cámara orientada hacia adelante esté conectada al dispositivo Cipia-FS10, es posible cargar imágenes y filmaciones, al recibir el evento ADAS, no solo desde la cámara en cabina sino también desde la cámara orientada hacia adelante para obtener un contexto visual completo de los eventos generados por el dispositivo Mobileye. 
 
@@ -659,8 +1241,1482 @@ acompañado de cada versión de SO lanzada del Cipia-FS10.
 Cada evento generado se reenvía a través del enlace preferido/activo como se establece en el archivo de configuración. Consulte el capítulo de comunicación priorizada para obtener más información sobre el enlace de comunicación seleccionado.
 Cuando se define la activación de salida, se utiliza GP_OUT.
 
+<table>
+  <tr>
+    <th>Identificador</th>
+    <th>Nombre del Evento</th>
+    <th>Descripción</th>
+  </tr>
+  <tr>
+      <td>1</td>
+      <td>SystemBootOK</td>
+      <td>Generado al completar con éxito las pruebas del sistema después del encendido.</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>SystemBootFailure</td>
+      <td>Generado tras la detección de fallos en las pruebas integradas del sistema después del encendido.</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>SystemReset</td>
+      <td>Se generó el arranque posterior al sistema que se produjo debido a un evento de
+restablecimiento automático. Enviado con el tipo de motivo Restart.</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>EnteringSleepMode</td>
+      <td>Generado justo antes de que el dispositivo Cipia-FS10 entre en modo de suspensión
+(después de que haya transcurrido el filtro de tiempo de espera).</td>
+   </tr>
+   <tr>
+      <td>5</td>
+      <td>IgnitionON</td>
+      <td>Generado tras la detección de la activación del conmutador IGN (después del filtro de tiempo de espera).</td>
+   </tr>
+   <tr>
+      <td>6</td>
+      <td>DriverIdentified</td>
+      <td>Generado tras la detección visual del controlador inscrito (guardado en Cipia-FS10
+DB).</td>
+   </tr>
+   <tr>
+      <td>7</td>
+      <td>IgnitionOff</td>
+      <td>Se genera cuando el interruptor IGN está apagado (después del filtro de tiempo de
+espera).</td>
+   </tr>
+   <tr>
+      <td>8</td>
+      <td>MovementStarted</td>
+      <td>Generado tras la transición del estado STOP a DRIVE.</td>
+   </tr>
+   <tr>
+      <td>9</td>
+      <td>MovementStop</td>
+      <td>Se genera al pasar del estado DRIVE al STOP.</td>
+   </tr>
+   <tr>
+      <td>10</td>
+      <td>UnidentifiedUnauthDriver</td>
+      <td>Generado la primera vez en un viaje en el que se detecta movimiento durante más de
+10 segundos y el conductor no está identificado o no autorizado (se muestra en la lista negra).</td>
+   </tr>
+   <tr>
+      <td>11</td>
+      <td>DriverDisappeared</td>
+      <td>Se genera si la imagen del conductor se pierde para T>DriverDisappearTimeThreshold durante un viaje.</td>
+   </tr>
+   <tr>
+      <td>12</td>
+      <td>DriverChange</td>
+      <td>Generado tras la identificación exitosa de un conductor diferente en el mismo viaje
+(mientras el motor está funcionando).</td>
+   </tr>
+   <tr>
+      <td>13</td>
+      <td>DriverDistracted</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
+detección definida.</td>
+   </tr>
+   <tr>
+      <td>15</td>
+      <td>Drowsiness</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
+detección de somnolencia.</td>
+   </tr>
+   <tr>
+      <td>16</td>
+      <td>DriverAsleep</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
+detección de sueño.</td>
+   </tr>
+   <tr>
+      <td>17</td>
+      <td>PhoneUse</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
+detección de uso del teléfono.</td>
+   </tr>
+   <tr>
+      <td>18</td>
+      <td>Smoking</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
+detección de tabaquismo.</td>
+   </tr>
+   <tr>
+      <td>19</td>
+      <td>Seatbelt</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
+detección del cinturón de seguridad que no lleva.</td>
+   </tr>
+   <tr>
+      <td>20</td>
+      <td>SystemError</td>
+      <td>Generado al completar con éxito las pruebas del sistema después del encendido.</td>
+   </tr>
+   <tr>
+      <td>21</td>
+      <td>SystemOK</td>
+      <td>Se genera al recuperarse de un determinado error del sistema si la nueva condición es persistente durante más de 10 segundos.</td>
+   </tr>
+   <tr>
+      <td>22</td>
+      <td>CameraCalibrationCompleted</td>
+      <td>Generado al finalizar el proceso de calibración exitoso.</td>
+   </tr>
+   <tr>
+      <td>23</td>
+      <td>3DAccelerometerCalibrationCompleted</td>
+      <td>Generado al capturar los valores del acelerómetro 3D para fines de detección de
+manipulación.</td>
+   </tr>
+   <tr>
+      <td>24</td>
+      <td>ExternalEventTriggering</td>
+      <td>Generado cuando se detecta el comando/ señalización correspondiente. Las razones
+pueden ser GPI/ GPIO/ Response to Server command/ Main button.</td>
+   </tr>
+   <tr>
+      <td>25</td>
+      <td>TamperingDetection</td>
+      <td>Generado al retirar la cámara de sus posiciones de instalación.</td>
+   </tr>
+   <tr>
+      <td>26</td>
+      <td>DriverIDUpdated</td>
+      <td>Se genera cuando la biblioteca DMS captura un archivo vectorial de cara del controlador mejorado. Enviado con el ID del conductor en el campo de motivo. Los medios adjuntos a dicho evento serán un archivo vectorial en lugar de una foto.</td>
+   </tr>
+   <tr>
+      <td>27</td>
+      <td>Heartbeat</td>
+      <td>Se genera periódicamente de acuerdo con la configuración de latidos en el archivo de configuración.</td>
+   </tr>
+   <tr>
+      <td>28</td>
+      <td>GpsStatusUpdate</td>
+      <td>Se genera cada vez que se pierde o recupera una posición válida después de un
+tiempo de espera definido en el archivo de configuración.</td>
+   </tr>
+   <tr>
+      <td>29</td>
+      <td>ForwardCollisionWarning</td>
+      <td>Se genera cada vez que el dispositivo Mobileye o la biblioteca ADAS integrada
+detectan una posible colisión frontal.</td>
+   </tr>
+   <tr>
+      <td>30</td>
+      <td>Tailgating (HMW)</td>
+      <td>Se genera siempre que TTC (Time to collision) esté dentro del rango de
+"advertencia" o "emergencia" durante más tiempo que el establecido en el parámetro
+de configuración 'Time to Trigger tailgating'.</td>
+   </tr>
+   <tr>
+      <td>31</td>
+      <td>LaneDepartureWarning</td>
+      <td>Se genera cada vez que se detecta uno de los patrones de salida/ cruce relacionados.</td>
+   </tr>
+   <tr>
+      <td>35</td>
+      <td>PedestrianCollisionWarning</td>
+      <td>Se genera cada vez que el dispositivo Mobileye identifica al peatón dentro de la
+trayectoria de movimiento del vehículo y dentro de una distancia peligrosa.</td>
+   </tr>
+   <tr>
+      <td>36</td>
+      <td>UrbanForwardCollisionWarning</td>
+      <td>Se activa cada vez que se detecta una posible colisión a baja velocidad con el
+vehículo de delante.</td>
+   </tr>
+   <tr>
+      <td>37</td>
+      <td>CameraCalibrationFailed</td>
+      <td>Generado al fallar la calibración de la cámara.</td>
+   </tr>
+   <tr>
+      <td>38</td>
+      <td>FwUpdateStarted</td>
+      <td>Este evento se genera justo antes de que el Cipia-FS10 se desconecte del servidor para completar el proceso de actualización de FW.</td>
+   </tr>
+   <tr>
+      <td>39</td>
+      <td>FwUpdateCompleted</td>
+      <td>Se genera si se produce un error en el proceso de actualización de FW.</td>
+   </tr>
+   <tr>
+      <td>40</td>
+      <td>FwUpdateFailed</td>
+      <td>Este evento se genera cuando la biblioteca DMS informa de un determinado error de
+aplicación. El tipo de error se proporciona en el campo Motivo del evento.</td>
+   </tr>
+   <tr>
+      <td>41</td>
+      <td>ApplicationError</td>
+      <td>Este evento se genera cuando la biblioteca DMS informa de un determinado error de
+aplicación. El tipo de error se proporciona en el campo Motivo del evento.</td>
+   </tr>
+   <tr>
+      <td>42</td>
+      <td>CameraError</td>
+      <td>Este evento se genera cuando el DMS o la biblioteca ADAS detecta un posible problema de la cámara, como funcionamiento, sobreexposición, borroso, oscuro, etc. El tipo de error se proporciona en el campo Motivo del evento.</td>
+   </tr>
+</table>
+
+
 ### Configuración
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
+
+<table>
+  <tr>
+    <th>Número</th>
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th>Tipo</th>
+    <th>Valores</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+      <td>1</td>
+      <td style="font-family: Lucida Console">IGNOnFilter</td>
+      <td>El tiempo después de un aumento constante en el estado físico de la línea IGN se interpreta en el estado lógico "ON".</td>
+	  <td>Integer [seg]</td>
+      <td style="font-size: 13px">
+        <li>0-255</li>
+        <li>0-Inmediato</li>
+      </td>
+      <td>3</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td style="font-family: Lucida Console">IGNOffFilter</td>
+      <td>El tiempo después de una caída constante en el estado físico de la línea
+IGN se interpreta en el estado lógico "OFF".</td>
+	  <td>Integer [seg]</td>
+      <td style="font-size: 13px">
+        <li>0-255</li>
+        <li>0-Inmediato</li>
+      </td>
+      <td>15</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td style="font-family: Lucida Console">SleepModeTO</td>
+      <td>El tiempo contado desde IGN_OFF evento (lógica) hasta que el dispositivo Cipia-FS10 entra en modo de suspensión (ahorro de energía).</td>
+	  <td>Integer [min]</td>
+      <td style="font-size: 13px">
+        <li>0-255</li>
+        <li>0-Nunca</li>
+      </td>
+      <td>5</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td style="font-family: Lucida Console">CommChannelState</td>
+      <td>El canal de comunicación que se utiliza para comunicarse con el servidor.</td>
+	  <td>String</td>
+      <td style="font-size: 13px">
+        <li>LTE</li>
+        <li>WiFi</li>
+        <li>RS232</li>
+        <li>BT</li>
+      </td>
+      <td style="font-size: 13px">
+        <li>LTE</li>
+        <li>WiFi</li>
+      </td>
+   </tr>
+   <tr>
+      <td>5</td>
+      <td style="font-family: Lucida Console">APNSettings</td>
+      <td colspan="4">Los atributos de conexión de datos que se van a utilizar (cuando se configura más de un APN en la SIM).</td>
+   </tr>
+   <tr>
+      <td>5.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .APN</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>5.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .User</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>5.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Password</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>6</td>
+      <td style="font-family: Lucida Console">ServerAddress</td>
+      <td>La IP/URL del servidor de destino utilizado para la conexión Wi-Fi/Cellular.</td>
+      <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">"fs1.cipia.cloud"</td>
+   </tr>
+   <tr>
+      <td>7</td>
+      <td style="font-family: Lucida Console">Port</td>
+      <td>El puerto de escucha del servidor.</td>
+      <td>Integer</td>
+      <td style="font-size: 13px">
+      	<li>0-65353</li>
+        <li>1883 (http)</li>
+        <li>8883 (https)</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">1883</td>
+   </tr>
+   <tr>
+      <td>8</td>
+      <td style="font-family: Lucida Console">ServerPassword</td>
+      <td>Una contraseña que utiliza el FS10, junto con su UnitID para una autenticación correcta en el agente MQTT.</td>
+      <td>String</td>
+      <td>La cadena debe tener al menos 8 caracteres de longitud. Debe contener al menos una letra mayúscula, un dígito y un carácter especial. Si está vacío, device
+utilizará una contraseña única y segura asignada en la línea de producción.</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>9</td>
+      <td style="font-family: Lucida Console">APNSettings</td>
+      <td colspan="4">Esta sección contiene la configuración de Wi-Fi para dos redes separadas: Self Wi-Fi Access Point (AP) para la conexión con la aplicación del instalador o el escritorio y Hotspot externo para la conectividad del servidor (T-Box o enrutador celular).</td>
+   </tr>
+   <tr>
+      <td>9.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .APModeEnable</td>
+      <td>&nbsp;</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+      	<li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>9.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .APSSID</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">"FS-WiFi"</td>
+   </tr>
+   <tr>
+      <td>9.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .APPassword</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">"1234567890"</td>
+   </tr>
+   <tr>
+      <td>9.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SSID</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>9.e</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Password</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>10</td>
+      <td style="font-family: Lucida Console">BLESettings</td>
+      <td colspan="4">Esta sección contiene atributos de conectividad Bluetooth</td>
+   </tr>
+   <tr>
+      <td>10.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Mode</td>
+      <td>Determina si se requiere o no el emparejamiento basado en clave de paso.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true (Just works)</li>
+      	<li>false (PassKey)</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>10.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .PasswordKey</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">"123456"</td>
+   </tr>
+   <tr>
+      <td>10.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SelfName</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">"FS-BLE"</td>
+   </tr>
+   <tr>
+      <td>11</td>
+      <td style="font-family: Lucida Console">RS232Settings</td>
+      <td colspan="4">Esta sección contiene atributos de conectividad Bluetooth</td>
+   </tr>
+   <tr>
+      <td>11.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Baud</td>
+      <td>Determina si se requiere o no el emparejamiento basado en clave de paso.</td>
+	  <td>Boolean</td>
+      <td style="font-size: 13px">
+      	<li>9600</li>
+      	<li>14400</li>
+        <li>19200</li>
+        <li>38400</li>
+        <li>56000</li>
+        <li>57600</li>
+        <li>115200</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">115200</td>
+   </tr>
+   <tr>
+      <td>11.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .DataBits</td>
+      <td>&nbsp;</td>
+	  <td>Integer</td>
+      <td style="font-size: 13px">5 a 9</td>
+      <td style="font-family: Lucida Console; font-size: 12px">8</td>
+   </tr>
+   <tr>
+      <td>11.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Parity</td>
+      <td>&nbsp;</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+      	<li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>11.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .StopBit</td>
+      <td>&nbsp;</td>
+	  <td>Integer</td>
+      <td style="font-size: 13px">
+      	<li>1</li>
+        <li>2</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">1</td>
+   </tr>
+   <tr>
+      <td>12</td>
+      <td style="font-family: Lucida Console">InstallerAccessCode</td>
+      <td>El código de acceso del dispositivo que ingresa un instalador autorizado para iniciar el proceso de prueba de instalación.</td>
+	  <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">"Cipia2021$"</td>
+   </tr>
+   <tr>
+      <td>13</td>
+      <td style="font-family: Lucida Console">EventVideoLen</td>
+      <td colspan="4">Las longitudes de vídeo de un evento que deben capturarse antes y después del tiempo de ocurrencia del evento. Aplicable tanto a cámaras de cabina como de carretera</td>
+   </tr>
+    <tr>
+      <td>13.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Before</td>
+      <td>Longitud de video antes del evento.</td>
+	  <td>Integer [seg]</td>
+      <td style="font-size: 13px">0 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">3</td>
+   </tr>
+    <tr>
+      <td>13.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .After</td>
+      <td>Longitud de video después del evento.</td>
+	  <td>Integer [seg]</td>
+      <td style="font-size: 13px">0 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">7</td>
+   </tr>
+   <tr>
+      <td>14</td>
+      <td style="font-family: Lucida Console">EventsStorageNumber</td>
+      <td>El número máximo de de eventos (sin medios) guardados en la memoria del dispositivo que no han sido cargados en el servidor, antes de ser reescritos por nuevos eventos.</td>
+	  <td>Integer [eventos]</td>
+      <td style="font-size: 13px">0-5000</td>
+      <td style="font-family: Lucida Console; font-size: 12px">1000</td>
+   </tr>
+   <tr>
+      <td>15</td>
+      <td style="font-family: Lucida Console">VideoStorageNumber</td>
+      <td>El número máximo de vídeos de eventos (ya sea cámara de cabina o de carretera) guardados en la memoria que no han sido cargados en el servidor antes de ser reescritos.</td>
+	  <td>Integer [videos]</td>
+      <td style="font-size: 13px">0-1000</td>
+      <td style="font-family: Lucida Console; font-size: 12px">250</td>
+   </tr>
+   <tr>
+      <td>16</td>
+      <td style="font-family: Lucida Console">ContRecording</td>
+      <td>El espacio máximo de memoria (GB) utilizado en SD para la grabación de vídeo cíclico (independientemente de los eventos).</td> 	  
+      <td>Integer [GB]</td>
+      <td style="font-size: 13px">0-512</td>
+      <td style="font-family: Lucida Console; font-size: 12px">250</td>
+   </tr>
+   <tr>
+      <td>17</td>
+      <td style="font-family: Lucida Console">MicStatus</td>
+      <td>Determina si la voz se graba/captura junto con los videos de eventos y/o DVR.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>18</td>
+      <td style="font-family: Lucida Console">DriverFeedbackOptions</td>
+      <td colspan="4">Este parámetro determina los tipos habilitados de alertas audibles y
+visuales proyectadas al controlador para los eventos detectados. Este parámetro se utiliza como un conmutador maestro para la configuración de comentarios de eventos específicos.</td>
+   </tr>
+    <tr>
+      <td>18.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .LED</td>
+      <td>Alertas de LED globales para los eventos.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>18.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Beeps</td>
+      <td>Alertas sonoras globales para los eventos.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>18.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Voice</td>
+      <td>Alertas de voz globales para los eventos.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true
+      </td>
+   </tr>
+   
+   <tr>
+      <td>19</td>
+      <td style="font-family: Lucida Console">SpeakerVolume</td>
+      <td>El nivel de volumen del altavoz interno para todas las alarmas sonoras excepto para el
+evento 'driver asleep' y 'FCW'.</td>
+	  <td>Integer [%]</td>
+      <td style="font-size: 13px">10-100 (En incrementos de 10)</td>
+      <td style="font-family: Lucida Console; font-size: 12px">70</td>
+   </tr>
+   <tr>
+      <td>20</td>
+      <td style="font-family: Lucida Console">DriverAsleepEventSpeakerVolume</td>
+      <td>El nivel de volumen del altavoz interno para la alarma de eventos 'driver asleep' y
+'FCW'.</td>
+	  <td>Integer [%]</td>
+      <td style="font-size: 13px">50-100 (En incrementos de 10)</td>
+      <td style="font-family: Lucida Console; font-size: 12px">100</td>
+   </tr>
+   <tr>
+      <td>21</td>
+      <td style="font-family: Lucida Console">SpeakerControl</td>
+      <td>Determina si el control de volumen está activo para ser manipulado mediante las teclas de
+volumen.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>22</td>
+      <td style="font-family: Lucida Console">SystemLEDActivation</td>
+      <td>Determina si el LED de notificación de eventos del sistema está habilitado.</td>
+      <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>23</td>
+      <td style="font-family: Lucida Console">DriverDisappearTimeThreshold</td>
+      <td>El tiempo de espera [seg] antes de que se genere una advertencia cuando el conductor desaparece de la vista de la cámara durante el estado de "conducción".</td>
+	  <td>Integer [sec]</td>
+      <td style="font-size: 13px">5 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">30</td>
+   </tr>
+   <tr>
+      <td>24</td>
+      <td style="font-family: Lucida Console">TelematicsDataForwardOptions</td>
+      <td>El tipo de datos reenviados al  servidor a través de la interfaz telemática si la conexión LTE/Wi-Fi no está disponible. Este parámetro se utiliza como un interruptor maestro para todas las configuraciones de informes de eventos mientras está configurado para funcionar en modo RS232/ BT.</td>
+	  <td>String</td>
+      <td style="font-size: 13px">
+      	<li>"Event"</li>
+        <li>"EventAndImage"</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">"EventAndImage"</td>
+   </tr>
+   <tr>
+      <td>25</td>
+      <td style="font-family: Lucida Console">ResolutionOfUploadedVideo</td>
+      <td>La relación entre la resolución completa del sensor y la resolución del vídeo enviado al servidor. Aplicable tanto a cámaras de cabina como de carretera</td>
+	  <td>Integer</td>
+      <td style="font-size: 13px">
+      	1/2/4
+      	<li>1 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+        <li>2 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+        <li>4 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">1</td>
+   </tr>
+   <tr>
+      <td>26</td>
+      <td style="font-family: Lucida Console">ResolutionOfUploadedImage</td>
+      <td>La relación entre la resolución completa del sensor y la resolución de la imagen JPEG enviada al servidor. Aplicable tanto a cámaras de cabina como de carretera</td>
+	  <td>Integer</td>
+      <td style="font-size: 13px">
+      	1/2/4
+      	<li>1 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+        <li>2 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+        <li>4 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">1</td>
+   </tr>
+   <tr>
+      <td>27</td>
+      <td style="font-family: Lucida Console">MinSpeedMonitorThreshold</td>
+      <td>El umbral de velocidad, por encima del cual, el movimiento del vehículo se considera verdadero para la generación de eventos "MovementStarted". Para "MovementStopped" el umbral es inferior a MinSpeedMonitorThreshold en 5km/h.</td>
+	  <td>Integer [km/h]</td>
+      <td style="font-size: 13px">10-30</td>
+      <td style="font-family: Lucida Console; font-size: 12px">10</td>
+   </tr>
+   <tr>
+      <td>28</td>
+      <td style="font-family: Lucida Console">Acc3DDriveTimeFilter</td>
+      <td>El tiempo continuo de detección de movimiento, basado en 3D ACC, requerido para establecer el movimiento del vehículo en verdadero cuando el GPS no está disponible.</td>
+	  <td>Integer [videos]</td>
+      <td style="font-size: 13px">3-30</td>
+      <td style="font-family: Lucida Console; font-size: 12px">5</td>
+   </tr>
+   <tr>
+      <td>29</td>
+      <td style="font-family: Lucida Console">Acc3DStopTimeFilter</td>
+      <td>La detección continua de tiempo de inactividad, basada en 3D ACC, necesaria para configurar el movimiento del vehículo en false cuando el GPS no está disponible.</td>
+	  <td>Integer [sec]</td>
+      <td style="font-size: 13px">0-30</td>
+      <td style="font-family: Lucida Console; font-size: 12px">3</td>
+   </tr>
+   <tr>
+      <td>30</td>
+      <td style="font-family: Lucida Console">GPSFixLossOrRecoveryTime</td>
+      <td>El tiempo después del cual la pérdida de posición GNSS y la recuperación de posición GNSS (Pérdida + 5 segundos) se consideran si la resolución de posición recibida de GNSS no es válida.</td>
+	  <td>Integer [sec]</td>
+      <td style="font-size: 13px">0-500</td>
+      <td style="font-family: Lucida Console; font-size: 12px">15</td>
+   </tr>
+   <tr>
+      <td>31</td>
+      <td style="font-family: Lucida Console">MaxHeadingAngleForEvents</td>
+      <td>El cambio máximo permitido en el ángulo de rumbo del vehículo dentro de 1 segundo para el cual los eventos de atención del conductor siguen siendo aplicables.</td>
+	  <td>Integer [º/sec]</td>
+      <td style="font-size: 13px">0-90</td>
+      <td style="font-family: Lucida Console; font-size: 12px">15</td>
+   </tr>
+   <tr>
+      <td>32</td>
+      <td style="font-family: Lucida Console">GPInputs</td>
+      <td colspan="4">Configuración de entrada de uso general.</td>
+   </tr>
+   <tr>
+      <td>32.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .VoltageThreshold</td>
+      <td>Nivel de voltaje que debe cruzarse para generar el evento. (15%/0.5V histéresis para desactivación)</td>
+	  <td>Float [V]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0-VCC</td>
+      <td style="font-family: Lucida Console; font-size: 12px">0.7</td>
+   </tr>
+   <tr>
+      <td>32.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .ActiveLevel</td>
+      <td>Dirección del cruce de nivel de voltaje requerido para generar el evento.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true - [on rise/ascenso]</li>
+        <li>false - [on fall/descenso]</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>32.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .StateDuration</td>
+      <td>Tiempo de rebote en décimas de milisegundos</td>
+	  <td>Integer [1/10 sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">10-500</td>
+      <td style="font-family: Lucida Console; font-size: 12px">20</td>
+   </tr>
+   <tr>
+      <td>32.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SpecialFunction</td>
+      <td>Define, si procede, el tipo de dispositivo/accesorio conectado al puerto</td>
+	  <td>String</td>
+      <td style="font-size: 13px">
+      	<li>'Other'</li>
+        <li>'Blinkers'</li>
+        <li>'Telematics'</li>
+        <li>'Reverse'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">'Other'</td>
+   </tr>
+   <tr>
+      <td>33</td>
+      <td style="font-family: Lucida Console">GPIO</td>
+      <td colspan="4">Configuración de entrada de uso general (puerto híbrido). (si se usa como entrada, ignorar configuración de línea 34)</td>
+   </tr>
+   <tr>
+      <td>33.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .State</td>
+      <td>Determina el uso del puerto.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'In'</li>
+        <li>'Out'</li>
+        <li>'AnalogIn'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">'In'</td>
+   </tr>
+   <tr>
+      <td>33.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .VoltageThreshold</td>
+      <td>Nivel de voltaje que debe cruzarse para generar el evento. (15%/0.5V histéresis para desactivación)</td>
+	  <td>Float [V]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0-VCC</td>
+      <td style="font-family: Lucida Console; font-size: 12px">0.7</td>
+   </tr>
+   <tr>
+      <td>33.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .ActiveLevel</td>
+      <td>Dirección del cruce de nivel de voltaje requerido para generar el evento.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true - [on rise/ascenso]</li>
+        <li>false - [on fall/descenso]</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>33.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .StateDuration</td>
+      <td>Tiempo de rebote en décimas de milisegundos</td>
+	  <td>Integer [1/10 sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">10-500</td>
+      <td style="font-family: Lucida Console; font-size: 12px">20</td>
+   </tr>
+   <tr>
+      <td>33.e</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SpecialFunction</td>
+      <td>Define, si procede, el tipo de dispositivo/accesorio conectado al puerto</td>
+	  <td>String</td>
+      <td style="font-size: 13px">
+      	<li>'Other'</li>
+        <li>'Blinkers'</li>
+        <li>'Telematics'</li>
+        <li>'Reverse'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">'Other'</td>
+   </tr>
+   <tr>
+      <td>34</td>
+      <td style="font-family: Lucida Console">GPIO</td>
+      <td colspan="4">Configuración de salida de uso general (puerto híbrido). (si se usa como salida, ignorar configuración de línea 33)</td>
+   </tr>
+   <tr>
+      <td>34.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Source</td>
+      <td>Patrón de onda de la salida</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'LED'</li>
+        <li>'Waveform'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">'LED'</td>
+   </tr>
+   <tr>
+      <td>34.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Length</td>
+      <td>Para la forma de onda (Waveform): la longitud total del patrón de activación en segundos.</td>
+	  <td>Integer [sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">5</td>
+   </tr>
+   <tr>
+      <td>34.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Frequency</td>
+      <td>Para la forma de onda (Waveform): la frecuencia del cambio de nivel de señal (0/1)</td>
+	  <td>Float [Hz]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 10</td>
+      <td style="font-family: Lucida Console; font-size: 12px">1</td>
+   </tr>
+   <tr>
+      <td>34.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .DutyCycle</td>
+      <td>Relación entre el estado alto y el período de estado bajo en cada ciclo.</td>
+	  <td>Integer [%]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">10-100</td>
+      <td style="font-family: Lucida Console; font-size: 12px">50</td>
+   </tr>
+   <tr>
+      <td>35</td>
+      <td style="font-family: Lucida Console">GPOut</td>
+      <td colspan="4">Este parámetro determina los tipos habilitados de alertas audibles y
+visuales proyectadas al controlador para los eventos detectados. Este parámetro se utiliza como un conmutador maestro para la configuración de comentarios de eventos específicos.</td>
+   </tr>
+   <tr>
+      <td>35.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Source</td>
+      <td>Patrón de onda de la salida</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'LED'</li>
+        <li>'Waveform'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">'LED'</td>
+   </tr>
+   <tr>
+      <td>35.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Length</td>
+      <td>Para la forma de onda (Waveform): la longitud total del patrón de activación en segundos.</td>
+	  <td>Integer [sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">5</td>
+   </tr>
+   <tr>
+      <td>35.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Frequency</td>
+      <td>Para la forma de onda (Waveform): la frecuencia del cambio de nivel de señal (0/1)</td>
+	  <td>Float [Hz]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 10</td>
+      <td style="font-family: Lucida Console; font-size: 12px">1</td>
+   </tr>
+   <tr>
+      <td>35.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .DutyCycle</td>
+      <td>Relación entre el estado alto y el período de estado bajo en cada ciclo.</td>
+	  <td>Integer [%]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">10-100</td>
+      <td style="font-family: Lucida Console; font-size: 12px">50</td>
+   </tr>
+   
+   <tr>
+      <td>36</td>
+      <td style="font-family: Lucida Console">MainButtonSettings</td>
+      <td colspan="4">Este parámetro determina los tipos habilitados de alertas audibles y
+visuales proyectadas al controlador para los eventos detectados. Este parámetro se utiliza como un conmutador maestro para la configuración de comentarios de eventos específicos.</td>
+   </tr>
+   <tr>
+      <td>36.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .DeviceTurnOnEnable</td>
+      <td>En caso de habilitación, el usuario puede activar el dispositivo para entrar/salir del modo de suspensión presionando el botón principal continuamente durante cualquier momento entre 5 y 10 segundos.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>36.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .HWResetEnable</td>
+      <td>Habilitar el restablecimiento de HW por usuario. Si está habilitado, el dispositivo realizará el restablecimiento de HW una vez que se presione el botón continuamente durante 10 segundos.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>36.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SelfEventTriggerEnable</td>
+      <td>Si está habilitado, el usuario puede activar el evento 'Externo' presionando el botón principal durante 3 segundos.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>37</td>
+      <td style="font-family: Lucida Console">ComunicationWatchdog</td>
+      <td colspan="4">Este parámetro determina los tipos habilitados de alertas audibles y
+visuales proyectadas al controlador para los eventos detectados. Este parámetro se utiliza como un conmutador maestro para la configuración de comentarios de eventos específicos.</td>
+   </tr>
+   <tr>
+      <td>37.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .KeepAliveInSec</td>
+      <td>El intervalo en segundos en el que el dispositivo envía un mensaje keepalive al servidor.</td>
+	  <td>Integer [sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 300</td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>37.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SocketResetTimeInMin</td>
+      <td>El tiempo en minutos, transcurrido desde la última comunicación exitosa y hasta que el dispositivo intenta restablecer el socket de comunicación (si corresponde).</td>
+	  <td>Integer [min]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 30 (En pasos de 5)</td>
+      <td style="font-family: Lucida Console; font-size: 12px">15</td>
+   </tr>
+   <tr>
+      <td>37.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .ModemResetSignalTimeInMin</td>
+      <td>Tiempo adicional transcurrido desde la última comunicación exitosa y hasta que el sistema operativo intente restablecer el módulo de comunicación (si corresponde).</td>
+	  <td>Integer [min]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 30 (En pasos de 5)</td>
+      <td style="font-family: Lucida Console; font-size: 12px">5</td>
+   </tr>
+   <tr>
+      <td>37.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .ModemResetHWTimeInMin</td>
+      <td>Tiempo adicional transcurrido en minutos desde la última comunicación exitosa y hasta que el sistema operativo intente hacer cumplir el restablecimiento de HW al módulo de comunicación (si corresponde).</td>
+	  <td>Integer [min]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 30 (En pasos de 5)</td>
+      <td style="font-family: Lucida Console; font-size: 12px">5</td>
+   </tr>
+   <tr>
+      <td>37.e</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SelfPowerRecycleTimeInMin</td>
+      <td>Tiempo adicional transcurrido en minutos desde la última comunicación exitosa y hasta que el sistema operativo intente realizar el reinicio automático.</td>
+	  <td>Integer [min]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 30 (En pasos de 5)</td>
+      <td style="font-family: Lucida Console; font-size: 12px">5</td>
+   </tr>
+   <tr>
+      <td>37.f</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .RepeatCycleUntilCommRecovery</td>
+      <td>Determina si todo el proceso de restablecimiento se repite o se realiza una sola vez.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   
+   <tr>
+      <td>38</td>
+      <td style="font-family: Lucida Console">VoiceNotificationsLang</td>
+      <td>Determina el tiempo máximo que espera el sistema para obtener el resultado del proceso de calibración del DMS.</td>
+      <td>Integer [sec]</td>
+      <td style="font-size: 13px">10 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">30</td>
+   </tr>
+   <tr>
+   <tr>
+      <td>39</td>
+      <td style="font-family: Lucida Console">SerialProtocolSettings</td>
+      <td colspan="4">Los atributos y configuraciones de los mensajes entrantes y salientes hacia y desde el puerto de comunicación serie del dispositivo, utilizados para comunicarse con el servidor de gestión de flotas a través de un dispositivo telemático conectado en modo passthrough (siempre que el canal de comunicación esté configurado para ser RS232 o BT). La validación JSON para este bloque se realiza solo en el nivel deestructura.</td>
+   </tr>
+   <tr>
+      <td>40</td>
+      <td style="font-family: Lucida Console">GSensorWakeThreshold</td>
+      <td>Establece la sensibilidad del sensor G para activar el dispositivo desde el modo de suspensión cuando se detecta movimiento.</td>
+      <td>Integer</td>
+      <td style="font-size: 13px">2 a 63</td>
+      <td style="font-family: Lucida Console; font-size: 12px">30</td>
+   </tr>
+   <tr>
+   <tr>
+      <td>41</td>
+      <td style="font-family: Lucida Console">RemoteBluetoothMAC</td>
+      <td>Dirección MAC con la que conectarse automáticament e después del primer emparejamiento exitoso.</td>
+      <td>String</td>
+      <td style="font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">"00:00:00:00:00:00</td>
+   </tr>
+   <tr>
+   <tr>
+      <td>42</td>
+      <td style="font-family: Lucida Console">MqttClientAuth</td>
+      <td>Define si se debe utilizar la autenticación de cliente MQTT. Si está habilitado, el dispositivo utilizará el certificado de cliente instalado (en la línea de producción) y el agente mqtt debe configurarse en consecuencia.</td>
+      <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+   <tr>
+      <td>43</td>
+      <td style="font-family: Lucida Console">CipiaLog</td>
+      <td>Determina si el registro de actividad de DMS está habilitado o no. (Por favor refiérase a Cipia Applications Engineering para cambiar este valor).</td>
+      <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+   <tr>
+      <td>44</td>
+      <td style="font-family: Lucida Console">WifiCountryCode</td>
+      <td>Determina el código de país utilizado (ISO3166) para aplicar la utilización de bandas Wi-Fi</td>
+      <td>String</td>
+      <td style="font-size: 13px">ISO3166 aplha-2 code</td>
+      <td style="font-family: Lucida Console; font-size: 12px">'US'</td>
+   </tr>
+   <tr>
+   <tr>
+      <td rowspan="2">45</td>
+      <td rowspan="2" style="font-family: Lucida Console">OTAMessageBackOff</td>
+      <td rowspan="2">El tiempo en minutos en el que las ocurrencias adicionales del mismo evento DMS/ADAS no se notifican al back-end. Si el tiempo expira y el estado sigue activo o se detecta una nueva ocurrencia, se genera otro evento OTA y se vuelve a activar el temporizador de retroceso.</td>
+      <td rowspan="2">Integer Matrix [min]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>Asleep: 0-1</li>
+        <li>Light drowsiness: 0-30</li>
+        <li>Drowsiness: 0-30</li>
+        <li>Driver Distracted: 0-30**</li>
+        <li>Seatbelt: 0-30</li>
+        <li>Phone use: 0-30</li>
+        <li>Smoking: 0-30</li>
+        <li>FCW: 0-30</li>
+        <li>PCW: 0-30</li>
+        <li>UFCW: 0-30</li>
+        <li>LDW: 0-30</li>
+        <li>HMW: 0-30</li>
+      </td>
+      <td rowspan="2" style="font-family: Lucida Console; font-size: 12px">
+      	<li>Asleep: 0</li>
+        <li>Light drowsiness: 15</li>
+        <li>Drowsiness: 15</li>
+        <li>Driver Distracted: 1</li>
+        <li>Seatbelt: 10</li>
+        <li>Phone use: 5</li>
+        <li>Smoking: 5</li>
+        <li>FCW: 0</li>
+        <li>PCW: 0</li>
+        <li>UFCW: 5</li>
+        <li>LDW: 5</li>
+        <li>HMW: 5</li>
+       </td>
+   </tr>
+   <tr>
+   	<td style="font-size: 12px">
+    	**El tercer evento dentro del tiempo de retroceso OTA activará otra transmisión de mensajes al servidor, incluso si el tiempo de retroceso no expiró.
+    </td>
+   </tr>
+   <tr>
+      <td>46</td>
+      <td style="font-family: Lucida Console">OTAClosureEvent</td>
+      <td>Este parámetro determina si se genera un final de evento para asignar el cierre del estado de peligro del conductor.</td>
+      <td>Boolean Matrix</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>Asleep</li>
+        <li>Light drowsiness</li>
+        <li>Drowsiness</li>
+        <li>Driver Distracted</li>
+        <li>Seatbelt</li>
+        <li>Phone use</li>
+        <li>Smoking</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">All in false</td>
+   </tr>
+   <tr>
+      <td>47</td>
+      <td style="font-family: Lucida Console">Calibration.Timeout</td>
+      <td>Determina el tiempo máximo que espera el sistema para obtener el resultado del proceso de calibración del DMS.</td>
+      <td>Integer [sec]</td>
+      <td style="font-size: 13px">10 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">30</td>
+   </tr>
+   <tr>
+     <td>48</td>
+     <td style="font-family: Lucida Console">DsEngineParams</td>
+     <td colspan="4">Una lista de parámetros establecidos por el FS10 durante o después de la inicialización de la biblioteca DMS. Estos parámetros se utilizan para ajustar la funcionalidad DMS en términos de retardos de tiempo, filtros, umbrales de sensibilidad, etc. En caso de que desee realizar cambios in estos parámetros para ajustar el rendimiento del sistema, solicite al equipo de soporte de Cipia. Para obtener la lista completa de parámetros de la biblioteca DMS, consulte la tabla a continuación.</td>
+   </tr> 
+   <tr>
+      <td>49</td>
+      <td style="font-family: Lucida Console">OTAupdateEnable</td>
+      <td>Determinar si el servicio de actualización OTA se está ejecutando.</td>
+	  <td>Boolean</td>
+      <td style="font-size: 13px">
+      	<li>true</li>
+      	<li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+     <td>50</td>
+     <td style="font-family: Lucida Console">HeartbeatConfig</td>
+     <td colspan="4">Configuración del mensaje de Heartbeat.</td>
+   </tr>
+   <tr>
+      <td>50.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .IGNOnInterval</td>
+      <td>Intervalo de tiempo en segundos entre dos eventos consecutivos de latidos cardíacos mientras la línea de encendido está activa.</td>
+	  <td>Integer [sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">5 a 600</td>
+      <td style="font-family: Lucida Console; font-size: 12px">60</td>
+   </tr>
+   <tr>
+      <td>50.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .IGNOffInterval</td>
+      <td>Intervalo de tiempo en minutos entre dos eventos consecutivos de latidos cardíacos mientras la línea de encendido está inactiva.</td>
+	  <td>Integer [min]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">15 a 1440</td>
+      <td style="font-family: Lucida Console; font-size: 12px">30</td>
+   </tr>
+   <tr>
+      <td>50.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .TimeToWaitGPSFix</td>
+      <td>Tiempo en segundos entre el encendido en el evento y el inicio de la actividad DMS (eventos dependientes de la velocidad) en caso de que el GPS fijo no esté disponible y, por lo tanto, se desconozca la velocidad del vehículo.</td>
+	  <td>Integer [sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0 a 300</td>
+      <td style="font-family: Lucida Console; font-size: 12px">120</td>
+   </tr>
+   <tr>
+     <td>51</td>
+     <td style="font-family: Lucida Console">VehicleConfig.VehicleCategory</td>
+     <td>El tipo de vehículo en el que el FS10 está instalado.</td>
+     <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'Private'</li>
+        <li>'LCV'</li>
+        <li>'MCV'</li>
+        <li>'HCV'</li>
+        <li>'BUS'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">'LCV'</td>
+   </tr>
+   <tr>
+   <tr>
+     <td>52</td>
+     <td style="font-family: Lucida Console">AdasConfig</td>
+     <td colspan="4">Funcionalidades para el sistema ADAS para la integración de Mobileye.</td>
+   </tr>
+   <tr>
+      <td>52.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Type</td>
+      <td>Define si las funciones ADAS están habilitadas y cuál es el origen de los eventos ADAS.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'disabled'</li>
+        <li>'Mobileye'</li>
+        <li>'MobileyeRC'</li>
+        <li>'DVR'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">'Disabled'</td>
+   </tr>
+   <tr>
+      <td>52.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .AdasCamera.InstallationHeight</td>
+      <td>Designa la altura de la cámara orientada hacia la carretera desde el suelo en cm.</td>
+	  <td>Integer [cm]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">50-500</td>
+      <td style="font-family: Lucida Console; font-size: 12px">150</td>
+   </tr>
+   <tr>
+      <td>52.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .AdasCamera.OffsetFromCenter</td>
+      <td>Designa el desplazamiento horizontal de la dashcam desde el centro del parabrisas en cm. (Izquierda desde el centro son valores negativos)</td>
+	  <td>Integer [cm]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">-50 a 50</td>
+      <td style="font-family: Lucida Console; font-size: 12px">0</td>
+   </tr>
+   <tr>
+      <td>52.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .ActiveLaneDepartureType.DashedLaneCrossing</td>
+      <td>Determina si se debe activar la advertencia de cambio de carril para el cruce de línea discontinua.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>52.e</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .ActiveLaneDepartureType.SolidLaneCrossing</td>
+      <td>Determina si la advertencia de salida de carril debe activarse para el cruce de línea continua.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>52.f</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .ActiveLaneDepartureType.SpeedThreshold</td>
+      <td>Determina la velocidad mínima para la que se activa la advertencia de cambio de carril.</td>
+	  <td>Integer [km/h]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">10-100</td>
+      <td style="font-family: Lucida Console; font-size: 12px">20</td>
+   </tr>
+   <tr>
+      <td>52.g</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.TtcWarningRange</td>
+      <td>Determina el umbral de tiempo mínimo de frenado considerado como nivel de conducción cercana en precaución.</td>
+	  <td>Float [sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 5</td>
+      <td style="font-family: Lucida Console; font-size: 12px">2</td>
+   </tr>
+   <tr>
+      <td>52.h</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.TtcEmergencyRange</td>
+      <td>Determina el umbral de tiempo mínimo de frenado considerado como nivel de conducción cercana en emergencia.</td>
+	  <td>Float [sec]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 2</td>
+      <td style="font-family: Lucida Console; font-size: 12px">0.8</td>
+   </tr>
+   <tr>
+      <td>52.i</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.TimeToTriggerTailgating</td>
+      <td>Determina el umbral de tiempo mínimo de frenado considerado como nivel de conducción cercana en precaución.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">1 a 60</td>
+      <td style="font-family: Lucida Console; font-size: 12px">5</td>
+   </tr>
+   <tr>
+      <td>52.j</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.HMWSpeedThreshold</td>
+      <td>Determina si la función SIMLOCK está activa.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">35</td>
+   </tr>
+   <tr>
+      <td>52.k</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .FCW.FCWlevel</td>
+      <td>Determina si la función SIMLOCK está activa.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>52.l</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .FCW.SpeedThreshold</td>
+      <td>Determina si la función SIMLOCK está activa.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>   
+   <tr>
+     <td>53</td>
+     <td style="font-family: Lucida Console">SIMLOCK</td>
+     <td colspan="4">Define si el dispositivo está bloqueado para funcionar con un proveedor de tarjeta SIM específico.</td>
+   </tr>
+   <tr>
+      <td>53.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Active</td>
+      <td>Determina si la función SIMLOCK está activa.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>53.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .AllowedNetwork</td>
+      <td>Una matriz separada por comas de identificadores de redes que permite ser utilizada por el FS10.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">Una lista separada por comas de código de país móvil (MCC) y códigos de red móvil (MNC), como pares concatenados (<MCC><MNC>), que representan las redes permitidas en las que el FS10 puede registrarse.</td>
+      <td style="font-family: Lucida Console; font-size: 12px">[]</td>
+   </tr>
+   <tr>
+     <td>54</td>
+     <td style="font-family: Lucida Console">CommChannelSettings</td>
+     <td colspan="4">Este es un bloque de propiedades opcional que solo se puede agregar si es necesario. Determina el canal de comunicación que se debe utilizar para transmitir diferentes tipos de conjuntos de datos. Por favor refiérase a Capítulo "Priorización de canales de comunicación" para obtener información detallada sobre el uso de este bloque de propiedades.</td>
+   </tr>
+   <tr>
+      <td>54.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .FOTA</td>
+      <td>Controla el canal de la actualización de firmware remoto</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'LTE'</li>
+        <li>'WiFi'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">N/A</td>
+   </tr>
+   <tr>
+      <td>54.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Alert</td>
+      <td>Canal de transmisión para los eventos</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'LTE'</li>
+        <li>'WiFi'</li>
+        <li>'RS232'</li>
+        <li>'BT'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">N/A</td>
+   </tr>
+   <tr>
+      <td>54.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Image</td>
+      <td>Canal de transmisión para las imágenes.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'LTE'</li>
+        <li>'WiFi'</li>
+        <li>'RS232'</li>
+        <li>'BT'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">N/A</td>
+   </tr>
+   <tr>
+      <td>54.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Video</td>
+      <td>Canal de transmisión para los videos.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'LTE'</li>
+        <li>'WiFi'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">N/A</td>
+   </tr>
+   <tr>
+     <td>55</td>
+     <td style="font-family: Lucida Console">Networks</td>
+     <td colspan="4">Este es un bloque de propiedades opcional que solo se puede agregar si es necesario. Permite la definición de múltiples redes WiFi priorizadas que pueden ser utilizadas por el FS10 como un enlace de comunicación predeterminado siempre que esté disponible. Refiérase a: Capítulo "Priorización de canales de comunicación" para obtener información detallada sobre el uso de este bloque de propiedades.</td>
+   </tr>
+   <tr>
+      <td>55.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .SSID</td>
+      <td>Este es el nombre de la red.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>55.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Password</td>
+      <td>Este es el password de la red, obligatorio y sin caracteres especiales.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">String</td>
+      <td style="font-family: Lucida Console; font-size: 12px">null</td>
+   </tr>
+   <tr>
+      <td>56</td>
+      <td style="font-family: Lucida Console">VideoOverlay</td>
+      <td colspan="4">Este bloque de parámetros proporciona al usuario la flexibilidad para definir si se imprimirá el texto de superposición de medios, y el atributo de la etiqueta de tiempo impresa, en cada medio generado por el FS10.</td>
+   </tr>
+   <tr>
+      <td>56.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .Enable</td>
+      <td>Define si el texto superpuesto debe mostrarse.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">true</td>
+   </tr>
+   <tr>
+      <td>56.b</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .TimeOffset</td>
+      <td>Utilizado en el caso de "VideoOverlay.TimeSource":"Fix". En este caso, la hora se
+presentará en UTC + Offset.</td>
+	  <td>Integer [UTC]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">-11 to 12</td>
+      <td style="font-family: Lucida Console; font-size: 12px">0</td>
+   </tr>
+   <tr>
+      <td>56.c</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .TimeSource</td>
+      <td>Este parámetro determina si la etiqueta de tiempo impresa se obtendrá de la red celular
+(Cell), de GNSS (UTC) o de GNSS, pero con un desplazamiento de tiempo específico (Fix).</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'UTC'</li>
+        <li>'Fix'</li>
+        <li>'Cell'</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">UTC</td>
+   </tr>
+   <tr>
+      <td>56.d</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .OverlayText</td>
+      <td>Permite a los clientes la habilidad de añadir texto adicional al lado izquierdo inferior de la imagen.</td>
+	  <td>String</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>'unitID'</li>
+        <li>'DriverID'</li>
+        <li>String</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">No text</td>
+   </tr>
+   <tr>
+      <td rowspan="3" >57</td>
+      <td rowspan="3" style="font-family: Lucida Console">SDCardSettings</td>
+      <td colspan="4">Este parámetro define si la información de la tarjeta SD debe cifrarse, para proteger los datos de ser revisados por usuarios no autorizados.</td>
+   </tr>
+   <tr>
+      <td colspan="4">Siempre que la tarjeta SD esté configurada para ser protegida, se puede acceder, externamente al dispositivo FS10 (usando una computadora Linux), solo con nombre de usuario y contraseña donde el nombre de usuario es el unitID y la contraseña es una contraseña de 10 caracteres asignada al dispositivo en la línea de producción (solicite al equipo de soporte de Cipia en caso de que no haya recibido las contraseñas de sus dispositivos.</td>
+   </tr>
+   <tr>
+      <td colspan="4">En caso de que la contraseña no exista en las carpetas de datos FS10 (solo dispositivos antiguos), la contraseña se tomará del parámetro de contraseña del dispositivo en el archivo de configuración.</td>
+   </tr>
+   <tr>
+      <td>57.a</td>
+      <td style="font-family: Lucida Console; font-size: 15px"> .EncryptSDCard</td>
+      <td>Protección de la tarjeta de memoria.</td>
+	  <td>Boolean</td>
+      <td style="font-family: Lucida Console; font-size: 13px">
+      	<li>true</li>
+        <li>false</li>
+      </td>
+      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+   </tr>
+   <tr>
+      <td>58</td>
+      <td style="font-family: Lucida Console">WiFiTO</td>
+      <td>Determina el tiempo adicional en minutos que el FS10 esperará antes de entrar en modo de suspensión cuando el encendido está apagado, para habilitar la carga de medios a través de la red Wi-Fi disponible.</td>
+	  <td>Integer [min]</td>
+      <td style="font-size: 13px">0 a 360 (0 significa sin limite de tiempo)</td>
+      <td style="font-family: Lucida Console; font-size: 12px">0</td>
+   </tr>
+</table>
+
+A continuación se muestra una lista de parámetros de biblioteca DMS establecidos por el FS10 durante o después de la inicialización de la biblioteca. Estos parámetros se utilizan para ajustar la funcionalidad de la lógica DMS y las redes neuronales. Para cada parámetro, se proporciona el valor predeterminado utilizado. Solicite a su ingeniero de soporte de Cipia para obtener más información sobre la forma de cambiar estos parámetros de configuración en su aplicación y la forma en que afectan el comportamiento del sistema.
+
+
 
 ### Interfaces de comunicación
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
