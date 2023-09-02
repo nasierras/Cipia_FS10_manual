@@ -2716,7 +2716,258 @@ presentará en UTC + Offset.</td>
 
 A continuación se muestra una lista de parámetros de biblioteca DMS establecidos por el FS10 durante o después de la inicialización de la biblioteca. Estos parámetros se utilizan para ajustar la funcionalidad de la lógica DMS y las redes neuronales. Para cada parámetro, se proporciona el valor predeterminado utilizado. Solicite a su ingeniero de soporte de Cipia para obtener más información sobre la forma de cambiar estos parámetros de configuración en su aplicación y la forma en que afectan el comportamiento del sistema.
 
-
+<table>
+  <tr>
+    <th>Número</th>
+    <th>Nombre</th>
+    <th>Descripción</th>
+    <th>Tipo</th>
+    <th>Valores</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+  	<td>1</td>
+    <td style="font-family: Lucida Console;font-size: 16px" colspan="5">PreStartSetParams</td>
+  </tr>
+  <tr>
+    <td>1.1</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .EnableImagesIdDB</td>
+    <td>Almacenar la imagen del controlador inscrito en la base de datos del dispositivo además del archivo vectorial.</td>
+    <td>Boolean</td>
+    <td style="font-family: Lucida Console; font-size: 12px">
+    	<li>true</li>
+        <li>false</li>
+    </td>
+    <td style="font-family: Lucida Console; font-size: 12px">true</td>
+  </tr>
+  <tr>
+    <td>1.2</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .EnableSleepBlockingByDrowsiness</td>
+    <td>Activar el evento de conductor dormido (DriverAsleep) tras recibir el de somnolencia (Drowsiness).</td>
+    <td>Boolean</td>
+    <td style="font-family: Lucida Console; font-size: 12px">
+    	<li>true</li>
+        <li>false</li>
+    </td>
+    <td style="font-family: Lucida Console; font-size: 12px">true</td>
+  </tr>
+  <tr>
+    <td>1.3</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .SleepDuration</td>
+    <td>Establece el tiempo de ojos cerrados para detectar conductor dormido (Driver Asleep).</td>
+    <td>Float [sec]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">1.0 a 5.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">4.0</td>
+  </tr>
+  <tr>
+    <td>1.4</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .LeftHandDrive</td>
+    <td>Determina si el conductor sentado en el lado izquierdo del vehículo.</td>
+    <td>Boolean</td>
+    <td style="font-family: Lucida Console; font-size: 12px">
+    	<li>true</li>
+        <li>false</li>
+    </td>
+    <td style="font-family: Lucida Console; font-size: 12px">true</td>
+  </tr>
+  <tr>
+    <td>1.6</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .TrackingGraceTimer</td>
+    <td>Tiempo de gracia en fotogramas para anunciar la desaparición del controlador, sabiendo que la cámara tiene una resolución de 30 fotogramas por segundo.</td>
+    <td>Integer [frames]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">30 a 1800</td>
+    <td style="font-family: Lucida Console; font-size: 12px">150</td>
+  </tr>
+  <tr>
+    <td>1.7</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .InhibitSeatbeltAlertsOnStop</td>
+    <td>Desactivación de las alertas del cinturón de seguridad mientras el vehículo no está en movimiento.</td>
+    <td>Boolean</td>
+    <td style="font-family: Lucida Console; font-size: 12px">
+    	<li>true</li>
+        <li>false</li>
+    </td>
+    <td style="font-family: Lucida Console; font-size: 12px">true</td>
+  </tr>
+  <tr>
+    <td>1.7</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .SeatbeltAlertTime</td>
+    <td>Tiempo mínimo en no se detecta el cinturón de seguridad antes de que se genere la alerta.</td>
+    <td>Float [sec]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">5.0 a 60.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">15.0</td>
+  </tr>  
+  <tr>
+  	<td>2</td>
+    <td style="font-family: Lucida Console;font-size: 16px" colspan="5">PostStartSetParams</td>
+  </tr>
+  <tr>
+    <td>2.1</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .RoadCenterYawPos</td>
+    <td>Establece el límite lateral derecho para la zona de atención primaria de la carretera. Fuera de este límite será considerado como distracción.</td>
+    <td>Float [º]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0.0 a 90.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">20.0</td>
+  </tr>
+  <tr>
+    <td>2.2</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .RoadCenterYawNeg</td>
+    <td>Establece el límite lateral izquierdo para la zona de atención primaria de la carretera. Fuera de este límite será considerado como distracción.</td>
+    <td>Float [º]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">-90.0 a 0.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">-20.0</td>
+  </tr>
+  <tr>
+    <td>2.3</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .RoadCenterPitchPos</td>
+    <td>Establece el límite superior para la zona de atención primaria de la carretera. Fuera de este límite será considerado como distracción.</td>
+    <td>Float [º]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0.0 a 45.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">15.0</td>
+  </tr>
+  <tr>
+    <td>2.4</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .RoadCenterPitchNeg</td>
+    <td>Establece el límite inferior para la zona de atención primaria de la carretera. Fuera de este límite será considerado como distracción.</td>
+    <td>Float [º]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">-45.0 a 0.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">-15.0</td>
+  </tr>
+  <tr>
+    <td>2.5</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .CameraStatusBackoffTimer</td>
+    <td>Establece el tiempo de espera en cuadros para la generación de nuevos eventos de verificación del estado de la cámara. Después de una alerta, se inhibirán nuevas notificaciones durante el valor de cuadros especificado, sabiendo que la resolución de la cámara es de 30 cuadros por segundo (30fps).</td>
+    <td>Integer [frames]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">30 a 1800</td>
+    <td style="font-family: Lucida Console; font-size: 12px">60</td>
+  </tr>
+  <tr>
+    <td>2.6</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .DrowsinessBackoffTimer</td>
+    <td>Establece el tiempo de espera en cuadros para la generación de nuevos eventos de somnolencia. Después de una alerta, se inhibirán nuevas notificaciones durante el valor de cuadros especificado, sabiendo que la resolución de la cámara es de 30 cuadros por segundo (30fps).</td>
+    <td>Integer [frames]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">30 a 1800</td>
+    <td style="font-family: Lucida Console; font-size: 12px">300</td>
+  </tr>
+  <tr>
+    <td>2.7</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .SleepBackoffTimer</td>
+    <td>Descripción</td>
+    <td>Boolean</td>
+    <td style="font-family: Lucida Console; font-size: 12px">
+    	<li>true</li>
+        <li>false</li>
+    </td>
+    <td style="font-family: Lucida Console; font-size: 12px">true</td>
+  </tr>
+  <tr>
+    <td>2.8</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .DistractionBackoffTimer</td>
+    <td>Establece el tiempo de espera en cuadros para la generación de nuevos eventos de distracción. Después de una alerta, se inhibirán nuevas notificaciones durante el valor de cuadros especificado, sabiendo que la resolución de la cámara es de 30 cuadros por segundo (30fps).</td>
+    <td>Integer [frames]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">30 a 1800</td>
+    <td style="font-family: Lucida Console; font-size: 12px">300</td>
+  </tr>
+  <tr>
+    <td>2.9</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .SeatbeltBackoffTimer</td>
+    <td>Establece el tiempo de espera en cuadros para la generación de nuevos eventos de cinturón de seguridad. Después de una alerta, se inhibirán nuevas notificaciones durante el valor de cuadros especificado, sabiendo que la resolución de la cámara es de 30 cuadros por segundo (30fps).</td>
+    <td>Integer [frames]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">30 a 1800</td>
+    <td style="font-family: Lucida Console; font-size: 12px">900</td>
+  </tr>
+  <tr>
+    <td>2.10</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .PhoneBackoffTimer</td>
+    <td>Establece el tiempo de espera en cuadros para la generación de nuevos eventos de uso de teléfono. Después de una alerta, se inhibirán nuevas notificaciones durante el valor de cuadros especificado, sabiendo que la resolución de la cámara es de 30 cuadros por segundo (30fps).</td>
+    <td>Integer [frames]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">30 a 1800</td>
+    <td style="font-family: Lucida Console; font-size: 12px">900</td>
+  </tr>
+  <tr>
+    <td>2.11</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .SmokingBackoffTimer</td>
+    <td>Establece el tiempo de espera en cuadros para la generación de nuevos eventos de uso de cigarrillo. Después de una alerta, se inhibirán nuevas notificaciones durante el valor de cuadros especificado, sabiendo que la resolución de la cámara es de 30 cuadros por segundo (30fps).</td>
+    <td>Integer [frames]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">30 a 1800</td>
+    <td style="font-family: Lucida Console; font-size: 12px">900</td>
+  </tr>
+  <tr>
+    <td>2.12</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .DrowsinessSpeedThreshold</td>
+    <td>Umbral de velocidad para la detección de eventos de somnolencia (Drowsiness).</td>
+    <td>Integer [km/h]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0 a 50</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0</td>
+  </tr>
+  <tr>
+    <td>2.13</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .DistractionSpeedThreshold</td>
+    <td>Umbral de velocidad para la detección de eventos de distraction (Distraction).</td>
+    <td>Integer [km/h]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0 a 50</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0</td>
+  </tr>
+  <tr>
+    <td>2.14</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .SeatbeltSpeedThreshold</td>
+    <td>Umbral de velocidad para la detección de eventos de cinturón de seguridad (Seatbelt).</td>
+    <td>Integer [km/h]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0 a 50</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0</td>
+  </tr>
+  <tr>
+    <td>2.15</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .SmokingSpeedThreshold</td>
+    <td>Umbral de velocidad para la detección de eventos de fumador (Smoking).</td>
+    <td>Integer [km/h]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0 a 50</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0</td>
+  </tr>
+  <tr>
+    <td>2.16</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .WheelAngleThreshold</td>
+    <td>El monitor de la cámara y las funciones de calibración en línea se suspenden cuando el ángulo del volante es mayor que este umbral.</td>
+    <td>Integer [º]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">2 a 30</td>
+    <td style="font-family: Lucida Console; font-size: 12px">6</td>
+  </tr>
+  <tr>
+    <td>2.17</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .NoAoiScore</td>
+    <td>Penalización incurrida cuando el conductor no está mirando ningún área de interes (AOI) predefinido en el vehículo.</td>
+    <td>Integer [points]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0 a 600</td>
+    <td style="font-family: Lucida Console; font-size: 12px">150</td>
+  </tr>
+  <tr>
+    <td>2.18</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .DriverChangeMinDuration</td>
+    <td>Tiempo mínimo necesario para detectar un nuevo conductor antes de que se genere el evento de cambio de conductor (DriverChange). </td>
+    <td>Float [sec]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0.0 a 15.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">5.0</td>
+  </tr>
+  <tr>
+    <td>2.19</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .DistractionTurnGraceDuration</td>
+    <td>Tiempo de gracia para la generación de eventos de distracción mientras se detecta el giro</td>
+    <td>Float [sec]</td>
+    <td style="font-family: Lucida Console; font-size: 12px">0.0 a 5.0</td>
+    <td style="font-family: Lucida Console; font-size: 12px">2.0</td>
+  </tr>
+  <tr>
+    <td>2.20</td>
+    <td style="font-family: Lucida Console;font-size: 14px"> .EnableYawnBasedDrowsiness</td>
+    <td>Generar evento de somnolencia si el conductor bosteza varias veces en pocos minutos.</td>
+    <td>Boolean</td>
+    <td style="font-family: Lucida Console; font-size: 12px">
+    	<li>true</li>
+        <li>false</li>
+    </td>
+    <td style="font-family: Lucida Console; font-size: 12px">true</td>
+  </tr>
+</table>
 
 ### Interfaces de comunicación
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Uso-de-Cipia-FS10)
@@ -2724,37 +2975,487 @@ A continuación se muestra una lista de parámetros de biblioteca DMS establecid
 #### Conexión RS232
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
 
+El puerto RS232 se puede utilizar para conectar el dispositivo Cipia-FS10 a una caja telemática siempre que no esté disponible una banda más ancha o un enlace inalámbrico (BT, Wi-Fi, LTE). La conexión RS232 cumple con EIA-232. La configuración predeterminada del puerto es 115200, 8, 1, Ninguno. Es posible cambiar la configuración del puerto RS232 en el archivo de configuración (una velocidad de comunicación más lenta alargará el tiempo de transferencia de datos y la latencia del sistema).
+
+El enlace RS232 es utilizado por el dispositivo Cipia-FS10 para transmitir datos de eventos o instantáneas al lado del servidor. El enlace RS232 no debe utilizarse para transferir secuencias de vídeo a menos que el tamaño del paquete de datos sea inferior al máximo definido por la hoja de datos de Telematics box.
+
+El enlace RS232 se utiliza para comunicarse con el lado del servidor en modo de paso a través. Lo que significa que el dispositivo telemático solo reenvía los paquetes de datos recibidos en el puerto RS232 al lado del servidor y desde el lado del servidor al puerto RS232 sin ningún tipo de procesamiento de datos.
+
+Los cables del dispositivo Cipia-FS10 (ver tabla) que deben conectarse a la caja telemática son el RS232_TxD, el RS232_RxD y el COM_GND. Deben estar conectados al RxD, TxD y GND en el lado de la caja de Telematics respectivamente.
+
 #### USB
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
+
+El Cipia-FS10 tiene un puerto USB 2.0 diseñado para soportar fines de mantenimiento y depuración utilizando un dispositivo host como una PC. La interfaz USB puede ser utilizada por un técnico o un usuario autorizado para iniciar sesión a través de un protocolo de shell seguro (SSH) con una interfaz de línea de comandos (CLI) para revisar y analizar los archivos de registro de Cipia-FS10, para agregar / eliminar / editar varios archivos de sistema operativo (configuración), para extraer archivos de video e imagen que se almacenan en la memoria del dispositivo, para realizar actualizaciones de FW, etc.
+
+Consulte el capítulo de seguridad de las comunicaciones para obtener más información sobre los aspectos de seguridad de la utilización del puerto USB.
+
+- **Nota:** La interfaz USB Cipia-FS10 es compartida por dos clientes distintos: el puerto USB y el módem celular (en los modelos FS10-LTE-XXX). Cada vez que un técnico se conecta al puerto USB, la comunicación LTE se desactiva hasta que se desconecta el puerto USB.
 
 #### Bluetooth
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
 
+Cipia-FS10 soporta BT/BLE versión 4.2. El perfil de protocolo serie Bluetooth es utilizado por el Cipia-FS10 para la conexión a una caja o dongle telemático compatible con BT. El descubrimiento (escaneo) y emparejamiento de dispositivos próximos se realiza en modo de instalación y calibración o mantenimiento Durante estos modos, el dispositivo siempre es detectable. Si no se emparejó ningún dispositivo mientras estaba en estos modos, BT se desactiva (apaga) durante el modo estándar y solo se enciende (detectable) durante 2 minutos después del evento de encendido, para verificar si se emitió una solicitud de emparejamiento.
+
+El método de emparejamiento se establece en el archivo de configuración: Just Works o Passkey. Si se establece en Passkey, se debe utilizar la clave de 6 dígitos, que se encuentra en el archivo de configuración. La misma clave de paso debe estar configurada en el dispositivo emparejado.
+
+Mientras está conectado con una caja telemática, el enlace BT puede ser utilizado por Cipia-FS10 para el reenvío de datos (perfil de puerto serie) de eventos o instantáneas a través de la caja telemática al lado del servidor o la recepción de mensajes (o comandos) desde el lado del servidor, enviados a través de la caja telemática.
+
+Después del primer emparejamiento realizado entre el dispositivo Cipia-FS10 y otro dispositivo/aplicación móvil, el Cipia-FS10 se empareja 
+automáticamente con el otro dispositivo en el evento de encendido/activación
+
 #### Wi-Fi
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
+
+La interfaz Wi-Fi debe utilizarse como enlace de comunicación principal con el GW del servidor siempre que LTE no sea compatible con el propio dispositivo Cipia-FS10 y haya otro dispositivo -conectado a WAN a través del cual (un punto de acceso) el dispositivo Cipia-FS10 pueda establecer una conexión con el servidor.
+
+Otros casos de uso de la interfaz Wi-Fi son:
+- Para la transmisión de vídeo a la aplicación móvil Cipia-FS10 para fines de instalación, calibración y depuración. En este escenario, la aplicación móvil se conecta al punto de acceso del dispositivo Cipia-FS10.
+- Para fines de depuración a través de CLI mientras está conectado a través de SSH.
+  
+Mientras está en modo de instalación y calibración, la red Wi-Fi se enciende mediante la aplicación principal Cipia-FS10 y acepta intentos de conexión con el PIN correcto y el procedimiento de inicio de sesión.
+
+Mientras está en modo estándar, y si se establece en consecuencia en el archivo de configuración, el dispositivo Cipia-FS10 intenta establecer una conexión con la red cuyos atributos se definen en el archivo de configuración.
+
+Si Wi-Fi se define como el enlace principal con el servidor, la conexión Wi-Fi se establece inmediatamente después de la detección del IGN en el evento y se mantiene continuamente durante todo el viaje de acuerdo con la configuración del vigilante de comunicación.
 
 #### LTE (US)
 [Tabla de Contenidos](#Tabla-de-contenidos) | [Inicio de sección](#Interfaces-de-comunicación)
 
+El módem celular integrado en el dispositivo Cipia-FS10 admite la categoría de comunicación CAT4.
+
+El punto de acceso celular se puede utilizar como el principal enlace de comunicación con el GW del servidor para enviar eventos, instantáneas, secuencias de vídeo, así como para recibir solicitudes y comentarios del lado del servidor o gestionar la comunicación bidireccional para FOTA u otros fines de gestión de dispositivos.
+
+Si se selecciona el enlace celular como canal de comunicación principal en el archivo de configuración, la aplicación principal de Fleet Sense administra continuamente el módem celular y el enlace de comunicación tal como se define en el archivo de configuración (keep-alive, link reset, modem reset etc.).
+
+El dispositivo Fleet-Sense puede comunicarse con el GW del servidor a través de APN público o privado, según la SIM y los ajustes del archivo de configuración. Siempre que se utilice APN público, el dispositivo Fleet-Sense debería poder administrar el enlace de comunicación de una manera que permita al lado del servidor consultar el dispositivo en cualquier momento durante un viaje activo (suponiendo que la conexión de datos esté
+disponible en el lado del dispositivo).
+
+Si solo se define la SIM insertada, el dispositivo podrá establecer una conexión de datos incluso si los detalles de APN no se proporcionan en el archivo de configuración (se deja sin rellenar).
+
+FS10-LTE es compatible con la función SIMLOCK que garantiza, siempre que se active, que el dispositivo Cipia-FS10 solo se utilice con un tipo de tarjeta SIM predefinido, aprovisionado por un operador autorizado. Con la función SIMLOCK habilitada, debería ser imposible usar el dispositivo con otras tarjetas SIM a menos que el SIMLOCK se desbloqueara utilizando una API dedicada y una contraseña predefinida de 10 caracteres que se genera aleatoriamente para cada dispositivo en la línea de producción.
+
+Si se encuentra una coincidencia entre la tarjeta SIM instalada y las redes enumeradas, dispositivo funciona normalmente. Sin embargo, si no se encuentra la coincidencia, se genera un mensaje de error del sistema con el motivo correspondiente ('SIM no permitida').
+
+En caso de tarjeta SIM no permitida, el Cipia-FS10 no informa de ningún evento de visión artificial (DMS/ADAS) al controlador o al servidor. Sin embargo, se conecta al servidor durante los viajes activos (encendido activado) para poder recibir el evento de comandos de liberación de SIMLOCK si la SIM se considera 'No permitida'. Si se recibe el comando "SIMLOCK release", el dispositivo Cipia-FS10 valida el código de lanzamiento y, si coincide
+con el código en la información del producto, restaura el funcionamiento normal. 
+
+En caso de que el código no pueda ser validado, Cipia-FS10 responde con error.
+
 ### Priorización de canales de comunicación
+#### Background
+Hasta el lanzamiento del Cipia-FS10 SW V1.31, la interfaz de comunicación utilizada por el
+Cipia-FS10 para comunicarse con el servidor se establecía en el archivo de configuración
+a través del parámetro "CommChannelState" que aceptaba los valores:
+"LTE"/"Wifi"/"RS232"/"BT".
+El valor seleccionado determinó la interfaz de comunicación a través de la cual todos los
+tipos de datos, como datos de eventos, imágenes, videos y actualizaciones / mejoras OTA,
+se habrían enviado durante el funcionamiento normal del dispositivo.
+En Cipia-FS10 SW V1.31, se introdujo una nueva característica destinada a admitir la
+capacidad de enviar eventos, videos, imágenes o incluso realizar la actualización FOTA,
+utilizando una interfaz Wi-Fi segura, siempre que esté disponible, incluso si la interfaz de
+comunicación predeterminada seleccionada en el archivo de configuración, para la
+comunicación estándar, es diferente de Wi-Fi (como LTE, RS232 o BT).
+
+#### Soporte de canales de comunicación priorizados
+Cipia-FS10 ahora tiene la opción de usar una lógica de comunicación priorizada en la que
+ciertos tipos de datos como alertas e imágenes se envían al backend inmediatamente a
+través de RS-232, Bluetooth (conectado al dispositivo de la 3ª parte) o interfaz LTE
+incorporada, mientras que otros tipos de datos como videoclips o actualizaciones de
+FOTA se realizan solo cuando hay disponible una red Wi-Fi adecuada.
+Typical scenarios include using the fleet’s own Wi-Fi network available in the fleet’s parking
+lot, driver’s mobile phone in hot spot mode, public Wi-Fi networks that are generally
+available in the area of the fleet operations (for ex. City Wi-Fi), public Wi-Fi networks that
+are available to the fleet via special agreement (for ex. Gas station Wi-Fi where the fleet
+has special agreement) etc.
+In the new prioritized channel feature, it is possible to define an optional JSON block called
+"CommChannelSettings" with the (optional) data types: “Alerts”, “Image”, “Video”,
+“FOTA” and “Debug”, that can use different communication channel settings including:
+“BT”, “RS232”, “LTE” and “Wifi”:
+
+```
+"CommChannelState": "LTE",
+"CommChannelSettings": {
+"FOTA": "Wifi",
+"Video": "Wifi",
+},
+```
+In the example above the legacy parameter “CommChannelState” sets the default
+communication channel to “LTE” while “FOTA” and “Video” will only use known Wi-Fi
+network when available.
+
+If “CommChannelSettings” block was not available, the system would have behaved in a
+backward compatibility mode. Meaning that LTE would have been used for all data types.
+However, since this block exists (supported only from SW V1.31 and later) and it indicates
+that Video should be uploaded only through Wi-Fi channel, Videos will be accumulated in
+device memory and will not be sent until Wi-Fi connection is established.
+
+#### Sending data over duplicated communication channels
+An optional Boolean parameter ‘DuplicateMsgOverRS232’ defined to give clients flexibility
+to replicate alerts data type over RS232 as a duplication message unless RS232 already
+selected at the communication channels at CommChannelState = RS232 or
+CommChannelSettings.Alert = RS232 at the case the data won’t be send twice over
+RS232.
+This replication option refers only to event data and not to image or video.
+At the below example alert will be sent over LTE and as a replication over RS232 and
+Images will be sent over RS232 as well.
+
+```
+CommChannelSetting.Alert = LTE
+CommChannelSetting.Image = RS232
+DuplicateMsgOverRS232 = true
+```
+
+Below is the definition of the network selection logic:
+
+```
+CommChannel[Alerts] = CommChannelSettings.Alert if exists, otherwise
+CommChannelState
+CommChannel[Video] = CommChannelSettings.Video if exists, otherwise
+CommChannelState
+CommChannel[Image] = CommChannelSettings.Image if exists, otherwise
+CommChannelState
+switch (CommChannel[ Alerts ])
+case RS232/BT:
+Send EVENT over serial protocol
+break;
+case WIFI:
+if (ActiveCommChannel is WIFI)
+Send EVENT over Wifi(MQTT)
+If (DuplicateMsgOverRS232 == true)
+Send EVENT over RS232
+break;
+case LTE:
+if (ActiveCommChannel is WIFI)
+Send EVENT over Wifi (MQTT) //WiFi gets priority over LTE
+else if (ActiveCommChannel is LTE)
+Send EVENT over LTE
+if (DuplicateMsgOverRS232 == true)
+Send EVENT over RS232
+break;
+switch (CommChannel[ Image ])
+case RS232/BT:
+if (TelematicsDataForwardOptions == EventAndImage)
+Send IMAGE over serial protocol
+break;
+case WIFI:
+if (ActiveCommChannel is WIFI)
+Send IMAGE over Wifi(MQTT)
+break;
+case LTE:
+if (ActiveCommChannel is WIFI)
+Send IMAGE over Wifi //WiFi gets priority over LTE
+else if (ActiveCommChannel is LTE)
+Send IMAGE over LTE
+break;
+switch (CommChannel[ Video ])
+case RS232/BT:
+// ERROR -- Config incorrect
+break;
+case WIFI:
+if (ActiveCommChannel is WIFI)
+Send VIDEO over Wifi(MQTT)
+break;
+case LTE:
+if (ActiveCommChannel is WIFI)
+Send VIDEO over Wifi(MQTT) //WiFi gets priority over LTE
+else if (ActiveCommChannel is LTE)
+Send VIDEO over LTE
+break;
+```
+
+#### Prioritized Redes Wi-Fi
+In the new prioritized communication channel feature, iposible predefinir (a través de la
+aplicación de instalación o a través de la API del servidor) en el archivo de configuración
+JSON hasta 10 redes Wi-Fi que el dispositivo podrá usar para cargar los tipos de datos
+designados en " also CommChannelSettings". Cuando Cipia-FS10 detecta que una de las
+redes está disponible, la carga comenzará inmediatamente. Los detalles de la red Wi-Fi
+deben incluir SSID y contraseña como se muestra a continuación:
+
+```
+WifiSettings": {
+"APModeEnable": true,
+"APPassword": "1234567890",
+"APSSID": "FS-WiFi",
+"SSID": "MyNB",
+"Password": "12345678"
+"Networks": [
+{
+"SSID": "MyNB",
+"Password": "12345678"
+},
+}
+…
+}
+]
+},
+```
+
+En el ejemplo JSON anterior, "WifiSettings" es un bloque heredado, mientras que el
+bloque interno "Redes" es una lista opcional con hasta 10 redes seguras diferentes con
+SSID y contraseña como conjunto mínimo de parámetros necesarios para definir una red
+válida.
+La lista Redes se prioriza de manera que la primera red sea la más preferida, mientras
+que la última sea la red menos preferida. Es posible establecer el orden a través de una
+GUI de arrastrar y soltar en la aplicación del instalador o configurando el orden
+manualmente en el archivo de configuración.
+Siempre que exista una lista ising en el archivo de configuración JSON, se ignoran los
+parámetros SSID y Password heredados. Por lo tanto, para mantener la compatibilidad con
+versiones anteriores de archivos SW y JSON, la aplicación de instalación copia la
+configuración de red predeterminada en la primera red de la lista "Networks".
+Sin embargo, en un archivo de configuración JSON preparado específicamente para SW
+V1.31, siempre que exista una lista de "Redes", los parámetros SSID y Contraseña
+heredados se pueden eliminar como se muestra a continuación:
+
+```
+"WifiSettings": {
+"APModeEnable": true,
+"APPassword": "1234567890",
+"APSSID": "FS-WiFi",
+"Networks": [
+{
+"SSID": "MyNB",
+"Password": "12345678"
+},
+}
+…
+}
+]
+},
+```
+#### Network selection logic
+In the new prioritized communication channel logic, an available Wi-Fi network will be
+always preferred over LTE communication for all supported data types, even if LTE is
+defined to be the default communication channel.
+Therefore, in the following example, when Wi-Fi is available, Alerts and Images will be sent
+over Wi-Fi network even though they are defined to use LTE by default:
+
+```
+"CommChannelSettings": {
+“Alert”: “LTE”
+“Image”: “LTE”
+"FOTA": "Wifi",
+"Video": "Wifi",
+},
+```
+
+However, if RSR232 or BT are defined as the default or Prioritized channel for certain
+data types as depicted below, an available Wi-Fi network will be used only to
+communicate data types for which Wi-Fi was selected explicitly. i.e., for FOTA, debug
+data and Video uploads only:
+
+```
+"CommChannelSettings": {
+“Alert”: “RS232”
+“Image”: “RS232”
+"FOTA": "Wifi",
+"Video": "Wifi",
+“Debug”: “Wifi”,
+},
+```
+
+Whenever one of pre-configured Wi-Fi networks is available and the time since the last
+connection to the FOTA server is longer than the period set in FOTA client configuration
+file, the FOTA client triggers immediate connection to FOTA server to check whether any
+updates are available for the device.
+
+#### WiFi y tiempo de espera de utilización
+Es posible definir el tiempo máximo que Cipia-FS10 puede permanecer conectado a Wi-Fi
+antes de entrar en modo de suspensión, cuando Ignition está apagado, para completar
+cualquier tarea de actualización / carga. Esto está destinado a evitar incidentes de
+descarga de la batería del vehículo a lo largo del tiempo debido al consumo excesivo de
+corriente por parte del dispositivo Cipia-FS10.
+Para este propósito, se agregó el parámetro "WiFiTO" al archivo de configuración, con
+un rango válido '0' / '5-300' mins. El valor '0' significa que no hay límite de tiempo, es decir,
+entrará en suspensión solo después de que termine de cargar / actualizar todas las tareas.
+Esto también significa que si el dispositivo tiene datos para cargar y / o FOTA para
+completar y está conectado a una de las redes Wi-Fi preconfiguradas, el parámetro
+"SleepModeTO" se ignora y Cipia-FS10 entrará en modo de suspensión solo cuando el
+parámetro "WiFiTO" haya expirado.
+Cipia-FS10 Communication está diseñado para las mejores prácticas de seguridad y
+privacidad para poder transferir datos confidenciales como videos que contienen la cara
+y el comportamiento del conductor. Esto es aún más relevante cuando se usa Wi-Fi
+público. Por lo tanto, solo se admiten redes protegidas con contraseña predefinida
+(WPA/WPA2). Las redes abiertas y ocultas no deben utilizarse con Cipia-FS10.
+
+#### Restricción de hardware que afecta la conectividad Wi-Fi y la estabilidad del punto de acceso
+##### Descripción del problema
+La siguiente es una descripción de un problema conocido que afecta al comportamiento
+de FS10 con la funcionalidad Wi-Fi. Este problema surge de una restricción de hardware
+impuesta por el módulo Wi-Fi que admite solo una frecuencia de radio a la vez. FS10
+está diseñado para funcionar como cliente, conectándose a puntos de acceso externos,
+y como un punto de acceso (AP), permitiendo que otros clientes se conecten a él.
+
+Descripción del comportamiento:
+1. Modo de cliente:
+FS10 puede conectarse como cliente a puntos de acceso externos.
+- Recibe una lista de SSID de red y contraseñas correspondientes.
+- FS10 intenta conectarse a las redes en función de un orden de prioridad.
+- 2. Modo de punto de acceso (AP):
+- FS10 se inicia en modo AP con una frecuencia de 2.4GHz.-
+Si FS10 se conecta correctamente a un punto de acceso Wi-Fi de 5GHz, el modo AP se
+cambia a la frecuencia de 5GHz.-
+Si FS10 se conecta correctamente a un punto de acceso Wi-Fi de 2,4 GHz, el modo AP
+se cambia a la frecuencia de 2,4 GHz.
+3. Conmutación de frecuencia y problemas de conectividad:
+- En el caso de que FS10 intente conectarse tanto a un punto de acceso de 5 GHz como
+a un punto de acceso de 2,4 GHz, pero encuentre fallas (por ejemplo, contraseñas
+incorrectas), entra en un bucle de reintento.
+- Durante el bucle de reintento, FS10 alterna entre las dos frecuencias, intentando
+conectarse al primer AP, luego al segundo AP, y así sucesivamente.
+- Este comportamiento de frecuencia alterna puede provocar inestabilidad en el modo
+de punto de acceso, ya que la frecuencia de radio del modo AP también cambia.
+- La inestabilidad puede causar interrupciones en los dispositivos conectados, como PC
+o teléfonos celulares, ya que necesitan cambiar de frecuencia y pueden experimentar
+desconexiones.
+Impacto y mitigación:
+El problema conocido puede tener los siguientes impactos en la funcionalidad de FS10:-
+Estabilidad del punto de
+acceso: los cambios de radiofrecuencia durante el bucle de reintento pueden provocar
+un punto de acceso inestable, lo que afecta la conectividad de los dispositivos
+conectados.
+Para mitigar el impacto de este problema, se pueden tomar las siguientes medidas:-
+Asegúrese de que se proporcionan las contraseñas correctas para los puntos de acceso
+Wi-Fi de 5 GHz y 2,4 GHz para evitar activar el bucle de reintento.
 
 ### Seguridad de las comunicaciones
 #### MQTT
+A continuación se muestran los métodos y características de seguridad y autenticación
+del protocolo de enlace de comunicación entre Fleet-Sense y el Middleware (o cualquier
+otro agente MQTT estándar). Lo anterior es aplicable a la comunicación Wi-Fi o celular
+entre el Cipia-FS10 y el lado del servidor.the
+I. Contraseña del dispositivo: única para cada dispositivo y elegida al azar por un
+generador de contraseñas en la línea de producción. Compuesto por 10 caracteres:
+a. Al menos una mayúscula (solo letras en inglés)
+b. Al menos una minúscula (solo letras en inglés)
+c. Al menos un dígito (0-9)
+d. Al menos un carácter especial (solo teclado de EE. UU.)
+La contraseña del dispositivo se mantiene en un archivo del sistema para evitar
+cambios durante las actualizaciones OTA. Para que esta contraseña única del
+dispositivo surta efecto, el campo de contraseña del archivo de configuración debe
+dejarse vacío (sin usar).
+II. Aprovisionamiento de dispositivos en el servidor del cliente : debe realizarse
+utilizando una tabla que enumere la contraseña asignada para cada UnitID (SN). La
+tabla será enviada por Cipia junto con cada entrega del producto.
+III. Autenticación básica del dispositivo: autenticación simple del dispositivo FleetSense utilizando su UnitID y contraseña. En caso TSP no requiera un certificado
+firmado. a
+IV. TLS de servidor estándar (enlace seguro - puerto 8883): el cliente (dispositivo)
+valida la cadena TLS del servidor con proveedores de certificados públicos
+conocidos. El dispositivo Cipia-FS10 utiliza certificados predeterminados del
+sistema operativo Linux.
+V. Autenticación avanzada del dispositivo: si se configura en consecuencia en el
+middleware y en el archivo de configuración Cipia-FS10, el servidor espera
+autenticar la comunicación del dispositivo utilizando un "certificado autofirmado
+Cipia" que se implementa para todos los dispositivos fabricados en la línea de
+producción de Cipia. El certificado debe agregarse a la ruta de carpeta adecuada
+en el intermediario / agente MQTT del TSP (para obtener más información, solicite
+al equipo de soporte de Cipia).
+
 #### SSH
+La interfaz SSH que se utiliza para los procesos de depuración, evaluación, mantenimiento
+y aprovisionamiento se protege de acuerdo con las siguientes características:
+I. El inicio de sesión raíz del sistema operativo está deshabilitado.
+II. Se definen dos perfiles de usuario:
+a. Empleados de Cipia (Admin)
+b. Perfil del cliente
+III. El perfil del cliente se limita a una lista predefinida de acciones / reglas de acceso.
+IV. La conexión SSH está asegurada con el nombre de usuario y la contraseña
+predeterminados (para cada perfil) y solo los usuarios de Cipia lo conocerán.
+Solicite al equipo de soporte de Cipia si necesita una contraseña para acceder a la
+interfaz de línea de comandos Cipia-FS10.
+V. El administrador puede cambiar las credenciales de acceso del perfil del cliente.
+VI. El inicio de sesión / cierre de sesión SSH se utiliza como un desencadenante para
+la transición del modo de dispositivo dentro y fuera del modo de mantenimiento.
 
 ## Cipia-FS10 HMI
+La siguiente tabla describe la retroalimentación audible y visual proporcionada por el LED
+del sistema Cipia-FS10 y su altavoz en varios estados de funcionamiento del sistema.
+
+Los patrones de LED se especifican en la siguiente tabla:
+
+
+- Si los efectos de sonido y los mensajes de voz están activos en el archivo de configuración, el mensaje se reproduce justo después del efecto de
+sonido.
+- Todos los mensajes de voz solo se reproducen una vez. Los efectos LED y de sonido pueden repetirse.
 
 ## Kit de prueba y evaluación
+Puede utilizar el kit de evaluación Cipia-FS10 (EVK) con un servidor de prueba proporcionado por Cipia (servidor de middleware y nube básica), para probar el comportamiento, las características y las funciones del dispositivo Cipia-FS10, sin tener que instalar profesionalmente el dispositivo o desarrollar una sola línea de código.
+
+El Manual de inicio rápido de EVK guía a su equipo técnico, proporcionando instrucciones para la instalación a corto plazo del dispositivo utilizando el brazo de montaje de vacío, el archivo de configuración predeterminado predefinido (solo se deben proporcionar los datos APN de la SIM), el adaptador de arnés especial para la conexión de alimentación de 12V a la toma del encendedor de cigarrillos y el acceso autenticado a las páginas de soporte en la nube de Cipia.
+
+El equipo de soporte técnico/servicios profesionales de Cipia puede configurar su entorno de prueba en un par de horas después de recibir el EVK. El EVK viene con parámetros de configuración predeterminados. Es posible modificar esta configuración del sistema de forma remota utilizando la API del servidor o utilizando una aplicación móvil que se comunique con el dispositivo a través de BLE / Wi-Fi.
+
+Con el EVK, puede probar los comentarios del controlador en tiempo real del sistema, así como explorar la información cargada en el servidor de middleware. Esto incluye la capacidad de ver instantáneas y secuencias de vídeo asociadas con los eventos generados por el dispositivo de prueba.
 
 ## Control de errores del sistema
+Como se describió previamente, el sistema operativo Cipia-FS10 gestiona el proceso continuo de detección de errores y notifica al servidor sobre cada error que es persistente durante más de 5 segundos. Si el sistema no envía la alerta de error del sistema, el evento se guardará en la memoria de eventos y se transmitirá al recuperar la comunicación.
+
+Sistema OK es un mensaje enviado al detectar la recuperación de errores de un error del sistema existente, si la condición normal es persistente durante más de 10 segundos.
+
+A continuación se muestra una lista de mensajes de error del sistema / OK del sistema compatibles con el dispositivo Cipia-FS10:
 
 ## Avisos de normas y reglamentos
 ### FCC
+Este dispositivo cumple con la parte 15 de las Reglas de la FCC. La operación está sujeta a las dos condiciones
+siguientes:
+(1) Este dispositivo no puede causar interferencias perjudiciales, y (2) este dispositivo debe aceptar cualquier
+interferencia recibida, incluidas las interferencias que puedan causar un funcionamiento no deseado.
+Este dispositivo ha sido probado y cumple con los límites para un dispositivo digital de Clase B, de conformidad con la
+Parte 15 de las Reglas de la FCC. Estos límites están diseñados para proporcionar una protección razonable contra
+interferencias perjudiciales en una instalación residencial.
+Este equipo genera, utiliza y puede irradiar energía de radiofrecuencia y, si no se instala y utiliza de acuerdo con las
+instrucciones, puede causar interferencias perjudiciales a las comunicaciones de radio. Sin embargo, no hay garantía de
+que no se produzcan interferencias en una instalación en particular. Si este equipo causa interferencias perjudiciales en
+la recepción de radio o televisión, lo que se puede determinar apagando y encendiendo el equipo, se recomienda al
+usuario que intente corregir la interferencia mediante una o más de las siguientes medidas:
+• Reoriente o reubique la antena receptora.
+• Aumentar la separación entre el equipo y el receptor.
+• Conecte el equipo a una toma de corriente en un circuito diferente al que está conectado el receptor.
+• Consulte al distribuidor o a un técnico experimentado de radio / TV para obtener ayuda.
+Precaución: Los cambios o modificaciones no aprobados expresamente por la parte responsable del cumplimiento
+podrían anular la autoridad del usuario para operar el equipo. Este equipo debe instalarse y operarse de acuerdo con
+las instrucciones proporcionadas y la(s) antena(s) utilizada(s) para este transmisor deben instalarse para proporcionar
+una distancia de separación de al menos 20 cm de todas las personas y no deben estar ubicadas u operando
+conjuntamente con ninguna otra antena o transmisor.
+ID de la FCC:
+ FS10-LOC/FS10-LOC-ADS: 2AZIQFS10L
+ FS10-LTE/FS10-LTE-ADS: 2AZIQFS10C
+
 ### IC
+(EN)This device complies with the applicable industry Canada) License exempt radio apparatus, the operation is
+authorized under the conditions as follows: (1) this device may not cause interference, and (2) the user of this device
+must accept any interference caused, even if the interference is likely to affect its performance.
+(FR)Le présent appareil est conforme aux CNR d'Industrie Canada applicables aux appareils radio exempts de licence.
+L'exploitation est autorisée aux deux conditions suivantes : (1) l'appareil ne doit pas produire de brouillage, et (2)
+l'utilisateur de l'appareil doit accepter tout brouillage radioélectrique subi, même si le brouillage est susceptible d'en
+compromettre le fonctionnement.
+(EN)Radio frequency (RF) Exposure Information The radiated output power of the Wireless Device is below the industry Canada (IC) radio frequency exposure limits. The Wireless Device should be used in such
+a manner that the potential for human contact during normal operation is minimized. The device has also been
+evaluated and shown compliance with the IC RF Exposure limits under mobile exposure conditions (antennas at least
+20cm from a person’s body).
+(FR) informations sur l'exposition de radiofréquences (rf) la puissance de rayonnement de l'appareil sans fil est
+inférieure à la fréquence radio d'industrie canada (ic) limites d'exposition. l'appareil sans fil devrait être utilisé de façon
+telle que le potentiel de contact pendant le fonctionnement normal est réduit au minimum. le dispositif a été évalué et
+qui semble conforme à l'ic des limites d'exposition aux rf sous des conditions d'exposition mobile. (antennes d'au moins
+20 cm du corps d'une personne).
+(EN)The following statement the following statement must be included with all versions of this document supplied to
+an OEM or integrator but should not be distributed to the end user.
+This device is intended for OEM integrators only. Please see the full Grant of Equipment document for other restrictions
+(FR) l'énoncé suivant la déclaration suivante doit être incluse dans toutes les versions de ce document fourni à un oem
+ou intégrateur, mais ne devrait pas être distribuées à l'utilisateur final. ce dispositif est destiné aux intégrateurs de
+oem. voir le document de subvention d'équipement d'autres restrictions
+IC ID：
+✓ FS10-LOC/FS10-LOC-ADS: 27633FS10L
+✓ FS10-LTE/FS10-LTE-ADS: 27633FS10C
+
 ### RED
-
-
-
+Por la presente, Cipia Vision Ltd. declara que el tipo de equipo radio cumple con la Directiva 2014/53 / UE.
+El texto completo de la declaración UE de conformidad está disponible en la siguiente dirección de Internet:
+https://cipia.com
+Aviso: El dispositivo cumple con las especificaciones de RF cuando el dispositivo utiliza al menos a 20 cm de cuerpo
+humano.
+El dispositivo funciona en el rango de frecuencia de 5150-5350 MHz. Está restringido ambiente interior. Este producto
+se puede utilizar en todos los estados miembros de la UE.
 
 
 ## Licencia
