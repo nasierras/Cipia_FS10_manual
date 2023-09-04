@@ -133,7 +133,7 @@ En el diagrama anterior, el eje *x* apunta al controlador.
 - **Interfaces de usuario:** existen las siguientes interfaces mecánicas para las características de usuario.
 
 <div align="center">
-  <img src="images/FS10_parts.png" alt="FIG04" width="80%">
+  <img src="images/FS10_parts_ES.png" alt="FIG04" width="80%">
   <p align="center"><strong>Fig. 4</strong> - Interfaz de dispositivo.</p>
 </div>
 
