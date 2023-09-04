@@ -417,14 +417,14 @@ El cable de instalación Cipia-FS10 consta de 2 partes:
 1. Cable estilo Pigtail de un metro de largo, conectado internamente a la placa principal del dispositivo y con conector automotriz de 10 pines en el extremo.
 
 <div align="center">
-  <img src="images/FS10_-_pigtail_1.png" alt="FIG06" width="40%">
+  <img src="images/FS10_-_pigtail_A.png" alt="FIG06" width="40%">
   <p align="center"><strong>Fig. 6</strong> - Dispositivo Cipia-FS10.</p>
 </div>
 
 2. Cable de extensión de un metro de largo equipado con un conector automotriz mate y cables abiertos en el extremo.
 
 <div align="center">
-  <img src="images/FS10_-_pigtail_2.png" alt="FIG07" width="40%">
+  <img src="images/FS10_-_pigtail_B.png" alt="FIG07" width="40%">
   <p align="center"><strong>Fig. 7</strong> - Cableado Cipia-FS10.</p>
 </div>
 
