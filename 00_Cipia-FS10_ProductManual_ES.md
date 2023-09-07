@@ -1260,14 +1260,12 @@ Cuando se define la activación de salida, se utiliza GP_OUT.
    <tr>
       <td>3</td>
       <td>SystemReset</td>
-      <td>Se generó el arranque posterior al sistema que se produjo debido a un evento de
-restablecimiento automático. Enviado con el tipo de motivo Restart.</td>
+      <td>Se generó el arranque posterior al sistema que se produjo debido a un evento de restablecimiento automático. Enviado con el tipo de motivo Restart.</td>
    </tr>
    <tr>
       <td>4</td>
       <td>EnteringSleepMode</td>
-      <td>Generado justo antes de que el dispositivo Cipia-FS10 entre en modo de suspensión
-(después de que haya transcurrido el filtro de tiempo de espera).</td>
+      <td>Generado justo antes de que el dispositivo Cipia-FS10 entre en modo de suspensión (después de que haya transcurrido el filtro de tiempo de espera).</td>
    </tr>
    <tr>
       <td>5</td>
@@ -1277,14 +1275,12 @@ restablecimiento automático. Enviado con el tipo de motivo Restart.</td>
    <tr>
       <td>6</td>
       <td>DriverIdentified</td>
-      <td>Generado tras la detección visual del controlador inscrito (guardado en Cipia-FS10
-DB).</td>
+      <td>Generado tras la detección visual del controlador inscrito (guardado en Cipia-FS10 DB).</td>
    </tr>
    <tr>
       <td>7</td>
       <td>IgnitionOff</td>
-      <td>Se genera cuando el interruptor IGN está apagado (después del filtro de tiempo de
-espera).</td>
+      <td>Se genera cuando el interruptor IGN está apagado (después del filtro de tiempo de espera).</td>
    </tr>
    <tr>
       <td>8</td>
@@ -1299,8 +1295,7 @@ espera).</td>
    <tr>
       <td>10</td>
       <td>UnidentifiedUnauthDriver</td>
-      <td>Generado la primera vez en un viaje en el que se detecta movimiento durante más de
-10 segundos y el conductor no está identificado o no autorizado (se muestra en la lista negra).</td>
+      <td>Generado la primera vez en un viaje en el que se detecta movimiento durante más de 10 segundos y el conductor no está identificado o no autorizado (se muestra en la lista negra).</td>
    </tr>
    <tr>
       <td>11</td>
@@ -1310,44 +1305,37 @@ espera).</td>
    <tr>
       <td>12</td>
       <td>DriverChange</td>
-      <td>Generado tras la identificación exitosa de un conductor diferente en el mismo viaje
-(mientras el motor está funcionando).</td>
+      <td>Generado tras la identificación exitosa de un conductor diferente en el mismo viaje (mientras el motor está funcionando).</td>
    </tr>
    <tr>
       <td>13</td>
       <td>DriverDistracted</td>
-      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
-detección definida.</td>
+      <td>Asignado por un tiempo acumulado en un estado de falta de atención al camino por una zona preestablecida por ciertos ángulos.</td>
    </tr>
    <tr>
       <td>15</td>
       <td>Drowsiness</td>
-      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
-detección de somnolencia.</td>
+      <td>Generado cuando el sistema detecta un nivel de oclusión de una pupila mayor un valor prestablecido, por un periodo de muestreo asignado por la biblioteca DMS.</td>
    </tr>
    <tr>
       <td>16</td>
       <td>DriverAsleep</td>
-      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
-detección de sueño.</td>
+      <td>Generado tras detectar al conductor con los ojos cerrados por un tiempo T>SleepDuration.</td>
    </tr>
    <tr>
       <td>17</td>
       <td>PhoneUse</td>
-      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
-detección de uso del teléfono.</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de detección de uso del teléfono.</td>
    </tr>
    <tr>
       <td>18</td>
       <td>Smoking</td>
-      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
-detección de tabaquismo.</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de detección de cigarrillo.</td>
    </tr>
    <tr>
       <td>19</td>
       <td>Seatbelt</td>
-      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de
-detección del cinturón de seguridad que no lleva.</td>
+      <td>Generado tras la detección por la biblioteca DMS de acuerdo con la configuración de detección del cinturón de seguridad que no lleva.</td>
    </tr>
    <tr>
       <td>20</td>
