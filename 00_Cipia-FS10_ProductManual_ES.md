@@ -1873,9 +1873,9 @@ volumen.</td>
 	  <td>Integer</td>
       <td style="font-size: 13px">
       	1/2/4
-      	<li>1 - InCabin: 1280x960 / Dashcam: 1280x960</li>
-        <li>2 - InCabin: 1280x960 / Dashcam: 1280x960</li>
-        <li>4 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+      	<li>1 - InCabin: 1280x960 / Dashcam: 1920x1280</li>
+        <li>2 - InCabin: 640x480 / Dashcam: 960x640</li>
+        <li>4 - InCabin: 320x240 / Dashcam: 480x320</li>
       </td>
       <td style="font-family: Lucida Console; font-size: 12px">1</td>
    </tr>
@@ -1886,9 +1886,9 @@ volumen.</td>
 	  <td>Integer</td>
       <td style="font-size: 13px">
       	1/2/4
-      	<li>1 - InCabin: 1280x960 / Dashcam: 1280x960</li>
-        <li>2 - InCabin: 1280x960 / Dashcam: 1280x960</li>
-        <li>4 - InCabin: 1280x960 / Dashcam: 1280x960</li>
+      	<li>1 - InCabin: 1280x960 / Dashcam: 1920x1280</li>
+        <li>2 - InCabin: 640x480 / Dashcam: 960x640</li>
+        <li>4 - InCabin: 320x240 / Dashcam: 480x320</li>
       </td>
       <td style="font-family: Lucida Console; font-size: 12px">1</td>
    </tr>
