@@ -2461,7 +2461,7 @@ visuales proyectadas al controlador para los eventos detectados. Este parámetro
       <td>52.f</td>
       <td style="font-family: Lucida Console; font-size: 15px"> .ActiveLaneDepartureType.SpeedThreshold</td>
       <td>Determina la velocidad mínima para la que se activa la advertencia de cambio de carril.</td>
-	  <td>Integer [km/h]</td>
+      <td>Integer [km/h]</td>
       <td style="font-family: Lucida Console; font-size: 13px">10-100</td>
       <td style="font-family: Lucida Console; font-size: 12px">20</td>
    </tr>
@@ -2470,57 +2470,52 @@ visuales proyectadas al controlador para los eventos detectados. Este parámetro
       <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.TtcWarningRange</td>
       <td>Determina el umbral de tiempo mínimo de frenado considerado como nivel de conducción cercana en precaución.</td>
 	  <td>Float [sec]</td>
-      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 5</td>
-      <td style="font-family: Lucida Console; font-size: 12px">2</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 5.0</td>
+      <td style="font-family: Lucida Console; font-size: 12px">2.0</td>
    </tr>
    <tr>
       <td>52.h</td>
       <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.TtcEmergencyRange</td>
       <td>Determina el umbral de tiempo mínimo de frenado considerado como nivel de conducción cercana en emergencia.</td>
 	  <td>Float [sec]</td>
-      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 2</td>
+      <td style="font-family: Lucida Console; font-size: 13px">0.1 a 2.0</td>
       <td style="font-family: Lucida Console; font-size: 12px">0.8</td>
    </tr>
    <tr>
       <td>52.i</td>
       <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.TimeToTriggerTailgating</td>
       <td>Determina el umbral de tiempo mínimo de frenado considerado como nivel de conducción cercana en precaución.</td>
-	  <td>Boolean</td>
+	  <td>Integer [sec]</td>
       <td style="font-family: Lucida Console; font-size: 13px">1 a 60</td>
       <td style="font-family: Lucida Console; font-size: 12px">5</td>
    </tr>
    <tr>
       <td>52.j</td>
       <td style="font-family: Lucida Console; font-size: 15px"> .Tailgating.HMWSpeedThreshold</td>
-      <td>Determina si la función SIMLOCK está activa.</td>
-	  <td>Boolean</td>
-      <td style="font-family: Lucida Console; font-size: 13px">
-      	<li>true</li>
-        <li>false</li>
-      </td>
+      <td>Determina la velocidad mínima para la generación del evento de tailgating.</td>
+	  <td>Integer [km/h]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">10 a 100</td>
       <td style="font-family: Lucida Console; font-size: 12px">35</td>
    </tr>
    <tr>
       <td>52.k</td>
       <td style="font-family: Lucida Console; font-size: 15px"> .FCW.FCWlevel</td>
-      <td>Determina si la función SIMLOCK está activa.</td>
-	  <td>Boolean</td>
+      <td>Determina la sensibilidad del evento de colisión frontal.</td>
+	  <td>Integer [level]</td>
       <td style="font-family: Lucida Console; font-size: 13px">
-      	<li>true</li>
-        <li>false</li>
+      	<li>1 - High (2.0 sec a colisión)</li>
+        <li>2 - Moderate (1.2 sec a colisión)</li>
+	<li>3 - Low (0.8 sec a colisión)</li>
       </td>
-      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+      <td style="font-family: Lucida Console; font-size: 12px">2</td>
    </tr>
    <tr>
       <td>52.l</td>
       <td style="font-family: Lucida Console; font-size: 15px"> .FCW.SpeedThreshold</td>
-      <td>Determina si la función SIMLOCK está activa.</td>
-	  <td>Boolean</td>
-      <td style="font-family: Lucida Console; font-size: 13px">
-      	<li>true</li>
-        <li>false</li>
-      </td>
-      <td style="font-family: Lucida Console; font-size: 12px">false</td>
+      <td>Determina el mínimo umbral de velocidad para la detección de colisión frontal.</td>
+      <td>Integer [km/h]</td>
+      <td style="font-family: Lucida Console; font-size: 13px">10-100</td>
+      <td style="font-family: Lucida Console; font-size: 12px">20</td>
    </tr>   
    <tr>
      <td>53</td>
